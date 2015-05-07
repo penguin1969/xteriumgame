@@ -1,0 +1,1 @@
+function GetOfficerTime(e,t){if(t==0)return;$("#time_"+e).text(GetRestTimeFormat(t));t--;window.setTimeout("GetOfficerTime("+e+", "+t+")",1e3)}function openPayment(){OpenPopup("pay.php?mode=out","payment",650,350)}
