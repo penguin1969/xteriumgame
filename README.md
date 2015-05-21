@@ -6,5 +6,6 @@ Le jeu fonctionne actuellement mais il est assez buguer en ce moment.
 Correctif du design de la page d'accueil
 
 # Terminer
-- Création de l'installation 100%
-- Mise en forme du style.css pour une meilleur lecture 100%
+- 21/05/2015 : Création de l'installation 100%
+- 21/05/2015 : Mise en forme du style.css pour une meilleur lecture 100%
+- 21/05/2015 : Conmmencement de la mise en forme des fichier tpl + changement du logo en png avec psd, ajout de certaine ligne css
