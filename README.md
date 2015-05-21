@@ -3,7 +3,7 @@ Jeux baser sur Xterium.ru créer par Danter14
 Le jeu fonctionne actuellement mais il est assez buguer en ce moment.
 
 # En cours de développement
-Correctif du design de la page d'accueil
+- Mise en forme de toute la partie Accueil
 
 # Terminer
 - 21/05/2015 : Création de l'installation 100%
