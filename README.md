@@ -7,3 +7,4 @@ Correctif du design de la page d'accueil
 
 # Terminer
 - Création de l'installation 100%
+- Mise en forme du style.css pour une meilleur lecture 100%
