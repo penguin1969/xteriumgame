@@ -1,144 +1,74 @@
--- phpMyAdmin SQL Dump
--- version 4.0.10.7
--- http://www.phpmyadmin.net
---
--- Client: localhost
--- Généré le: Mer 08 Avril 2015 à 01:55
--- Version du serveur: 5.5.42-cll
--- Version de PHP: 5.4.23
+/**
+ *  2Moons
+ *  Copyright (C) 2012 Jan Kr�pke
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * @package 2Moons
+ * @author Jan Kr�pke <info@2moons.cc>
+ * @copyright 2012 Jan Kr�pke <info@2moons.cc>
+ * @license http://www.gnu.org/licenses/gpl.html GNU GPLv3 License
+ * @version 1.7.3 (2013-05-19)
+ * @info $Id: install.sql 2676 2013-04-18 09:57:03Z lordmegger@googlemail.com $
+ * @link http://2moons.cc/
+ */
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
-
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
 
---
--- Base de données: `antarisl_test`
---
+/**
+* Table qui sera supprimer et remplacer par une autre
+**/
 
--- --------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `forum_topics` (
+  `tid` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(250) NOT NULL,
+  `last_post` int(10) DEFAULT NULL,
+  `topic_firstpost` int(10) NOT NULL DEFAULT '0',
+  `title_seo` varchar(250) NOT NULL,
+  `tdelete_time` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`tid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
---
--- Structure de la table `emails`
---
+/**
+* Création de la base de donnée
+**/
 
-CREATE TABLE IF NOT EXISTS `emails` (
-  `email` varchar(500) NOT NULL,
-  `lang` text NOT NULL,
-  UNIQUE KEY `email` (`email`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `superrewards_transactions`
---
-
-CREATE TABLE IF NOT EXISTS `superrewards_transactions` (
-  `id` int(11) NOT NULL,
-  `uid` bigint(20) DEFAULT NULL,
-  `oid` int(11) DEFAULT NULL,
-  `new` int(11) DEFAULT NULL,
-  `time` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `superrewards_users`
---
-
-CREATE TABLE IF NOT EXISTS `superrewards_users` (
-  `uid` bigint(20) NOT NULL,
-  `total` int(11) DEFAULT NULL,
-  `time` datetime DEFAULT NULL,
-  PRIMARY KEY (`uid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_academy_skills`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_academy_skills` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%academy_skills` (
   `skill_id` int(11) unsigned NOT NULL DEFAULT '0',
   `ab1` int(11) unsigned NOT NULL DEFAULT '0',
   `ab2` int(11) unsigned NOT NULL DEFAULT '0',
   `icost` int(11) unsigned NOT NULL DEFAULT '0',
   `factor` float unsigned NOT NULL DEFAULT '0',
   UNIQUE KEY `skill_id` (`skill_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
---
--- Contenu de la table `uni1_academy_skills`
---
-
-INSERT INTO `uni1_academy_skills` (`skill_id`, `ab1`, `ab2`, `icost`, `factor`) VALUES
-(1101, 1, 0, 1, 1.2),
-(1102, 2, 1, 2, 1.25),
-(1103, 2, 0, 4, 1.3),
-(1104, 1, 0, 10, 1.5),
-(1105, 3, 0, 3, 1.25),
-(1106, 1, 0, 3, 1.3),
-(1107, 2, 0, 3, 1.3),
-(1108, 2, 0, 7, 1.55),
-(1109, 1, 0, 9, 1.3),
-(1110, 8, 0, 7, 1.5),
-(1111, 1, 0, 1, 1.5),
-(1112, 2, 2, 3, 1.2),
-(1113, 1, 0, 16, 1.6),
-(1201, 5, 0, 1, 1.25),
-(1202, 2, 0, 2, 1.25),
-(1203, 2, 0, 4, 1.3),
-(1204, 5, 0, 3, 1.25),
-(1205, 1, 0, 30, 1.3),
-(1206, 1, 0, 500, 2),
-(1207, 5, 0, 2, 1.25),
-(1208, 25, 0, 50, 2),
-(1209, 3, 0, 2, 1.3),
-(1210, 3, 0, 10, 1.3),
-(1301, 1, 0, 1, 1.2),
-(1302, 1, 2, 2, 1.25),
-(1303, 2, 0, 4, 1.3),
-(1304, 1, 0, 8, 1.45),
-(1305, 1, 0, 3, 1.3),
-(1306, 1, 0, 3, 1.3),
-(1307, 2, 0, 1, 1.35),
-(1308, 2, 0, 10, 1.55),
-(1309, 250, 0, 500, 2.3),
-(1310, 1, 0, 10, 1.5),
-(1311, 3, 0, 4, 1.2),
-(1312, 1, 0, 3, 1.35),
-(1313, 1, 0, 3, 1.4),
-(1314, 1, 0, 3, 1.5);
-
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_aks`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_aks` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%aks` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(50) DEFAULT NULL,
   `target` int(11) unsigned NOT NULL,
   `ankunft` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=75 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_alliance`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_alliance` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%alliance` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `ally_name` varchar(50) DEFAULT '',
   `ally_tag` varchar(20) DEFAULT '',
@@ -193,15 +123,9 @@ CREATE TABLE IF NOT EXISTS `uni1_alliance` (
   KEY `ally_tag` (`ally_tag`),
   KEY `ally_name` (`ally_name`),
   KEY `ally_universe` (`ally_universe`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_alliance_ranks`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_alliance_ranks` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%alliance_ranks` (
   `rankID` int(11) NOT NULL AUTO_INCREMENT,
   `rankName` varchar(32) NOT NULL,
   `allianceID` int(10) unsigned NOT NULL,
@@ -221,15 +145,9 @@ CREATE TABLE IF NOT EXISTS `uni1_alliance_ranks` (
   `BANK` tinyint(3) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`rankID`),
   KEY `allianceID` (`allianceID`,`rankID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_alliance_request`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_alliance_request` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%alliance_request` (
   `applyID` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `text` text NOT NULL,
   `userID` int(10) unsigned NOT NULL,
@@ -237,15 +155,9 @@ CREATE TABLE IF NOT EXISTS `uni1_alliance_request` (
   `time` int(11) NOT NULL,
   PRIMARY KEY (`applyID`),
   KEY `allianceID` (`allianceID`,`userID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_allopass_log`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_allopass_log` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%allopass_log` (
   `orderid` int(11) NOT NULL AUTO_INCREMENT,
   `id` int(11) NOT NULL DEFAULT '0',
   `code` varchar(32) NOT NULL,
@@ -258,15 +170,9 @@ CREATE TABLE IF NOT EXISTS `uni1_allopass_log` (
   `date` int(11) NOT NULL DEFAULT '0',
   `result` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`orderid`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_banned`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_banned` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%banned` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `who` varchar(64) NOT NULL DEFAULT '',
   `theme` varchar(500) NOT NULL,
@@ -277,15 +183,9 @@ CREATE TABLE IF NOT EXISTS `uni1_banned` (
   `universe` tinyint(3) unsigned NOT NULL,
   KEY `ID` (`id`),
   KEY `universe` (`universe`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_buddy`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_buddy` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%buddy` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `sender` int(11) unsigned NOT NULL DEFAULT '0',
   `owner` int(11) unsigned NOT NULL DEFAULT '0',
@@ -293,65 +193,35 @@ CREATE TABLE IF NOT EXISTS `uni1_buddy` (
   PRIMARY KEY (`id`),
   KEY `universe` (`universe`),
   KEY `sender` (`sender`,`owner`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_buddy_notif`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_buddy_notif` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%buddy_notif` (
   `userID` int(11) unsigned NOT NULL DEFAULT '0',
   `called` int(11) unsigned NOT NULL DEFAULT '0',
   `loginID` int(11) unsigned NOT NULL DEFAULT '0',
   `type` int(11) unsigned NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_buddy_request`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_buddy_request` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%buddy_request` (
   `id` int(11) unsigned NOT NULL,
   `text` text NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_chat_bans`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_chat_bans` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%chat_bans` (
   `userID` int(11) NOT NULL,
   `userName` varchar(64) NOT NULL,
   `dateTime` datetime NOT NULL,
   `ip` varbinary(16) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_chat_invitations`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_chat_invitations` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%chat_invitations` (
   `userID` int(11) NOT NULL,
   `channel` int(11) NOT NULL,
   `dateTime` datetime NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_chat_messages`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_chat_messages` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%chat_messages` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `userID` int(11) NOT NULL,
   `userName` varchar(64) NOT NULL,
@@ -361,15 +231,9 @@ CREATE TABLE IF NOT EXISTS `uni1_chat_messages` (
   `ip` varbinary(16) NOT NULL,
   `text` text CHARACTER SET utf8 COLLATE utf8_bin,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_chat_online`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_chat_online` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%chat_online` (
   `userID` int(11) NOT NULL,
   `userName` varchar(64) NOT NULL,
   `userRole` int(1) NOT NULL,
@@ -379,13 +243,7 @@ CREATE TABLE IF NOT EXISTS `uni1_chat_online` (
   KEY `dateTime` (`dateTime`,`channel`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_climate_spec`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_climate_spec` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%climate_spec` (
   `imageName` varchar(255) DEFAULT NULL,
   `bonusMetal` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `bonusCrystal` tinyint(3) unsigned NOT NULL DEFAULT '0',
@@ -393,15 +251,9 @@ CREATE TABLE IF NOT EXISTS `uni1_climate_spec` (
   `bonusEnergy` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `bonusStudy` tinyint(3) unsigned NOT NULL DEFAULT '0',
   UNIQUE KEY `imageName` (`imageName`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_complaints`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_complaints` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%complaints` (
   `compID` bigint(20) NOT NULL AUTO_INCREMENT,
   `message` text CHARACTER SET utf8 NOT NULL,
   `from` text CHARACTER SET utf8 NOT NULL,
@@ -411,17 +263,11 @@ CREATE TABLE IF NOT EXISTS `uni1_complaints` (
   `time` int(11) unsigned NOT NULL DEFAULT '0',
   `finished` int(11) unsigned NOT NULL DEFAULT '1',
   PRIMARY KEY (`compID`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_config`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_config` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%config` (
   `uni` int(11) NOT NULL AUTO_INCREMENT,
-  `VERSION` varchar(8) NOT NULL,
+  `VERSION` varchar(8) NOT NULL DEFAULT 'V 1.0',
   `sql_revision` int(11) NOT NULL DEFAULT '0',
   `users_amount` int(11) unsigned NOT NULL DEFAULT '1',
   `game_speed` double(50,0) unsigned NOT NULL DEFAULT '2500',
@@ -432,7 +278,7 @@ CREATE TABLE IF NOT EXISTS `uni1_config` (
   `Defs_Cdr` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `initial_fields` smallint(5) unsigned NOT NULL DEFAULT '163',
   `uni_name` varchar(30) NOT NULL,
-  `game_name` varchar(30) NOT NULL,
+  `game_name` varchar(30) NOT NULL DEFAULT 'Xterium',
   `game_disable` tinyint(1) unsigned NOT NULL DEFAULT '1',
   `close_reason` text NOT NULL,
   `metal_basic_income` int(11) NOT NULL DEFAULT '20',
@@ -442,10 +288,10 @@ CREATE TABLE IF NOT EXISTS `uni1_config` (
   `LastSettedGalaxyPos` tinyint(3) unsigned NOT NULL DEFAULT '1',
   `LastSettedSystemPos` smallint(5) unsigned NOT NULL DEFAULT '1',
   `LastSettedPlanetPos` tinyint(3) unsigned NOT NULL DEFAULT '1',
-  `noobprotection` int(11) NOT NULL DEFAULT '0',
+  `noobprotection` int(11) NOT NULL DEFAULT '1',
   `noobprotectiontime` bigint(20) NOT NULL DEFAULT '5000',
   `noobprotectionmulti` int(11) NOT NULL DEFAULT '5',
-  `forum_url` varchar(128) NOT NULL DEFAULT 'http://2moons.cc',
+  `forum_url` varchar(128) NOT NULL DEFAULT '',
   `adm_attack` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `debug` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `lang` varchar(2) NOT NULL DEFAULT '',
@@ -498,8 +344,8 @@ CREATE TABLE IF NOT EXISTS `uni1_config` (
   `chat_allowdelmes` tinyint(1) NOT NULL DEFAULT '1',
   `chat_logmessage` tinyint(1) NOT NULL DEFAULT '1',
   `chat_nickchange` tinyint(1) NOT NULL DEFAULT '1',
-  `chat_botname` varchar(15) NOT NULL DEFAULT '2Moons',
-  `chat_channelname` varchar(15) NOT NULL DEFAULT '2Moons',
+  `chat_botname` varchar(15) NOT NULL DEFAULT 'Xterium',
+  `chat_channelname` varchar(15) NOT NULL DEFAULT 'Xterium',
   `chat_socket_active` tinyint(1) NOT NULL DEFAULT '0',
   `chat_socket_host` varchar(64) NOT NULL DEFAULT '',
   `chat_socket_ip` varchar(40) NOT NULL DEFAULT '',
@@ -525,8 +371,8 @@ CREATE TABLE IF NOT EXISTS `uni1_config` (
   `darkmatter_cost_trader` int(11) unsigned NOT NULL DEFAULT '750',
   `factor_university` tinyint(3) unsigned NOT NULL DEFAULT '8',
   `max_fleets_per_acs` tinyint(3) unsigned NOT NULL DEFAULT '16',
-  `debris_moon` tinyint(3) unsigned NOT NULL DEFAULT '1',
-  `vmode_min_time` int(11) NOT NULL DEFAULT '259200',
+  `debris_moon` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `vmode_min_time` int(11) NOT NULL DEFAULT '172800',
   `gate_wait_time` int(11) NOT NULL DEFAULT '3600',
   `metal_start` int(11) unsigned NOT NULL DEFAULT '500',
   `crystal_start` int(11) unsigned NOT NULL DEFAULT '500',
@@ -558,7 +404,7 @@ CREATE TABLE IF NOT EXISTS `uni1_config` (
   `question_message` int(11) unsigned NOT NULL DEFAULT '0',
   `referal_message` int(11) NOT NULL DEFAULT '1395517079',
   `fleetconf` int(11) unsigned NOT NULL DEFAULT '0',
-  `asteroid_metal` bigint(20) unsigned NOT NULL DEFAULT '1000000',
+  `asteroid_metal` bigint(20) unsigned NOT NULL DEFAULT '100000',
   `asteroid_crystal` bigint(20) unsigned NOT NULL DEFAULT '500000',
   `asteroid_deuterium` bigint(20) unsigned NOT NULL DEFAULT '250000',
   `bonus_button` int(11) unsigned NOT NULL DEFAULT '0',
@@ -579,13 +425,13 @@ CREATE TABLE IF NOT EXISTS `uni1_config` (
   `timeRewardFrom` int(11) NOT NULL DEFAULT '0',
   `timeRewardTo` int(11) NOT NULL DEFAULT '0',
   `lottery_time` int(11) NOT NULL DEFAULT '0',
-  `lottery_min` int(11) NOT NULL DEFAULT '10',
+  `lottery_min` int(11) NOT NULL DEFAULT '5',
   `lottery_prize` int(11) NOT NULL DEFAULT '100',
   `modinstant` int(11) NOT NULL DEFAULT '1',
   `modinstantresearch` int(11) NOT NULL DEFAULT '1',
   `modinstantresen` int(11) NOT NULL DEFAULT '1',
   `modinstantbuilds` int(11) NOT NULL DEFAULT '1',
-  `jackpot_prize` int(11) NOT NULL DEFAULT '100000',
+  `jackpot_prize` int(11) NOT NULL DEFAULT '10000',
   `jackpot_update` int(11) NOT NULL DEFAULT '0',
   `jackpot_code` int(11) NOT NULL DEFAULT '123',
   `jackpot_update1` int(11) NOT NULL DEFAULT '0',
@@ -593,22 +439,9 @@ CREATE TABLE IF NOT EXISTS `uni1_config` (
   `stardust_bonus` int(11) unsigned NOT NULL DEFAULT '0',
   `social_message` int(11) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`uni`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
---
--- Contenu de la table `uni1_config`
---
-
-INSERT INTO `uni1_config` (`uni`, `VERSION`, `sql_revision`, `users_amount`, `game_speed`, `fleet_speed`, `resource_multiplier`, `halt_speed`, `Fleet_Cdr`, `Defs_Cdr`, `initial_fields`, `uni_name`, `game_name`, `game_disable`, `close_reason`, `metal_basic_income`, `crystal_basic_income`, `deuterium_basic_income`, `energy_basic_income`, `LastSettedGalaxyPos`, `LastSettedSystemPos`, `LastSettedPlanetPos`, `noobprotection`, `noobprotectiontime`, `noobprotectionmulti`, `forum_url`, `adm_attack`, `debug`, `lang`, `stat`, `stat_level`, `stat_last_update`, `stat_settings`, `stat_update_time`, `stat_last_db_update`, `stats_fly_lock`, `cron_lock`, `ts_modon`, `ts_server`, `ts_tcpport`, `ts_udpport`, `ts_timeout`, `ts_version`, `ts_cron_last`, `ts_cron_interval`, `ts_login`, `ts_password`, `reg_closed`, `OverviewNewsFrame`, `OverviewNewsText`, `capaktiv`, `cappublic`, `capprivate`, `min_build_time`, `mail_active`, `mail_use`, `smtp_host`, `smtp_port`, `smtp_user`, `smtp_pass`, `smtp_ssl`, `smtp_sendmail`, `smail_path`, `user_valid`, `fb_on`, `fb_apikey`, `fb_skey`, `ga_active`, `ga_key`, `moduls`, `trade_allowed_ships`, `trade_charge`, `chat_closed`, `chat_allowchan`, `chat_allowmes`, `chat_allowdelmes`, `chat_logmessage`, `chat_nickchange`, `chat_botname`, `chat_channelname`, `chat_socket_active`, `chat_socket_host`, `chat_socket_ip`, `chat_socket_port`, `chat_socket_chatid`, `max_galaxy`, `max_system`, `max_planets`, `planet_factor`, `max_elements_build`, `max_elements_tech`, `max_elements_ships`, `min_player_planets`, `planets_tech`, `planets_officier`, `planets_per_tech`, `max_fleet_per_build`, `deuterium_cost_galaxy`, `max_dm_missions`, `max_overflow`, `moon_factor`, `moon_chance`, `darkmatter_cost_trader`, `factor_university`, `max_fleets_per_acs`, `debris_moon`, `vmode_min_time`, `gate_wait_time`, `metal_start`, `crystal_start`, `deuterium_start`, `darkmatter_start`, `antimatter_start`, `ttf_file`, `ref_active`, `ref_bonus`, `ref_minpoints`, `ref_max_referals`, `del_oldstuff`, `del_user_manually`, `del_user_automatic`, `del_user_sendmail`, `sendmail_inactive`, `silo_factor`, `timezone`, `dst`, `energySpeed`, `disclamerAddress`, `disclamerPhone`, `disclamerMail`, `disclamerNotice`, `alliance_create_min_points`, `purchase_bonus`, `academy_bonus`, `purchase_bonus_timer`, `question_message`, `referal_message`, `fleetconf`, `asteroid_metal`, `asteroid_crystal`, `asteroid_deuterium`, `bonus_button`, `premium`, `end_game`, `cosmonaute`, `asteroid_event`, `fleet_event_active_1`, `fleet_event_active_2`, `treasure_event`, `treasure_event_1`, `asteroid_event_1`, `fleet_event_inactive_1`, `fleet_event_inactive_2`, `fleet_event_inactive_3`, `experience_bonus`, `new_year`, `timeRewardFrom`, `timeRewardTo`, `lottery_time`, `lottery_min`, `lottery_prize`, `modinstant`, `modinstantresearch`, `modinstantresen`, `modinstantbuilds`, `jackpot_prize`, `jackpot_update`, `jackpot_code`, `jackpot_update1`, `fortress_event`, `stardust_bonus`, `social_message`) VALUES
-(1, '1.7.2676', 0, 404, 7500000, 35000, 5000, 35, 30, 10, 384, 'Dark-Space', 'Dark-Space', 1, 'We are under updates\nback around 20h (4h left)', 100, 80, 60, 0, 3, 96, 3, 1, 5000000, 5, 'http://forum.dark-space.org/', 1, 0, 'fr', 0, 0, 1428402608, 5000000, 0, 0, 0, 0, 0, '', 0, 0, 1, 2, 0, 5, '', '', 0, 1, 'WE ARE UNDER UPDATES ! OPEN TICKETS ONLY FOR IMPORTANT THING WHILE WE ARE UPDATING THE GAME\r\n\r\nATTACK BLOCK LAST UNTIL 20H', 0, '6Lff_e8SAAAAAFSvrz0jlMM-WBEkDpHoCFGGBPVF', '6Lff_e8SAAAAAKWwrJ1loto765s7X55I47I2cked', 0, 1, 0, 'vs1406.109.230.252.201.serverbiz.org', 465, 'support@dark-space.org', 'EJceRpJcPv3181', 'ssl', 'support@dark-space.org', '/usr/sbin/sendmail', 1, 0, '', '', '0', '', '1;0;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;0;1;1;1;1;1;1;1;1;1;1;1;1;0', '202,203,204,205,206,207,208,209,210,211,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228', '30', 0, 0, 1, 0, 0, 0, 'Dark-Space', 'Dark-Space', 0, '', '', 0, 1, 5, 200, 15, 1.0, 5, 3, 10, 9, 5, 5, 0.5, 5000000000, 10, 3, 1.0, 1.0, 20, 250, 16, 8, 0, 259200, 3600, 3000000, 2000000, 1000000, 0, 0, 'styles/resource/fonts/DroidSansMono.ttf', 1, 5000000, 100000, 10, 3, 7, 30, 21, 1, 1, 'Europe/Brussels', '0', 1, '44, Rue Rodenbach\n1190 Forest\n[BE] - Belgium', '', 'support@dark-space.org', '', 0, 40, 37, 1428505433, 1428695717, 1428949407, 0, 20000000000, 15000000000, 10000000000, 4, 0, 1436983200, 0, 1428502200, 1428578400, 1428608400, 1428531300, 1428477900, 1428526200, 1428510600, 1428485400, 1428517200, 0, 0, 0, 0, 1424708917, 10, 2850, 1, 1, 1, 1, 20000, 1422550591, 247, 1422550595, 1425803100, 0, 1428505930);
-
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_cronjobs`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_cronjobs` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%cronjobs` (
   `cronjobID` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(32) NOT NULL,
   `isActive` tinyint(1) NOT NULL DEFAULT '1',
@@ -622,34 +455,9 @@ CREATE TABLE IF NOT EXISTS `uni1_cronjobs` (
   `lock` varchar(32) DEFAULT NULL,
   UNIQUE KEY `cronjobID` (`cronjobID`),
   KEY `isActive` (`isActive`,`nextTime`,`lock`,`cronjobID`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17;
 
---
--- Contenu de la table `uni1_cronjobs`
---
-
-INSERT INTO `uni1_cronjobs` (`cronjobID`, `name`, `isActive`, `min`, `hours`, `dom`, `month`, `dow`, `class`, `nextTime`, `lock`) VALUES
-(1, 'referral', 1, '0,30', '*', '*', '*', '*', 'ReferralCronjob', 1428445800, NULL),
-(2, 'statistic', 1, '10,30,50', '*', '*', '*', '*', 'StatisticCronjob', 1428424200, '68e16ea0b7bbb53bf8b4672da3e32725'),
-(3, 'daily', 1, '25', '2', '*', '*', '*', 'DailyCronjob', 1428452700, NULL),
-(4, 'cleaner', 1, '45', '2', '*', '*', '6', 'CleanerCronjob', 1428713100, NULL),
-(5, 'inactive', 0, '30', '1', '*', '*', '0,3,6', 'InactiveMailCronjob', 1428449400, NULL),
-(8, 'tracking', 1, '8', '13', '*', '*', '0', 'TrackingCronjob', 1428836880, NULL),
-(9, 'Achievement Daily Reset', 1, '5', '0', '*', '*', '*', 'AchievementCronjob', 1428530700, NULL),
-(10, 'Planet Auction', 1, '15', '*', '*', '*', '*', 'PlanetauctionCronjob', 1428448500, NULL),
-(11, 'Instant Buy', 1, '45', '4', '*', '*', '*', 'InstantCronjob', 1428461100, NULL),
-(12, 'Delete Users', 0, '14', '5', '*', '*', '*', 'DeleteuserCronjob', 1428462840, NULL),
-(14, 'Events', 1, '29', '9', '*', '*', '*', 'EventsCronjob', 1428478140, NULL),
-(15, 'Event 1', 1, '29', '16', '*', '*', '*', 'EventsCronjob', 1428503340, NULL),
-(16, 'event 2', 1, '19', '18', '*', '*', '*', 'EventsCronjob', 1428509940, NULL);
-
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_diplo`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_diplo` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%diplo` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `owner_1` int(11) unsigned NOT NULL,
   `owner_2` int(11) unsigned NOT NULL,
@@ -660,40 +468,22 @@ CREATE TABLE IF NOT EXISTS `uni1_diplo` (
   PRIMARY KEY (`id`),
   KEY `universe` (`universe`),
   KEY `owner_1` (`owner_1`,`owner_2`,`accept`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_ennemies`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_ennemies` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%ennemies` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `sender` int(11) unsigned NOT NULL DEFAULT '0',
   `owner` int(11) unsigned NOT NULL DEFAULT '0',
   `universe` tinyint(3) unsigned NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_facebook_gift`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_facebook_gift` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%facebook_gift` (
   `id` int(11) unsigned NOT NULL DEFAULT '0',
   `time` int(11) unsigned NOT NULL DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_fleets`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_fleets` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%fleets` (
   `fleet_id` bigint(11) unsigned NOT NULL AUTO_INCREMENT,
   `fleet_owner` int(11) unsigned NOT NULL DEFAULT '0',
   `fleet_mission` tinyint(3) unsigned NOT NULL DEFAULT '3',
@@ -728,15 +518,9 @@ CREATE TABLE IF NOT EXISTS `uni1_fleets` (
   KEY `fleet_target_owner` (`fleet_target_owner`,`fleet_mission`),
   KEY `fleet_owner` (`fleet_owner`,`fleet_mission`),
   KEY `fleet_group` (`fleet_group`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_fleets_alarm`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_fleets_alarm` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%fleets_alarm` (
   `fleet_id` bigint(11) unsigned NOT NULL AUTO_INCREMENT,
   `fleet_owner` int(11) unsigned NOT NULL DEFAULT '0',
   `fleet_mission` tinyint(3) unsigned NOT NULL DEFAULT '3',
@@ -772,15 +556,9 @@ CREATE TABLE IF NOT EXISTS `uni1_fleets_alarm` (
   KEY `fleet_target_owner` (`fleet_target_owner`,`fleet_mission`),
   KEY `fleet_owner` (`fleet_owner`,`fleet_mission`),
   KEY `fleet_group` (`fleet_group`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_fleet_event`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_fleet_event` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%fleet_event` (
   `fleetID` int(11) NOT NULL,
   `time` int(11) NOT NULL,
   `lock` varchar(32) DEFAULT NULL,
@@ -788,27 +566,15 @@ CREATE TABLE IF NOT EXISTS `uni1_fleet_event` (
   KEY `lock` (`lock`,`time`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_inquery_feedback`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_inquery_feedback` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%inquery_feedback` (
   `inqueryID` int(11) NOT NULL AUTO_INCREMENT,
   `supportID` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `star` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `finished` int(11) unsigned NOT NULL DEFAULT '1',
   PRIMARY KEY (`inqueryID`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_ipcheck`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_ipcheck` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%ipcheck` (
   `checkID` int(11) NOT NULL AUTO_INCREMENT,
   `id` int(11) unsigned NOT NULL DEFAULT '0',
   `username` varchar(64) CHARACTER SET utf8 NOT NULL,
@@ -816,15 +582,9 @@ CREATE TABLE IF NOT EXISTS `uni1_ipcheck` (
   `time` int(11) unsigned NOT NULL DEFAULT '0',
   `uni` int(11) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`checkID`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_jobs`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_jobs` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%jobs` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `date` int(11) NOT NULL,
   `title` varchar(64) CHARACTER SET utf8 NOT NULL,
@@ -832,15 +592,9 @@ CREATE TABLE IF NOT EXISTS `uni1_jobs` (
   `catID` int(11) NOT NULL DEFAULT '1',
   `is_active` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_log`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_log` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%log` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `mode` tinyint(3) unsigned NOT NULL,
   `admin` int(11) unsigned NOT NULL,
@@ -850,15 +604,9 @@ CREATE TABLE IF NOT EXISTS `uni1_log` (
   `universe` tinyint(3) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `mode` (`mode`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_log_fleets`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_log_fleets` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%log_fleets` (
   `fleet_id` bigint(11) unsigned NOT NULL,
   `fleet_owner` int(11) unsigned NOT NULL DEFAULT '0',
   `fleet_mission` tinyint(3) unsigned NOT NULL DEFAULT '3',
@@ -893,13 +641,7 @@ CREATE TABLE IF NOT EXISTS `uni1_log_fleets` (
   KEY `BashRule` (`fleet_owner`,`fleet_end_id`,`fleet_start_time`,`fleet_mission`,`fleet_state`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_lostpassword`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_lostpassword` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%lostpassword` (
   `userID` int(10) unsigned NOT NULL,
   `key` varchar(32) NOT NULL,
   `time` int(10) unsigned NOT NULL,
@@ -910,13 +652,7 @@ CREATE TABLE IF NOT EXISTS `uni1_lostpassword` (
   KEY `time` (`time`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_messages`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_messages` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%messages` (
   `message_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `message_owner` int(11) unsigned NOT NULL DEFAULT '0',
   `message_sender` int(11) unsigned NOT NULL DEFAULT '0',
@@ -930,15 +666,9 @@ CREATE TABLE IF NOT EXISTS `uni1_messages` (
   PRIMARY KEY (`message_id`),
   KEY `message_sender` (`message_sender`),
   KEY `message_owner` (`message_owner`,`message_type`,`message_unread`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_messages_copy`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_messages_copy` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%messages_copy` (
   `message_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `message_owner` int(11) unsigned NOT NULL DEFAULT '0',
   `message_sender` int(11) unsigned NOT NULL DEFAULT '0',
@@ -952,15 +682,9 @@ CREATE TABLE IF NOT EXISTS `uni1_messages_copy` (
   PRIMARY KEY (`message_id`),
   KEY `message_sender` (`message_sender`),
   KEY `message_owner` (`message_owner`,`message_type`,`message_unread`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_message_banned`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_message_banned` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%message_banned` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `who` varchar(64) NOT NULL DEFAULT '',
   `theme` varchar(500) NOT NULL,
@@ -971,28 +695,16 @@ CREATE TABLE IF NOT EXISTS `uni1_message_banned` (
   `universe` tinyint(3) unsigned NOT NULL,
   KEY `ID` (`id`),
   KEY `universe` (`universe`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_multi`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_multi` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%multi` (
   `multiID` int(11) NOT NULL AUTO_INCREMENT,
   `userID` int(11) NOT NULL,
   PRIMARY KEY (`multiID`),
   KEY `userID` (`userID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_multi_declaration`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_multi_declaration` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%multi_declaration` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `multi1` text,
   `multi2` text,
@@ -1000,15 +712,9 @@ CREATE TABLE IF NOT EXISTS `uni1_multi_declaration` (
   `date` int(11) NOT NULL DEFAULT '0',
   `finished` int(11) unsigned NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_news`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_news` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%news` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `user` varchar(64) NOT NULL,
   `date` int(11) NOT NULL,
@@ -1016,15 +722,9 @@ CREATE TABLE IF NOT EXISTS `uni1_news` (
   `text` text NOT NULL,
   `catID` int(11) unsigned NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_notes`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_notes` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%notes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `owner` int(11) unsigned DEFAULT NULL,
   `time` int(11) DEFAULT NULL,
@@ -1035,44 +735,26 @@ CREATE TABLE IF NOT EXISTS `uni1_notes` (
   PRIMARY KEY (`id`),
   KEY `universe` (`universe`),
   KEY `owner` (`owner`,`time`,`priority`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_paypal`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_paypal` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%paypal` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `player` int(11) NOT NULL,
   `amount` int(11) NOT NULL,
   `timestamp` int(11) NOT NULL,
   `price` int(11) NOT NULL,
   KEY `id` (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_paypal_log`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_paypal_log` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%paypal_log` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) DEFAULT NULL,
   `darkmatter` double(50,0) DEFAULT NULL,
   `time` int(11) DEFAULT NULL,
   KEY `id` (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_planetauction`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_planetauction` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%planetauction` (
   `auctionID` int(11) NOT NULL AUTO_INCREMENT,
   `planetID` int(11) unsigned NOT NULL DEFAULT '0',
   `price` text CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
@@ -1082,30 +764,17 @@ CREATE TABLE IF NOT EXISTS `uni1_planetauction` (
   `selledID` int(11) unsigned NOT NULL DEFAULT '0',
   `universe` int(11) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`auctionID`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
-
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_planetcloak_log`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_planetcloak_log` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%planetcloak_log` (
   `id` tinyint(3) NOT NULL AUTO_INCREMENT,
   `userID` int(11) unsigned NOT NULL DEFAULT '0',
   `time` int(11) unsigned NOT NULL DEFAULT '0',
   `credits` int(11) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_planets`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_planets` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%planets` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(20) DEFAULT 'Hauptplanet',
   `id_owner` int(11) unsigned DEFAULT NULL,
@@ -1236,22 +905,9 @@ CREATE TABLE IF NOT EXISTS `uni1_planets` (
   KEY `id_owner` (`id_owner`),
   KEY `destruyed` (`destruyed`),
   KEY `universe` (`universe`,`galaxy`,`system`,`planet`,`planet_type`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=34463 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
---
--- Contenu de la table `uni1_planets`
---
-
-INSERT INTO `uni1_planets` (`id`, `name`, `id_owner`, `universe`, `galaxy`, `system`, `planet`, `last_update`, `planet_type`, `destruyed`, `b_building`, `b_building_id`, `b_hangar`, `b_hangar_id`, `b_hangar_plus`, `image`, `diameter`, `field_current`, `field_max`, `temp_min`, `temp_max`, `eco_hash`, `metal`, `metal_perhour`, `metal_max`, `crystal`, `crystal_perhour`, `crystal_max`, `deuterium`, `deuterium_perhour`, `deuterium_max`, `energy_used`, `energy`, `metal_mine`, `crystal_mine`, `deuterium_sintetizer`, `solar_plant`, `searcher`, `fusion_plant`, `robot_factory`, `nano_factory`, `hangar`, `metal_store`, `crystal_store`, `deuterium_store`, `laboratory`, `terraformer`, `university`, `ally_deposit`, `silo`, `mondbasis`, `phalanx`, `sprungtor`, `planetarium`, `sensor_modul`, `research_center`, `collider`, `small_ship_cargo`, `big_ship_cargo`, `light_hunter`, `heavy_hunter`, `crusher`, `battle_ship`, `colonizer`, `recycler`, `spy_sonde`, `bomber_ship`, `solar_satelit`, `destructor`, `dearth_star`, `battleship`, `lune_noir`, `ev_transporter`, `star_crasher`, `giga_recykler`, `dm_ship`, `orbital_station`, `misil_launcher`, `small_laser`, `big_laser`, `gauss_canyon`, `ionic_canyon`, `buster_canyon`, `small_protection_shield`, `planet_protector`, `big_protection_shield`, `graviton_canyon`, `interceptor_misil`, `interplanetary_misil`, `metal_mine_porcent`, `crystal_mine_porcent`, `deuterium_sintetizer_porcent`, `solar_plant_porcent`, `fusion_plant_porcent`, `solar_satelit_porcent`, `collider_porcent`, `last_jump_time`, `der_metal`, `der_crystal`, `id_luna`, `bs_class_oneil`, `flying_death`, `Scrappy`, `M7`, `М19`, `M32`, `galleon`, `destroyer`, `frigate`, `black_wanderer`, `last_relocate`, `lepton_gun`, `proton_gun`, `canyon`, `quantum_gun`, `hydrogen_gun`, `dora_gun`, `photon_cannon`, `particle_emitter`, `slim_mehador`, `iron_mehador`, `grand_mehador`, `darkmatter_perhour`, `capture_not`, `planet_protection`) VALUES
-(1, 'Main Planet', 1, 1, 1, 1, 1, 1428436528, '1', 0, 0, '', 0, '', 0, 'normaltempplanet01', 19595, 31, 385, -18, 22, 'ef7346c42d985025b8342b5cad88704c', 90500000.000000, 0.000000, 90500000, 90500000.000000, 0.000000, 90500000, 90500000.000000, 0.000000, 90500000, 0, 35068864346, 0, 0, 0, 0, 0, 0, 4, 0, 10, 0, 0, 0, 12, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11900004999, 899999999, 399999, 399999, 150000, 150000, 150000, 0, 701526946, 0, 0, 0, 0, 0, 0, 150000, 150000, 0, 22, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '10', '10', '10', '10', '10', '10', '10', 0, 0, 0, 5615, 440200, 0, 150001, 0, 0, 0, 0, 0, 1100499, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.000000, 0, 0);
-
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_premium_calc`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_premium_calc` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%premium_calc` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` text NOT NULL,
   `cost` int(11) unsigned NOT NULL DEFAULT '0',
@@ -1261,37 +917,9 @@ CREATE TABLE IF NOT EXISTS `uni1_premium_calc` (
   `rangevalueone` int(11) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=17;
 
---
--- Contenu de la table `uni1_premium_calc`
---
-
-INSERT INTO `uni1_premium_calc` (`id`, `name`, `cost`, `factor`, `factorone`, `rangevalue`, `rangevalueone`) VALUES
-(1, 'prem_res', 10, 1.07, 90, 0, 1000),
-(2, 'prem_storage', 1, 1.05, 4, 0, 1000),
-(3, 'prem_s_build', 7, 1.2, 50, 0, 1000),
-(4, 'prem_o_build', 100, 1.3, 1, 0, 100),
-(5, 'prem_button', 525, 1.45, 1, 2, 10),
-(6, 'prem_speed_button', 30, 1.35, 10, 0, 1000),
-(7, 'prem_expedition', 30, 1.02, 5, 0, 1000),
-(8, 'prem_count_expiditeon', 500, 1.35, 1, 0, 100),
-(9, 'prem_speed_expiditeon', 50, 1.03, 8, 0, 1000),
-(10, 'prem_moon_dextruct', 8500, 2, 2, 2, 10),
-(11, 'prem_leveling', 32, 1.1, 25, 0, 1000),
-(12, 'prem_batle_leveling', 37, 1.08, 25, 0, 1000),
-(13, 'prem_bank_ally', 200, 1.2, 1, 2, 100),
-(14, 'prem_prod_from_colly', 110, 1.3, 15, 0, 1000),
-(15, 'prem_moon_creat', 100, 1.04, 2, 0, 100),
-(16, 'prem_fuel_consumption', 55, 1.12, 3, 0, 1000);
-
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_raports`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_raports` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%raports` (
   `rid` varchar(32) NOT NULL,
   `raport` text NOT NULL,
   `time` int(11) NOT NULL,
@@ -1301,25 +929,13 @@ CREATE TABLE IF NOT EXISTS `uni1_raports` (
   KEY `time` (`time`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_records`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_records` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%records` (
   `userID` int(10) unsigned NOT NULL,
   `elementID` smallint(5) unsigned NOT NULL,
   `level` double unsigned NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_reward`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_reward` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%reward` (
   `rewardId` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `rewardCode` varchar(255) NOT NULL,
   `rewardMetal` double(50,0) unsigned NOT NULL DEFAULT '0',
@@ -1331,28 +947,16 @@ CREATE TABLE IF NOT EXISTS `uni1_reward` (
   `rewardUserLimit` int(11) NOT NULL DEFAULT '0',
   `universe` int(11) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`rewardId`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_reward_log`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_reward_log` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%reward_log` (
   `rewardIdLog` int(11) unsigned NOT NULL DEFAULT '0',
   `rewardUserId` int(11) unsigned NOT NULL DEFAULT '0',
   `time` int(11) unsigned NOT NULL DEFAULT '0',
   `universe` int(11) unsigned NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_session`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_session` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%session` (
   `sessionID` varchar(32) NOT NULL,
   `userID` int(10) unsigned NOT NULL,
   `userIP` varchar(40) NOT NULL,
@@ -1361,13 +965,7 @@ CREATE TABLE IF NOT EXISTS `uni1_session` (
   KEY `sessionID` (`sessionID`)
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_shortcuts`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_shortcuts` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%shortcuts` (
   `shortcutID` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `ownerID` int(10) unsigned NOT NULL,
   `name` varchar(32) NOT NULL,
@@ -1377,15 +975,9 @@ CREATE TABLE IF NOT EXISTS `uni1_shortcuts` (
   `type` tinyint(1) unsigned NOT NULL,
   PRIMARY KEY (`shortcutID`),
   KEY `ownerID` (`ownerID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_statpoints`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_statpoints` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%statpoints` (
   `id_owner` int(11) unsigned NOT NULL DEFAULT '0',
   `id_ally` int(11) unsigned NOT NULL DEFAULT '0',
   `stat_type` tinyint(1) unsigned NOT NULL DEFAULT '0',
@@ -1419,13 +1011,7 @@ CREATE TABLE IF NOT EXISTS `uni1_statpoints` (
   KEY `stat_type` (`stat_type`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_storages_logs`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_storages_logs` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%storages_logs` (
   `storageID` int(11) NOT NULL AUTO_INCREMENT,
   `allyID` tinyint(3) NOT NULL DEFAULT '0',
   `userID` int(11) NOT NULL DEFAULT '0',
@@ -1435,15 +1021,9 @@ CREATE TABLE IF NOT EXISTS `uni1_storages_logs` (
   `time` int(11) NOT NULL DEFAULT '0',
   `type` int(11) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`storageID`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_ticket`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_ticket` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%ticket` (
   `ticketID` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `universe` tinyint(3) unsigned NOT NULL,
   `ownerID` int(10) unsigned NOT NULL,
@@ -1455,15 +1035,9 @@ CREATE TABLE IF NOT EXISTS `uni1_ticket` (
   PRIMARY KEY (`ticketID`),
   KEY `ownerID` (`ownerID`),
   KEY `universe` (`universe`,`status`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_ticket_answer`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_ticket_answer` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%ticket_answer` (
   `answerID` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `ownerID` int(10) unsigned NOT NULL,
   `ownerName` varchar(32) NOT NULL,
@@ -1472,40 +1046,22 @@ CREATE TABLE IF NOT EXISTS `uni1_ticket_answer` (
   `subject` varchar(255) NOT NULL,
   `message` mediumtext NOT NULL,
   PRIMARY KEY (`answerID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_ticket_category`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_ticket_category` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%ticket_category` (
   `categoryID` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   PRIMARY KEY (`categoryID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=4;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_timebonus_log`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_timebonus_log` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%timebonus_log` (
   `logID` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `userID` int(11) unsigned NOT NULL DEFAULT '0',
   `TIMESTAMP` int(11) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`logID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_topkb`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_topkb` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%topkb` (
   `rid` varchar(32) NOT NULL,
   `units` double(50,0) unsigned NOT NULL,
   `result` varchar(1) NOT NULL,
@@ -1514,13 +1070,7 @@ CREATE TABLE IF NOT EXISTS `uni1_topkb` (
   KEY `time` (`universe`,`rid`,`time`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_users`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_users` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%users` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `username` varchar(32) NOT NULL DEFAULT '',
   `password` varchar(60) NOT NULL DEFAULT '',
@@ -1867,35 +1417,16 @@ CREATE TABLE IF NOT EXISTS `uni1_users` (
   KEY `ref_bonus` (`ref_bonus`),
   KEY `universe` (`universe`,`username`,`password`,`onlinetime`,`authlevel`),
   KEY `ally_id` (`ally_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=473 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
---
--- Contenu de la table `uni1_users`
---
-
-INSERT INTO `uni1_users` (`id`, `username`, `password`, `email`, `email_2`, `lang`, `authattack`, `authlevel`, `rights`, `id_planet`, `universe`, `galaxy`, `system`, `planet`, `darkmatter`, `antimatter`, `stardust`, `user_lastip`, `ip_at_reg`, `register_time`, `onlinetime`, `dpath`, `timezone`, `planet_sort`, `planet_sort_order`, `spio_anz`, `settings_fleetactions`, `settings_esp`, `settings_wri`, `settings_bud`, `settings_mis`, `settings_blockPM`, `urlaubs_modus`, `urlaubs_until`, `db_deaktjava`, `b_tech_planet`, `b_tech`, `b_tech_id`, `b_tech_queue`, `spy_tech`, `computer_tech`, `military_tech`, `defence_tech`, `shield_tech`, `energy_tech`, `hyperspace_tech`, `combustion_tech`, `impulse_motor_tech`, `hyperspace_motor_tech`, `laser_tech`, `ionic_tech`, `buster_tech`, `intergalactic_tech`, `expedition_tech`, `brotherhood`, `metal_proc_tech`, `crystal_proc_tech`, `deuterium_proc_tech`, `graviton_tech`, `ally_id`, `ally_register_time`, `ally_rank_id`, `rpg_geologue`, `rpg_amiral`, `rpg_ingenieur`, `rpg_technocrate`, `rpg_espion`, `rpg_constructeur`, `rpg_scientifique`, `rpg_commandant`, `rpg_stockeur`, `rpg_defenseur`, `rpg_destructeur`, `rpg_general`, `rpg_bunker`, `rpg_raideur`, `rpg_empereur`, `bana`, `banaday`, `hof`, `spyMessagesMode`, `wons`, `loos`, `draws`, `kbmetal`, `kbcrystal`, `lostunits`, `desunits`, `uctime`, `setmail`, `dm_attack`, `dm_defensive`, `dm_buildtime`, `dm_researchtime`, `dm_resource`, `dm_energie`, `dm_fleettime`, `ref_id`, `ref_bonus`, `inactive_mail`, `lp_points`, `academy_p`, `experience_peace`, `bonus_timer`, `experience_peace_max`, `experience_peace_level`, `peace_reward_slots`, `peace_reward_fields`, `peace_reward_golf`, `experience_combat`, `experience_combat_max`, `combat_reward_deut`, `combat_reward_expe`, `combat_reward_bonus`, `combat_reward_collider`, `experience_combat_level`, `premium_reward_extraction`, `premium_reward_storing`, `premium_reward_speed`, `premium_reward_stage`, `premium_reward_bonus`, `premium_reward_moon`, `premium_reward_expedition`, `premium_reward_experience`, `premium_reward_bank`, `prem_speed_button`, `prem_expedition`, `prem_speed_expiditeon`, `prem_batle_leveling`, `prem_prod_from_colly`, `prem_moon_creat`, `prem_fuel_consumption`, `premium_reward_days`, `alliance_storage_deposit`, `alliance_storage_widraw`, `achievement_peace_level`, `achievement_combat_level`, `achievements_attack`, `achievements_hostal`, `achievements_expedition`, `achievements_level_attack`, `achievements_level_hostal`, `achievements_level_expe`, `achievement_build_metal`, `achievement_build_crystal`, `achievement_build_deuterium`, `achievement_build_light`, `achievement_build_medium`, `achievement_build_heavy`, `achievement_build_university`, `achievement_build_moon`, `achievement_build_phalanx`, `achievement_build_terraformer`, `achievement_defense_easy`, `achievement_defense_simple`, `achievement_defense_average`, `achievement_defense_high`, `achievement_defense_heavy`, `achievement_defense_massive`, `achievement_defense_imperial`, `achievements_misc_fighter`, `achievements_misc_destructor`, `moon_destruction`, `achievements_misc_moons`, `moon_creation`, `achievements_misc_hostal`, `hostal_count`, `achievements_misc_expe`, `expedition_count`, `achievements_misc_seeker`, `found_dm`, `achievements_misc_upgrades`, `achievements_misc_integrator`, `achievements_fleets_small`, `achievements_fleets_support`, `achievements_fleets_battle`, `achievements_fleets_destruction`, `achievements_fleets_seige`, `achievements_fleets_heavy`, `achievements_fleets_imperial`, `achievements_tech_spy`, `achievements_tech_hacker`, `achievements_tech_invincible`, `achievements_tech_expedition`, `achievements_tech_graviton`, `achievements_tech_power`, `achievements_tech_energy`, `achievements_tech_brotherhood`, `achievements_tech_speed`, `achievements_tech_geologist`, `academy_1101`, `academy_1102`, `academy_1103`, `academy_1104`, `academy_1105`, `academy_1106`, `academy_1107`, `academy_1108`, `academy_1109`, `academy_1110`, `academy_1111`, `academy_1113`, `academy_1112`, `academy_1201`, `academy_1202`, `academy_1203`, `academy_1204`, `academy_1208`, `academy_1209`, `academy_1210`, `academy_1205`, `academy_1207`, `academy_1206`, `academy_1301`, `academy_1304`, `academy_1302`, `academy_1310`, `academy_1305`, `academy_1303`, `academy_1308`, `academy_1311`, `academy_1312`, `academy_1313`, `academy_1314`, `academy_1306`, `academy_1307`, `academy_1309`, `instant_fleet`, `instant_defense`, `peacefull_last_update`, `multi_report`, `message_ban`, `message_trusted`, `v1`, `v2`, `v3`, `training`, `training_step`, `frisbee`, `alien`, `rocket`, `cosmonaute`, `facebook_liked`, `light_armor_upgrade`, `average_armor_upgrade`, `heavy_armor_upgrade`, `light_shield_upgrade`, `average_shield_upgrade`, `heavy_shield_upgrade`, `jet_engine_upgrade`, `kick_motor_upgrade`, `hyperspace_drive_upgrade`, `upgrade1_percent`, `upgrade2_percent`, `upgrade3_percent`, `upgrade4_percent`, `upgrade5_percent`, `upgrade6_percent`, `upgrade7_percent`, `upgrade8_percent`, `upgrade9_percent`, `upgrade1_level`, `upgrade2_level`, `upgrade3_level`, `upgrade4_level`, `upgrade5_level`, `upgrade6_level`, `upgrade7_level`, `upgrade8_level`, `upgrade9_level`, `alarm_volume`, `planet_cloak`, `planet_cloak_countdown`, `immunity_until`, `next_immunity`, `sdays_b`, `sdays_time`, `settings_planetmenu`, `PaySafe`, `FM_cooldown`, `harvest_delay`, `harvest_time`, `jackpot`, `vcount`, `premium_reward_extraction_days`, `premium_reward_storing_days`, `premium_reward_speed_days`, `premium_reward_stage_days`, `premium_reward_bonus_days`, `prem_speed_button_days`, `prem_expedition_days`, `premium_reward_expedition_days`, `prem_speed_expiditeon_days`, `premium_reward_experience_days`, `prem_batle_leveling_days`, `premium_reward_bank_days`, `prem_prod_from_colly_days`, `prem_moon_creat_days`, `prem_fuel_consumption_days`, `multi_spotted`, `multi_spotted_aproval`, `prem_advanced_battlesim`, `prem_advanced_battlesim_days`, `message_ban_time`, `kolvo`, `extra_palnet`, `tot_ref`, `fblink`, `firstname`, `age`, `country`, `playstyle`, `city`, `skype`, `climate_change`, `climate_change_name`, `achievement_fleet_1`, `achievement_fleet_2`, `achievement_fleet_3`, `achievement_fleet_4`, `achievement_fleet_5`, `achievement_fleet_6`, `achievement_fleet_7`, `achievement_fleet_8`, `achievement_fleet_9`, `achievement_fleet_10`, `ach_points_total`, `achievement_def_1`, `achievement_def_2`, `achievement_def_3`, `achievement_def_4`, `achievement_def_5`, `achievement_def_6`, `achievement_def_7`, `achievement_def_8`, `achievement_def_9`, `achievement_def_10`, `achievement_def_11`, `achievement_def_12`, `achievement_def_13`, `daily_produ`) VALUES
-(1, 'admin', '227ce75a31be825b98ebbe82089655e3', 'admin@admin.com', 'admin@admin.com', 'en', 3, 3, NULL, 1, 1, 1, 1, 1, 22935356, 112428, 17, '81.164.22.254', '81.164.103.19', 1424625964, 1428436528, 'gow', 'Europe/Brussels', 0, 0, 1, 3, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, '', 9, 10, 0, 6, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 15, 0, 0, 0, 0, 10, 20, 1426196463, 0, 29, 8, 6, 5, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 5, 12, 1, 45350019631400, 28407267752400, 1837843248000, 244019785978000, 0, 0, 1425825466, 0, 0, 0, 0, 0, 0, 0, 0, 0, 125, 286, 113, 1428451026, 15920, 14, 1, 0, 2, 16944, 20260, 1, 0, 0, 0, 3, 50, 250, 30, 0, 4, 0, 0, 50, 2, 50, 0, 0, 22, 50, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 20, 20, 20, 0, 0, 0, 2, 2, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 1, 0, 2, 0, 7, 7, 3, 3, 7, 3, 10, 0, 1, 0, 0, 0, 16, 0, 5, 3, 5, 1, 2, 0, 0, 0, 0, 0, 0, 16, 16, 16, 16, 1, 16, 1, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1428436528, 0, 0, 0, 1427868719, 0, 1427868711, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 100, 100, 100, 100, 100, 100, 100, 100, 100, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1427922333, 1428527133, 3, 1428420733, 0, 0, 0, 1425500574, 5, 5, 0, 1426098127, 1426098296, 1424908226, 1424908226, 1426098341, 1426184852, 0, 0, 0, 1426098068, 1428966590, 1426098059, 1426098050, 0, 0, 0, 0, 0, 0, 0, 1, 3, 0, 'jeremybaukens', 'Jeremy', 24, 'Belgium', 'Miner', 'Bruxelles', '', 7, 'dschjungelplanet02', 819200000, 400000, 200000, 16000, 80000, 100000, 5000, 224000, 96000, 128000, 0, 200000, 150000, 100000, 125000, 75000, 125000, 15000, 50000, 10000, 5000, 20000, 15000, 35000, 0);
-
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_users_to_acs`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_users_to_acs` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%users_to_acs` (
   `userID` int(10) unsigned NOT NULL,
   `acsID` int(10) unsigned NOT NULL,
   KEY `userID` (`userID`),
   KEY `acsID` (`acsID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_users_to_extauth`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_users_to_extauth` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%users_to_extauth` (
   `id` int(11) NOT NULL,
   `account` varchar(64) NOT NULL,
   `mode` varchar(32) NOT NULL,
@@ -1904,13 +1435,7 @@ CREATE TABLE IF NOT EXISTS `uni1_users_to_extauth` (
   KEY `account` (`account`,`mode`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_users_to_topkb`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_users_to_topkb` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%users_to_topkb` (
   `rid` varchar(32) NOT NULL,
   `uid` int(11) NOT NULL,
   `username` varchar(128) NOT NULL,
@@ -1918,13 +1443,7 @@ CREATE TABLE IF NOT EXISTS `uni1_users_to_topkb` (
   KEY `rid` (`rid`,`role`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_users_valid`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_users_valid` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%users_valid` (
   `validationID` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `userName` varchar(64) NOT NULL,
   `validationKey` varchar(32) NOT NULL,
@@ -1938,15 +1457,9 @@ CREATE TABLE IF NOT EXISTS `uni1_users_valid` (
   `externalAuthUID` varchar(128) DEFAULT NULL,
   `externalAuthMethod` varchar(32) DEFAULT NULL,
   PRIMARY KEY (`validationID`,`validationKey`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_vars`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_vars` (
+CREATE TABLE IF NOT EXISTS `%PREFIX%vars` (
   `elementID` smallint(5) unsigned NOT NULL,
   `name` varchar(32) NOT NULL,
   `class` int(11) NOT NULL,
@@ -2024,11 +1537,127 @@ CREATE TABLE IF NOT EXISTS `uni1_vars` (
   KEY `class` (`class`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
---
--- Contenu de la table `uni1_vars`
---
+CREATE TABLE IF NOT EXISTS `%PREFIX%vars_rapidfire` (
+  `elementID` int(11) NOT NULL,
+  `rapidfireID` int(11) NOT NULL,
+  `shoots` int(11) NOT NULL,
+  KEY `elementID` (`elementID`),
+  KEY `rapidfireID` (`rapidfireID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-INSERT INTO `uni1_vars` (`elementID`, `name`, `class`, `onPlanetType`, `onePerPlanet`, `factor`, `maxLevel`, `cost901`, `cost902`, `cost903`, `cost911`, `cost921`, `cost922`, `consumption1`, `consumption2`, `speedTech`, `speed1`, `speed2`, `speed2Tech`, `speed2onLevel`, `speed3Tech`, `speed3onLevel`, `capacity`, `attack`, `defend`, `timeBonus`, `bonusAttack`, `bonusDefensive`, `bonusShield`, `bonusBuildTime`, `bonusResearchTime`, `bonusShipTime`, `bonusDefensiveTime`, `bonusResource`, `bonusEnergy`, `bonusResourceStorage`, `bonusShipStorage`, `bonusFlyTime`, `bonusFleetSlots`, `bonusPlanets`, `bonusSpyPower`, `bonusExpedition`, `bonusGateCoolTime`, `bonusMoreFound`, `bonusAttackUnit`, `bonusDefensiveUnit`, `bonusShieldUnit`, `bonusBuildTimeUnit`, `bonusResearchTimeUnit`, `bonusShipTimeUnit`, `bonusDefensiveTimeUnit`, `bonusResourceUnit`, `bonusEnergyUnit`, `bonusResourceStorageUnit`, `bonusShipStorageUnit`, `bonusFlyTimeUnit`, `bonusFleetSlotsUnit`, `bonusPlanetsUnit`, `bonusSpyPowerUnit`, `bonusExpeditionUnit`, `bonusGateCoolTimeUnit`, `bonusMoreFoundUnit`, `speedFleetFactor`, `production901`, `production902`, `production903`, `production911`, `production921`, `storage901`, `storage902`, `storage903`, `dmprice`, `type_gun`) VALUES
+CREATE TABLE IF NOT EXISTS `%PREFIX%vars_requriements` (
+  `elementID` int(11) NOT NULL,
+  `requireID` int(11) NOT NULL,
+  `requireLevel` int(11) NOT NULL,
+  KEY `elementID` (`elementID`),
+  KEY `requireID` (`requireID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `%PREFIX%votefirst` (
+  `id` int(11) NOT NULL DEFAULT '0',
+  `vid` int(11) NOT NULL DEFAULT '0',
+  `timestamp` int(11) NOT NULL DEFAULT '0',
+  `universe` int(11) NOT NULL DEFAULT '1'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `%PREFIX%votesystem` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `link` text NOT NULL,
+  `prize` int(11) NOT NULL,
+  `image` text NOT NULL,
+  `time` int(11) unsigned NOT NULL DEFAULT '0',
+  `universe` int(11) NOT NULL DEFAULT '1',
+  UNIQUE KEY `id` (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `%PREFIX%votesystem_log` (
+  `user_id` int(11) NOT NULL,
+  `time` int(11) NOT NULL DEFAULT '0',
+  `vote_system_id` bigint(20) NOT NULL DEFAULT '0',
+  `universe` int(11) NOT NULL DEFAULT '1'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+/** 
+* On fais les INSERT INTO une fois toute les tables créer
+**/
+INSERT INTO `%PREFIX%academy_skills` (`skill_id`, `ab1`, `ab2`, `icost`, `factor`) VALUES
+(1101, 1, 0, 1, 1.2),
+(1102, 2, 1, 2, 1.25),
+(1103, 2, 0, 4, 1.3),
+(1104, 1, 0, 10, 1.5),
+(1105, 3, 0, 3, 1.25),
+(1106, 1, 0, 3, 1.3),
+(1107, 2, 0, 3, 1.3),
+(1108, 2, 0, 7, 1.55),
+(1109, 1, 0, 9, 1.3),
+(1110, 8, 0, 7, 1.5),
+(1111, 1, 0, 1, 1.5),
+(1112, 2, 2, 3, 1.2),
+(1113, 1, 0, 16, 1.6),
+(1201, 5, 0, 1, 1.25),
+(1202, 2, 0, 2, 1.25),
+(1203, 2, 0, 4, 1.3),
+(1204, 5, 0, 3, 1.25),
+(1205, 1, 0, 30, 1.3),
+(1206, 1, 0, 500, 2),
+(1207, 5, 0, 2, 1.25),
+(1208, 25, 0, 50, 2),
+(1209, 3, 0, 2, 1.3),
+(1210, 3, 0, 10, 1.3),
+(1301, 1, 0, 1, 1.2),
+(1302, 1, 2, 2, 1.25),
+(1303, 2, 0, 4, 1.3),
+(1304, 1, 0, 8, 1.45),
+(1305, 1, 0, 3, 1.3),
+(1306, 1, 0, 3, 1.3),
+(1307, 2, 0, 1, 1.35),
+(1308, 2, 0, 10, 1.55),
+(1309, 250, 0, 500, 2.3),
+(1310, 1, 0, 10, 1.5),
+(1311, 3, 0, 4, 1.2),
+(1312, 1, 0, 3, 1.35),
+(1313, 1, 0, 3, 1.4),
+(1314, 1, 0, 3, 1.5);
+
+INSERT INTO `%PREFIX%cronjobs` (`cronjobID`, `name`, `isActive`, `min`, `hours`, `dom`, `month`, `dow`, `class`, `nextTime`, `lock`) VALUES
+(1, 'referral', 1, '0,30', '*', '*', '*', '*', 'ReferralCronjob', 1428445800, NULL),
+(2, 'statistic', 1, '10,30,50', '*', '*', '*', '*', 'StatisticCronjob', 1428424200, '68e16ea0b7bbb53bf8b4672da3e32725'),
+(3, 'daily', 1, '25', '2', '*', '*', '*', 'DailyCronjob', 1428452700, NULL),
+(4, 'cleaner', 1, '45', '2', '*', '*', '6', 'CleanerCronjob', 1428713100, NULL),
+(5, 'inactive', 0, '30', '1', '*', '*', '0,3,6', 'InactiveMailCronjob', 1428449400, NULL),
+(8, 'tracking', 1, '8', '13', '*', '*', '0', 'TrackingCronjob', 1428836880, NULL),
+(9, 'Achievement Daily Reset', 1, '5', '0', '*', '*', '*', 'AchievementCronjob', 1428530700, NULL),
+(10, 'Planet Auction', 1, '15', '*', '*', '*', '*', 'PlanetauctionCronjob', 1428448500, NULL),
+(11, 'Instant Buy', 1, '45', '4', '*', '*', '*', 'InstantCronjob', 1428461100, NULL),
+(12, 'Delete Users', 0, '14', '5', '*', '*', '*', 'DeleteuserCronjob', 1428462840, NULL),
+(14, 'Events', 1, '29', '9', '*', '*', '*', 'EventsCronjob', 1428478140, NULL),
+(15, 'Event 1', 1, '29', '16', '*', '*', '*', 'EventsCronjob', 1428503340, NULL),
+(16, 'event 2', 1, '19', '18', '*', '*', '*', 'EventsCronjob', 1428509940, NULL);
+
+INSERT INTO `%PREFIX%premium_calc` (`id`, `name`, `cost`, `factor`, `factorone`, `rangevalue`, `rangevalueone`) VALUES
+(1, 'prem_res', 10, 1.07, 90, 0, 1000),
+(2, 'prem_storage', 1, 1.05, 4, 0, 1000),
+(3, 'prem_s_build', 7, 1.2, 50, 0, 1000),
+(4, 'prem_o_build', 100, 1.3, 1, 0, 100),
+(5, 'prem_button', 525, 1.45, 1, 2, 10),
+(6, 'prem_speed_button', 30, 1.35, 10, 0, 1000),
+(7, 'prem_expedition', 30, 1.02, 5, 0, 1000),
+(8, 'prem_count_expiditeon', 500, 1.35, 1, 0, 100),
+(9, 'prem_speed_expiditeon', 50, 1.03, 8, 0, 1000),
+(10, 'prem_moon_dextruct', 8500, 2, 2, 2, 10),
+(11, 'prem_leveling', 32, 1.1, 25, 0, 1000),
+(12, 'prem_batle_leveling', 37, 1.08, 25, 0, 1000),
+(13, 'prem_bank_ally', 200, 1.2, 1, 2, 100),
+(14, 'prem_prod_from_colly', 110, 1.3, 15, 0, 1000),
+(15, 'prem_moon_creat', 100, 1.04, 2, 0, 100),
+(16, 'prem_fuel_consumption', 55, 1.12, 3, 0, 1000);
+
+INSERT INTO `%PREFIX%ticket_category` (`categoryID`, `name`) VALUES
+(1, 'Support'),
+(2, 'Bug'),
+(3, 'Paiement');
+
+INSERT INTO `%PREFIX%vars` (`elementID`, `name`, `class`, `onPlanetType`, `onePerPlanet`, `factor`, `maxLevel`, `cost901`, `cost902`, `cost903`, `cost911`, `cost921`, `cost922`, `consumption1`, `consumption2`, `speedTech`, `speed1`, `speed2`, `speed2Tech`, `speed2onLevel`, `speed3Tech`, `speed3onLevel`, `capacity`, `attack`, `defend`, `timeBonus`, `bonusAttack`, `bonusDefensive`, `bonusShield`, `bonusBuildTime`, `bonusResearchTime`, `bonusShipTime`, `bonusDefensiveTime`, `bonusResource`, `bonusEnergy`, `bonusResourceStorage`, `bonusShipStorage`, `bonusFlyTime`, `bonusFleetSlots`, `bonusPlanets`, `bonusSpyPower`, `bonusExpedition`, `bonusGateCoolTime`, `bonusMoreFound`, `bonusAttackUnit`, `bonusDefensiveUnit`, `bonusShieldUnit`, `bonusBuildTimeUnit`, `bonusResearchTimeUnit`, `bonusShipTimeUnit`, `bonusDefensiveTimeUnit`, `bonusResourceUnit`, `bonusEnergyUnit`, `bonusResourceStorageUnit`, `bonusShipStorageUnit`, `bonusFlyTimeUnit`, `bonusFleetSlotsUnit`, `bonusPlanetsUnit`, `bonusSpyPowerUnit`, `bonusExpeditionUnit`, `bonusGateCoolTimeUnit`, `bonusMoreFoundUnit`, `speedFleetFactor`, `production901`, `production902`, `production903`, `production911`, `production921`, `storage901`, `storage902`, `storage903`, `dmprice`, `type_gun`) VALUES
 (1, 'metal_mine', 0, '1', 0, 1.50, 255, 60, 15, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, '(((30 * $BuildLevel * pow((1.1), $BuildLevel)) * (0.1 * $BuildLevelFactor)) + (((30 * $BuildLevel * pow((1.1), $BuildLevel)) * (0.1 * $BuildLevelFactor)) / 100 * $peacefull_resource) + (((30 * $BuildLevel * pow((1.1), $BuildLevel)) * (0.1 * $BuildLevelFactor)) / 100 * $premium_resource) + (((30 * $BuildLevel * pow((1.1), $BuildLevel)) * (0.1 * $BuildLevelFactor)) / 100 * $alliance_prod)  + (((30 * $BuildLevel * pow((1.1), $BuildLevel)) * (0.1 * $BuildLevelFactor)) / 100 * $academy_mines) + (((30 * $BuildLevel * pow((1.1), $BuildLevel)) * (0.1 * $BuildLevelFactor)) / 100 * $daily_prod_bonus))', NULL, NULL, '-(10 * $BuildLevel * pow((1.1), $BuildLevel)) * (0.1 * $BuildLevelFactor)', NULL, NULL, NULL, NULL, 0, NULL),
 (2, 'crystal_mine', 0, '1', 0, 1.50, 255, 48, 24, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, '(((20 * $BuildLevel * pow((1.1), $BuildLevel)) * (0.1 * $BuildLevelFactor)) + (((20 * $BuildLevel * pow((1.1), $BuildLevel)) * (0.1 * $BuildLevelFactor)) / 100 * $peacefull_resource) + (((20 * $BuildLevel * pow((1.1), $BuildLevel)) * (0.1 * $BuildLevelFactor)) / 100 * $premium_resource) + (((20 * $BuildLevel * pow((1.1), $BuildLevel)) * (0.1 * $BuildLevelFactor)) / 100 * $alliance_prod) + (((20 * $BuildLevel * pow((1.1), $BuildLevel)) * (0.1 * $BuildLevelFactor)) / 100 * $academy_mines) + (((20 * $BuildLevel * pow((1.1), $BuildLevel)) * (0.1 * $BuildLevelFactor)) / 100 * $daily_prod_bonus))', NULL, '-(10 * $BuildLevel * pow((1.1), $BuildLevel)) * (0.1 * $BuildLevelFactor)', NULL, NULL, NULL, NULL, 0, NULL),
 (3, 'deuterium_sintetizer', 0, '1', 0, 1.50, 255, 225, 75, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, '((10 * $BuildLevel * pow((1.1), $BuildLevel) * (-0.002 * $BuildTemp + 1.28) * (0.1 * $BuildLevelFactor)) + ((10 * $BuildLevel * pow((1.1), $BuildLevel) * (-0.002 * $BuildTemp + 1.28) * (0.1 * $BuildLevelFactor)) / 100 * $peacefull_resource) + ((10 * $BuildLevel * pow((1.1), $BuildLevel) * (-0.002 * $BuildTemp + 1.28) * (0.1 * $BuildLevelFactor)) / 100 * $premium_resource) + ((10 * $BuildLevel * pow((1.1), $BuildLevel) * (-0.002 * $BuildTemp + 1.28) * (0.1 * $BuildLevelFactor)) / 100 * $alliance_prod) + ((10 * $BuildLevel * pow((1.1), $BuildLevel) * (-0.002 * $BuildTemp + 1.28) * (0.1 * $BuildLevelFactor)) / 100 * $academy_mines) + ((10 * $BuildLevel * pow((1.1), $BuildLevel) * (-0.002 * $BuildTemp + 1.28) * (0.1 * $BuildLevelFactor)) / 100 * $daily_prod_bonus))', '- (30 * $BuildLevel * pow((1.1), $BuildLevel)) * (0.1 * $BuildLevelFactor)', NULL, NULL, NULL, NULL, 0, NULL),
@@ -2148,25 +1777,7 @@ INSERT INTO `uni1_vars` (`elementID`, `name`, `class`, `onPlanetType`, `onePerPl
 (45, 'planetarium', 0, '4', 0, 2.00, 255, 500000, 275000, 140000, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL),
 (46, 'sensor_modul', 0, '4', 0, 2.00, 255, 2250000, 4500000, 1125000, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_vars_rapidfire`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_vars_rapidfire` (
-  `elementID` int(11) NOT NULL,
-  `rapidfireID` int(11) NOT NULL,
-  `shoots` int(11) NOT NULL,
-  KEY `elementID` (`elementID`),
-  KEY `rapidfireID` (`rapidfireID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
---
--- Contenu de la table `uni1_vars_rapidfire`
---
-
-INSERT INTO `uni1_vars_rapidfire` (`elementID`, `rapidfireID`, `shoots`) VALUES
+INSERT INTO `%PREFIX%vars_rapidfire` (`elementID`, `rapidfireID`, `shoots`) VALUES
 (204, 202, 2),
 (205, 202, 3),
 (206, 202, 7),
@@ -2476,25 +2087,7 @@ INSERT INTO `uni1_vars_rapidfire` (`elementID`, `rapidfireID`, `shoots`) VALUES
 (411, 230, 250),
 (414, 230, 6);
 
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_vars_requriements`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_vars_requriements` (
-  `elementID` int(11) NOT NULL,
-  `requireID` int(11) NOT NULL,
-  `requireLevel` int(11) NOT NULL,
-  KEY `elementID` (`elementID`),
-  KEY `requireID` (`requireID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
---
--- Contenu de la table `uni1_vars_requriements`
---
-
-INSERT INTO `uni1_vars_requriements` (`elementID`, `requireID`, `requireLevel`) VALUES
+INSERT INTO `%PREFIX%vars_requriements` (`elementID`, `requireID`, `requireLevel`) VALUES
 (6, 14, 20),
 (6, 31, 22),
 (6, 15, 4),
@@ -2810,57 +2403,6 @@ INSERT INTO `uni1_vars_requriements` (`elementID`, `requireID`, `requireLevel`) 
 (5, 6, 12),
 (5, 113, 18),
 (5, 123, 8);
-
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_votefirst`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_votefirst` (
-  `id` int(11) NOT NULL DEFAULT '0',
-  `vid` int(11) NOT NULL DEFAULT '0',
-  `timestamp` int(11) NOT NULL DEFAULT '0',
-  `universe` int(11) NOT NULL DEFAULT '1'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_votesystem`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_votesystem` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `link` text NOT NULL,
-  `prize` int(11) NOT NULL,
-  `image` text NOT NULL,
-  `time` int(11) unsigned NOT NULL DEFAULT '0',
-  `universe` int(11) NOT NULL DEFAULT '1',
-  UNIQUE KEY `id` (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
-
---
--- Contenu de la table `uni1_votesystem`
---
-
-INSERT INTO `uni1_votesystem` (`id`, `link`, `prize`, `image`, `time`, `universe`) VALUES
-(1, 'http://rivaltoplist.com/in/2311', 1, 'http://www.rivaltoplist.com/vote.jpg', 12, 1),
-(2, 'http://arena-top100.com/index.php?a=in&u=Thisishowwedoit\n', 1, 'http://www.arena-top100.com/button.php?u=Thisishowwedoit&buttontype=static', 12, 2),
-(3, 'https://private-server.ws/index.php?a=in&u=Thisishowwedoit', 1, 'https://private-server.ws/button.php?u=Zyperax&buttontype=static', 12, 1);
-
--- --------------------------------------------------------
-
---
--- Structure de la table `uni1_votesystem_log`
---
-
-CREATE TABLE IF NOT EXISTS `uni1_votesystem_log` (
-  `user_id` int(11) NOT NULL,
-  `time` int(11) NOT NULL DEFAULT '0',
-  `vote_system_id` bigint(20) NOT NULL DEFAULT '0',
-  `universe` int(11) NOT NULL DEFAULT '1'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
