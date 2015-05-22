@@ -3,7 +3,7 @@ Jeux baser sur Xterium.ru créer par Danter14
 Le jeu fonctionne actuellement mais il est assez buguer en ce moment.
 
 # En cours de développement
-- Création du choix de la langue sur la page login Jquery
+- Création du choix de la langue sur la page login en Jquery et Ajax
 
 # Terminer
 - 21/05/2015 : Création de l'installation 100%
