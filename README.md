@@ -11,3 +11,4 @@ Le jeu fonctionne actuellement mais il est assez buguer en ce moment.
 - 21/05/2015 : Commencement de la mise en forme des fichier tpl + changement du logo en png avec psd, ajout de certaine ligne css
 - 22/05/2015 : Mise en forme et correction du tpl + lien img 100% pour toute la partie login
 - 22/05/2015 : Ajout du choix de lang sur le login en Jquery et ajax
+- 23/05/2015 : Commencement de la mise place de tout le texte dans le fichier lang partie login (7/26)
