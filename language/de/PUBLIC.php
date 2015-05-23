@@ -201,3 +201,14 @@ $LNG['popup_login_recover']			= "Passwort vergessen";
 /** main.header.tpl **/
 $LNG['header_meta_keywords']		= "Xnova Revolution, XNova, 2Moons, Space, Private, Server, Speed";
 $LNG['header_meta_description']		= "ist ein Management-Spiel / Massen-Mehrspieler-Strategie-Browser auf einem Science-Fiction-Universum völlig erfunden.";
+
+/** main.navigation.tpl **/
+$LNG['main_navigation_menu_head1']	= "Willkommen in der wunderbaren Welt des Raumes!";
+$LNG['main_navigation_menu_head2']	= "Anmelden";
+$LNG['main_navigation_menu_head3']	= "Anmeldung";
+$LNG['main_navigation_menu1']		= "Registrieren";
+$LNG['main_navigation_menu2']		= "Zuhause";
+$LNG['main_navigation_menu3']		= "Über Uns";
+$LNG['main_navigation_menu4']		= "Gallery";
+$LNG['main_navigation_menu5']		= "Forum";
+$LNG['main_navigation_menu6']		= "Wiki";

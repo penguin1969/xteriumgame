@@ -231,9 +231,16 @@ $LNG['popup_login_recover']			= "Mot de passe oublié";
 $LNG['header_meta_keywords']		= "Xnova Revolution, XNova, 2Moons, Space, Private, Server, Speed";
 $LNG['header_meta_description']		= "est un jeu de gestion / massivement multijoueur navigateur de stratégie basé sur une fiction univers de la science entièrement inventé.";
 
-/** **/
-$LNG['']							= "";
-$LNG['']							= "";
+/** main.navigation.tpl **/
+$LNG['main_navigation_menu_head1']	= "Bienvenue dans le monde merveilleux de l'espace!";
+$LNG['main_navigation_menu_head2']	= "S'inscrire";
+$LNG['main_navigation_menu_head3']	= "Ce connecté";
+$LNG['main_navigation_menu1']		= "Inscription";
+$LNG['main_navigation_menu2']		= "Accueil";
+$LNG['main_navigation_menu3']		= "Equipes";
+$LNG['main_navigation_menu4']		= "Gallerie";
+$LNG['main_navigation_menu5']		= "Forum";
+$LNG['main_navigation_menu6']		= "Wiki";
 
 /** **/
 $LNG['']							= "";

@@ -4,7 +4,7 @@
 <script type="text/javascript" src="./scripts/login/FormulaireLang.js"></script>
 		 <header>
 			 <div id="top_band">
-				<span style="padding-top: 13px;">Welcome to the wonderful world of space!</span>
+				<span style="padding-top: 13px;">{$LNG.main_navigation_menu_head1}</span>
 				<!-- Ajout du choix de la langue en jquery -->
 				{if count($languages) > 1}
 			    <div id="polyglotLanguageSwitcher" style="padding: 6px;">
@@ -19,9 +19,9 @@
 				{/if}
 				<!-- Fin du choix de la langue en jquery -->
 		<form id="login" name="login" action="index.php?page=register" data-action="index.php?page=register" method="post">
-				 <a href="javascript:;" onclick="$('#login').submit();" style="margin-right: 10px;">Sign up</a>
+				 <a href="javascript:;" onclick="$('#login').submit();" style="margin-right: 10px;">{$LNG.main_navigation_menu_head2}</a>
 				 <div id="pencil_edit">&nbsp;|&nbsp;</div>
-				 <a href="/users/login" name="modal">Sign in</a>
+				 <a href="/users/login" name="modal">{$LNG.main_navigation_menu_head3}</a>
 			 </div>
 			 <div id="header">
 				 <a href="index.php" class="logo">
@@ -33,18 +33,18 @@
 
 		 <div id="main_menu">
 			 <div class="right_part">
-			 	<a href="javascript:;" onclick="$('#login').submit();">Register</a>
+			 	<a href="javascript:;" onclick="$('#login').submit();">{$LNG.main_navigation_menu1}</a>
 			 </div>
 			 <div class="left_part">
-				 <a href="index.php">Home</a>
+				 <a href="index.php">{$LNG.main_navigation_menu2}</a>
 				 <div class="seporator"></div>
-				 <a href="index.php?page=about">About US</a>
+				 <a href="index.php?page=about">{$LNG.main_navigation_menu3}</a>
 				 <div class="seporator"></div>
-				 <a href="index.php?page=galery">Gallery</a>
+				 <a href="index.php?page=galery">{$LNG.main_navigation_menu4}</a>
 				 <div class="seporator"></div>
-				 <a href="#">Forum</a>
+				 <a href="#">{$LNG.main_navigation_menu5}</a>
 				 <div class="seporator"></div>
-				 <a href="#">Wiki</a>
+				 <a href="#">{$LNG.main_navigation_menu6}</a>
 			 </div>
 		 </div>
 	 </form>
