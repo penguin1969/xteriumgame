@@ -3,31 +3,31 @@
 <div id="footer">
   <div class="left_part">
     <div class="block">
-      <span>Play</span>
-      <a href="javascript:;" onclick="$('#login').submit();">Register</a>
-      <br/><a href="index.php?page=rules">Rules</a>
-      <br/><a href="index.php?page=news&mode=all">News</a>
-      <br/><a href="index.php?page=about">About US</a>
+      <span>{$LNG.footer_title_block1}</span>
+      <a href="javascript:;" onclick="$('#login').submit();">{$LNG.footer_block1_menu1}</a>
+      <br/><a href="index.php?page=rules">{$LNG.footer_block1_menu2}</a>
+      <br/><a href="index.php?page=news&mode=all">{$LNG.footer_block1_menu3}</a>
+      <br/><a href="index.php?page=about">{$LNG.footer_block1_menu4}</a>
     </div>
 
     <div class="block">
-      <span>Account</span>
-      <a href="javascript:;" onclick="$('#login').submit();">Create an account</a>
-      <br/><a href="index.php?page=lostPassword">Recover password</a>
+      <span>{$LNG.footer_title_block2}</span>
+      <a href="javascript:;" onclick="$('#login').submit();">{$LNG.footer_block2_menu1}</a>
+      <br/><a href="index.php?page=lostPassword">{$LNG.footer_block2_menu2}</a>
     </div>
 
     <div class="block">
-      <span>Community</span>
-      <a>Forum</a>
-      <br/><a href="index.php?page=disclamer">Contact US</a>
-      <br/><a href="index.php?page=galery">Gallery</a>
-      <br/><a href="index.php?page=jobs">Jobs</a>
+      <span>{$LNG.footer_title_block3}</span>
+      <a>{$LNG.footer_block3_menu1}</a>
+      <br/><a href="index.php?page=disclamer">{$LNG.footer_block3_menu2}</a>
+      <br/><a href="index.php?page=galery">{$LNG.footer_block3_menu3}</a>
+      <br/><a href="index.php?page=jobs">{$LNG.footer_block3_menu4}</a>
     </div>
 
     <div class="clear"></div>
   </div>
 
-    <div class="right_part"> 2015 &copy; Nom du site (BDD) ! &middot;All rights reserved &middot;<br/><br/></div>
+    <div class="right_part">{$copyright}<br/><br/></div>
 
     <div class="clear"></div>
 
@@ -38,33 +38,33 @@
 <div id="boxes">
   <div id="dialog" class="window">
     <div class="dialog_top">
-      <span>Login to your personal account</span>
+      <span>{$LNG.popup_login_title}</span>
       <div class="close"></div>
     </div>
 
 
     <form id="login" name="login" action="index.php?page=login" data-action="index.php?page=login" method="post">
-        <span class="lable">{$LNG.loginEmail}</span>
+        <span class="lable">{$LNG.popup_login_login}</span>
         <input required name="email" id="email" type="text">
       <div class="clear"></div>
-        <span class="lable">{$LNG.loginPassword}</span>
+        <span class="lable">{$LNG.popup_login_mdp}</span>
         <input required name="password" id="password" type="password">
 
       <div class="clear"></div>
 
       <div style="float:left;margin-left:150px;margin-top:17px;">
         <input type="checkbox" id="remember_pass" name="remember_pass" value="false"/>
-        <label for="remember_pass" class="checked">Remember me</label>
+        <label for="remember_pass" class="checked">{$LNG.popup_login_souvient}</label>
       </div>
 
-      <input type="submit" class="button_mini" value="Sign in"> 
+      <input type="submit" class="button_mini" value="{$LNG.popup_login_button}"> 
     </form>
 
 
     <div class="clear"></div>
 
-    <a title="" href="index.php?page=register" style="float:right;margin-right:25px;">Create an account</a>
-    <a title="" href="index.php?page=lostPassword" style="float:right;margin-right:25px;">Recover password</a>
+    <a title="" href="index.php?page=register" style="float:right;margin-right:25px;">{$LNG.popup_login_account}</a>
+    <a title="" href="index.php?page=lostPassword" style="float:right;margin-right:25px;">{$LNG.popup_login_recover}</a>
 
   </div>
 
@@ -80,6 +80,7 @@ var LoginConfig = {
 	'referralEnable' : {$referralEnable|json},
 	'basePath' : {$basepath|json}
 };
+</script>
 <script>
   (function(i,s,o,g,r,a,m){ i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ 
   (i[r].q=i[r].q||[]).push(arguments) },i[r].l=1*new Date();a=s.createElement(o),

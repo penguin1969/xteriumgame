@@ -195,8 +195,45 @@ $LNG['registerErrorMailSame']		= 'You have specified 2 different email addresses
 $LNG['registerErrorMailExist']		= 'Cette adresse email est deja utiliser!';
 $LNG['registerErrorRules']			= 'Vous devez accepter les regles!';
 $LNG['registerErrorCaptcha']		= 'Le code de securite est incorrecte!';
-$LNG['invalid_ip_adress']		= 'Multi Compte Detectee.';
+$LNG['invalid_ip_adress']			= 'Multi Compte Detectee.';
 $LNG['registerBack']				= 'Retour';
 $LNG['registerNext']				= 'Suivant';
+
+/**
+ * Ajout de toute la partie login
+**/
+
+/** main.footer.tpl **/
+$LNG['footer_title_block1']			= "Jouer";
+$LNG['footer_block1_menu1']			= "S'inscrire";
+$LNG['footer_block1_menu2']			= "Règles";
+$LNG['footer_block1_menu3']			= "Nouvelles";
+$LNG['footer_block1_menu4']			= "À propos de nous";
+$LNG['footer_title_block2']			= "Compte";
+$LNG['footer_block2_menu1']			= "Créer un compte";
+$LNG['footer_block2_menu2']			= "Récupérer votre mot de passe";
+$LNG['footer_title_block3']			= "Communauté";
+$LNG['footer_block3_menu1']			= "Forum";
+$LNG['footer_block3_menu2']			= "Nous contacté";
+$LNG['footer_block3_menu3']			= "Gallerie(s)";
+$LNG['footer_block3_menu4']			= "Emplois";
+$LNG['footer_copy']					= "2015 &copy; %s ! - Tout droits réservé";
+// pour le popup pour le login
+$LNG['popup_login_title']			= "Connectez-vous à votre compte";
+$LNG['popup_login_login']			= "Adresse mail";
+$LNG['popup_login_mdp']				= "Mot de passe";
+$LNG['popup_login_souvient']		= "Souviens-toi de moi";
+$LNG['popup_login_button']			= "Ce Connecté";
+$LNG['popup_login_account']			= "Créer un compte";
+$LNG['popup_login_recover']			= "Mot de passe oublié";
+
+/**
+ * 
+**/
+
+$LNG['']							= "";
+$LNG['']							= "";
+$LNG['']							= "";
+$LNG['']							= "";
 
 ?>

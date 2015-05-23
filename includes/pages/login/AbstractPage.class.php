@@ -113,6 +113,7 @@ abstract class AbstractPage
 			'REV'					=> substr(Config::get('VERSION'), -4),
 			'languages'				=> Language::getAllowedLangs(false),
 			'universeSelect'		=> $universeSelect,
+			'copyright'				=> t($LNG['footer_copy'], Config::get('game_name')),
 		));
 	}
 	

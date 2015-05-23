@@ -169,3 +169,31 @@ $LNG['disclamerLabelAddress']		= 'Adresse:';
 $LNG['disclamerLabelPhone']			= 'Telefon Nr.:';
 $LNG['disclamerLabelMail']			= 'E-Mail Adresse:';
 $LNG['disclamerLabelNotice']		= 'Weitere Informationen';
+
+/**
+ * Ajout de toute la partie login
+**/
+
+/** main.footer.tpl **/
+$LNG['footer_title_block1']			= "Spielen";
+$LNG['footer_block1_menu1']			= "Um sich anzumelden";
+$LNG['footer_block1_menu2']			= "Regeln";
+$LNG['footer_block1_menu3']			= "Nachrichten";
+$LNG['footer_block1_menu4']			= "Über uns";
+$LNG['footer_title_block2']			= "Konto";
+$LNG['footer_block2_menu1']			= "Ein Konto erstellen";
+$LNG['footer_block2_menu2']			= "Gewinnen Sie Ihr Passwort";
+$LNG['footer_title_block3']			= "Gemeinde";
+$LNG['footer_block3_menu1']			= "Forum";
+$LNG['footer_block3_menu2']			= "Wir kontaktierten";
+$LNG['footer_block3_menu3']			= "Galerien";
+$LNG['footer_block3_menu4']			= "Arbeitsplätze";
+$LNG['footer_copy']					= "2015 &copy; %s ! - Alle Rechte vorbehalten";
+// pour le popup pour le login
+$LNG['popup_login_title']			= "Login auf Ihr Konto";
+$LNG['popup_login_login']			= "Mail-Adresse";
+$LNG['popup_login_mdp']				= "Passwort";
+$LNG['popup_login_souvient']		= "Erinnere dich an mich";
+$LNG['popup_login_button']			= "Diese Verbunden";
+$LNG['popup_login_account']			= "Ein Konto erstellen";
+$LNG['popup_login_recover']			= "Passwort vergessen";

@@ -147,3 +147,31 @@ $LNG['disclamerLabelAddress']		= 'Game Address:';
 $LNG['disclamerLabelPhone']			= 'Telephone Nr.:';
 $LNG['disclamerLabelMail']			= 'Support Email:';
 $LNG['disclamerLabelNotice']		= 'More information';
+
+/**
+ * Ajout de toute la partie login
+**/
+
+/** main.footer.tpl **/
+$LNG['footer_title_block1']			= "Play";
+$LNG['footer_block1_menu1']			= "Register";
+$LNG['footer_block1_menu2']			= "Rules";
+$LNG['footer_block1_menu3']			= "News";
+$LNG['footer_block1_menu4']			= "About us";
+$LNG['footer_title_block2']			= "Account";
+$LNG['footer_block2_menu1']			= "Create an account";
+$LNG['footer_block2_menu2']			= "Recover your password";
+$LNG['footer_title_block3']			= "Communauty";
+$LNG['footer_block3_menu1']			= "Forum";
+$LNG['footer_block3_menu2']			= "We contacted";
+$LNG['footer_block3_menu3']			= "Gallery";
+$LNG['footer_block3_menu4']			= "Jobs";
+$LNG['footer_copy']					= "2015 &copy; %s ! - All rights reserved";
+// pour le popup pour le login
+$LNG['popup_login_title']			= "Login to your account";
+$LNG['popup_login_login']			= "Mail address";
+$LNG['popup_login_mdp']				= "Password";
+$LNG['popup_login_souvient']		= "Remember me";
+$LNG['popup_login_button']			= "This Connected";
+$LNG['popup_login_account']			= "Create an account";
+$LNG['popup_login_recover']			= "Recover your password";
