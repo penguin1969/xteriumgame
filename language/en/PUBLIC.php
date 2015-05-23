@@ -175,3 +175,7 @@ $LNG['popup_login_souvient']		= "Remember me";
 $LNG['popup_login_button']			= "This Connected";
 $LNG['popup_login_account']			= "Create an account";
 $LNG['popup_login_recover']			= "Recover your password";
+
+/** main.header.tpl **/
+$LNG['header_meta_keywords']		= "Xnova Revolution, XNova, 2Moons, Space, Private, Server, Speed";
+$LNG['header_meta_description']		= "is a management game / massively multiplayer strategy browser based on a science fiction universe entirely invented";

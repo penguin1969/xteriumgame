@@ -227,12 +227,15 @@ $LNG['popup_login_button']			= "Ce Connecté";
 $LNG['popup_login_account']			= "Créer un compte";
 $LNG['popup_login_recover']			= "Mot de passe oublié";
 
-/**
- * 
-**/
+/** main.header.tpl **/
+$LNG['header_meta_keywords']		= "Xnova Revolution, XNova, 2Moons, Space, Private, Server, Speed";
+$LNG['header_meta_description']		= "est un jeu de gestion / massivement multijoueur navigateur de stratégie basé sur une fiction univers de la science entièrement inventé.";
 
+/** **/
 $LNG['']							= "";
 $LNG['']							= "";
+
+/** **/
 $LNG['']							= "";
 $LNG['']							= "";
 

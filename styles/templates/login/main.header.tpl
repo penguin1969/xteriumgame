@@ -14,7 +14,7 @@
 		<link rel="stylesheet" href="media/css/prettyPhoto.css" type="text/css" media="screen" title="prettyPhoto main stylesheet" charset="utf-8"/>
 		<link href="media/css/vidjet.css" rel="stylesheet" type="text/css"/>
 		<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
-		<title>{block name="title"} - {$gameName}{/block}</title>
+		<title>{$gameName}</title>
 		<meta name="generator" content="2Moons {$VERSION}">
 		<!-- 
 			This website is powered by 2Moons {$VERSION}
@@ -22,8 +22,8 @@
 			2Moons is copyright 2009-2013 of Jan Kröpke. Extensions are copyright of their respective owners.
 			Information and contribution at http://2moons.cc/
 		-->
-		<meta name="keywords" content="Weltraum Browsergame, XNova, 2Moons, Space, Private, Server, Speed">
-		<meta name="description" content="Dark-Space: Empire is a management game / massively multiplayer strategy browser based on a science fiction universe entirely invented."> <!-- Noob Check :) -->
+		<meta name="keywords" content="{$LNG.header_keywords}">
+		<meta name="description" content="{$gameName}: {$LNG.header_meta_description}"> <!-- Noob Check :) -->
 		<!--[if lt IE 9]>
 		<script src="scripts/base/html5.js"></script>
 		<![endif]-->
