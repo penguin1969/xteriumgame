@@ -2,14 +2,14 @@
 {block name="content"}
 <div id="page">
 	<div id="content">
-	{if !empty($darkmatterList)}
+	{if !empty($GovernorsList)}
 <div id="ally_content" class="conteiner">
     <div class="gray_stripe">
        Governors<a class="bakc" href="game.php?page=senat">Senat</a>                
     </div> 
 	<div id="build_elements" class="officier_elements" style="padding-top:10px; padding-bottom:5px;">
 	
-	{foreach $darkmatterList as $ID => $Element}
+	{foreach $GovernorsList as $ID => $Element}
 	    	<div id="ofic_{$ID}" class="build_box">
             <div class="head">
                 <a href="#" onclick="return Dialog.info({$ID})" class="interrogation">?</a>                
