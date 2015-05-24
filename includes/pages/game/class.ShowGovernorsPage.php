@@ -87,9 +87,6 @@ class ShowGovernorsPage extends AbstractPage
 	public function show()
 	{
 		global $USER, $CONF, $PLANET, $resource, $reslist, $LNG, $pricelist;
-		if($USER['id'] != 1){
-			$this->printMessage('under maintenace', true, array('game.php?page=overview', 2));
-		}
 		$updateID	  = HTTP::_GP('id', 0);
 				
 		if (!empty($updateID) && $_SERVER['REQUEST_METHOD'] === 'POST' && $USER['urlaubs_modus'] == 0)
@@ -118,7 +115,7 @@ class ShowGovernorsPage extends AbstractPage
 				$costOverflow		= BuildFunctions::getRestPrice($USER, $PLANET, $Element, $costRessources);
 				$elementBonus		= BuildFunctions::getAvalibleBonus($Element);
 
-				$darkmatterList[$Element]	= array(
+				$GovernorsList[$Element]	= array(
 					'timeLeft'			=> max($USER[$resource[$Element]] - TIMESTAMP, 0),
 					'costRessources'	=> $costRessources,
 					'buyable'			=> $buyable,
@@ -154,7 +151,7 @@ class ShowGovernorsPage extends AbstractPage
 		
 		$this->tplObj->assign_vars(array(	
 			'officierList'		=> $officierList,
-			'darkmatterList'	=> $darkmatterList,
+			'GovernorsList'		=> $GovernorsList,
 			'of_dm_trade'		=> sprintf($LNG['of_dm_trade'], $LNG['tech'][921]),
 		));
 		
