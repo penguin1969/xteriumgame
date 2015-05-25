@@ -12,6 +12,8 @@ Le jeu fonctionne actuellement mais il est assez buguer en ce moment.
 - 22/05/2015 : Mise en forme et correction du tpl + lien img 100% pour toute la partie login - Addon (Danter14)
 - 22/05/2015 : Ajout du choix de lang sur le login en Jquery et ajax - Addon (Danter14)
 - 23/05/2015 : Commencement de la mise place de tout le texte dans le fichier lang partie login (7/26) - Modif (Danter14)
-- 24/05/2015 : Correction d'un bug de Gouverneur - Fix (Yolanda)
+- 24/05/2015 : Correction d'un bug de Gouverneur - Fix 
+-              => Show Time with Days (Yolanda)
 - 25/05/2015 : Correction de la partie panneaux Administration - Fix (Qwa)
+- 25/05/2015 : Prmium Bonus Time now aviable - Fix (Yolanda)
 
