@@ -141,6 +141,26 @@ function GetRestTimeFormat(Secs) {
 	return dezInt(h, 2) + ':' + dezInt(m, 2) + ":" + dezInt(s, 2);
 }
 
+function GetDayRestTimeFormat(Secs) {
+	var s = Secs;
+	var m = 0;
+	var h = 0;
+	var d = 0;
+	if (s > 59) {
+		m = Math.floor(s / 60);
+		s = s - m * 60;
+	}
+	if (m > 59) {
+		h = Math.floor(m / 60);
+		m = m - h * 60;
+	}
+	if (h > 23) {
+		d = Math.floor(h / 24);
+		h = h - d * 24;
+	}
+	return dezInt(d, 2) + ':' + dezInt(h, 2) + ':' + dezInt(m, 2) + ":" + dezInt(s, 2);
+}
+
 function OpenPopup(target_url, win_name, width, height) {
 	var new_win = window.open(target_url+'&ajax=1', win_name, 'scrollbars=yes,statusbar=no,toolbar=no,location=no,directories=no,resizable=no,menubar=no,width='+width+',height='+height+',screenX='+((screen.width-width) / 2)+",screenY="+((screen.height-height) / 2)+",top="+((screen.height-height) / 2)+",left="+((screen.width-width) / 2));
 	new_win.focus();
