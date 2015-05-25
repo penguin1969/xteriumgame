@@ -125,6 +125,12 @@ class ShowDmbuildPage extends AbstractPage
 		
 		$TheCommand		= HTTP::_GP('cmd', '');
 
+		
+		if($CONF['dmenabled'] == 0){
+			$this->printMessage("This add-on is disabled", true, array('game.php?page=overview', 2));
+			die;
+		}
+
 		// wellformed buildURLs
 		if(!empty($TheCommand) && $_SERVER['REQUEST_METHOD'] === 'POST' && $USER['urlaubs_modus'] == 0)
 		{

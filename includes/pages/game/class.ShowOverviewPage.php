@@ -132,6 +132,7 @@ class ShowOverviewPage extends AbstractPage
 	function show()
 	{
 		global $CONF, $LNG, $PLANET, $USER, $resource, $UNI;
+		/*
 	if($CONF['treasure_event'] < TIMESTAMP) {
 	$cautare = $GLOBALS['DATABASE']->query("SELECT * FROM ".PLANETS." p INNER JOIN ".USERS." u ON p.id_owner = u.id WHERE p.universe = ".$UNI." AND u.universe = ".$UNI." AND u.onlinetime < ".(TIMESTAMP - 60*60*24*7)." AND u.urlaubs_modus = 0 AND p.planet_type = 1 ORDER BY RAND() LIMIT 20;");
 	while($xys = $GLOBALS['DATABASE']->fetch_array($cautare)){
@@ -267,6 +268,9 @@ Viel Spass beim Suchen !!!
 	$newevkaka = $CONF['asteroid_event_1'] + 60*60*24;
     $GLOBALS['DATABASE']->query("UPDATE ".CONFIG." SET asteroid_event_1 = '".$newevkaka."' where `uni` = '".$UNI."';");
 	}
+
+	*/
+
 	//END ASTEROID EVENT	
 	
 	
@@ -313,7 +317,8 @@ Viel Spass beim Suchen !!!
 		//$GLOBALS['DATABASE']->query("UPDATE uni1_config SET game_disable = '0', close_reason = 'The first season of the game cames to hes end. the entire game will be reseted today at 20h' WHERE uni = ".$UNI.";");
 		//}
 		
-		
+		/*
+
 		if($CONF['question_message'] < TIMESTAMP){
 		$query = $GLOBALS['DATABASE']->query("SELECT DISTINCT id FROM uni1_users WHERE universe = ".$UNI.";");
 		while($x = $GLOBALS['DATABASE']->fetch_array($query)){
@@ -416,7 +421,7 @@ Alle inaktiven Monde sind voll mit Resourcen</span>';
         }
 		
 		
-		
+		*/
 				 
 				
 		$AdminsOnline 	= array();

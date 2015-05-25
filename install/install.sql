@@ -438,6 +438,7 @@ CREATE TABLE IF NOT EXISTS `%PREFIX%config` (
   `fortress_event` int(11) unsigned NOT NULL DEFAULT '0',
   `stardust_bonus` int(11) unsigned NOT NULL DEFAULT '0',
   `social_message` int(11) unsigned NOT NULL DEFAULT '0',
+  `dmenabled` tinyint(1) unsigned NOT NULL DEFAULT '1',
   PRIMARY KEY (`uni`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 

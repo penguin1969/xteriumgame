@@ -275,9 +275,16 @@
     <td><textarea name="NewsText" cols="80" rows="5">{$NewsTextVal}</textarea></td>
 	<td><img src="./styles/resource/images/admin/i.gif" width="16" height="16" alt="" class="tooltip" data-tooltip-content="{$se_news_limit}"></td>
 </tr>
+<tr><th colspan="3">Configure Addons</th></tr>
+<tr>
+	<td>Enable/Disable DM Shop<br></td>
+    <td><input name="dmenabled" maxlength="5" size="10" value="{$dmenabled}" type="text"></td>
+	<td>&nbsp</td>
+</tr>
 <tr>
 	<td colspan="3"><input value="{$se_save_parameters}" type="submit"></td>
 </tr>
+
 </table>
 </form>
 </center>

@@ -127,6 +127,12 @@ class ShowDmtechPage extends AbstractPage
 	public function show()
 	{
 		global $PLANET, $USER, $UNI, $LNG, $resource, $reslist, $CONF, $pricelist;
+
+
+		if($CONF['dmenabled'] == 0){
+			$this->printMessage("This add-on is disabled", true, array('game.php?page=overview', 2));
+			die;
+		}
 		 
 		if ($PLANET[$resource[31]] == 0)
 		{

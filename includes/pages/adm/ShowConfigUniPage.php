@@ -104,7 +104,8 @@ function ShowConfigUniPage()
 			'alliance_create_min_points' => $CONF['alliance_create_min_points'],
 			'asteroid_metal' => $CONF['asteroid_metal'],
 			'asteroid_crystal' => $CONF['asteroid_crystal'],
-			'asteroid_deuterium' => $CONF['asteroid_deuterium']
+			'asteroid_deuterium' => $CONF['asteroid_deuterium'],
+			'dmenabled' => $CONF['dmenabled']
 		);
 		
 		$game_disable			= isset($_POST['closed']) && $_POST['closed'] == 'on' ? 1 : 0;
@@ -172,6 +173,7 @@ function ShowConfigUniPage()
 		$asteroid_metal = HTTP::_GP('asteroid_metal', 0);
 		$asteroid_crystal = HTTP::_GP('asteroid_crystal', 0);
 		$asteroid_deuterium = HTTP::_GP('asteroid_deuterium', 0);
+		$dmenabled = HTTP::_GP('dmenabled', 1);
 			
 		$config_after = array(
 			'noobprotectiontime'	=> $noobprotectiontime,
@@ -237,7 +239,8 @@ function ShowConfigUniPage()
 			'alliance_create_min_points' => $alliance_create_min_points,
 			'asteroid_metal' => $asteroid_metal,
 			'asteroid_crystal' => $asteroid_crystal,
-			'asteroid_deuterium' => $asteroid_deuterium
+			'asteroid_deuterium' => $asteroid_deuterium,
+			'dmenabled' => $dmenabled
 		);
 		
 		Config::update($config_after, 1);
@@ -480,7 +483,8 @@ function ShowConfigUniPage()
 		'alliance_create_min_points' 	=> $CONF['alliance_create_min_points'],
 		'asteroid_metal' => $CONF['asteroid_metal'],
 		'asteroid_crystal' => $CONF['asteroid_crystal'],
-		'asteroid_deuterium' => $CONF['asteroid_deuterium']
+		'asteroid_deuterium' => $CONF['asteroid_deuterium'],
+		'dmenabled' => $CONF['dmenabled']
 	));
 	
 	$template->show('ConfigBodyUni.tpl');

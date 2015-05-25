@@ -97,6 +97,10 @@ class ShowDmhangarPage extends AbstractPage
 	public function show()
 	{
 		global $USER, $UNI, $PLANET, $LNG, $resource, $dpath, $reslist, $pricelist, $requeriments, $CONF;
+		if($CONF['dmenabled'] == 0){
+			$this->printMessage("This add-on is disabled", true, array('game.php?page=overview', 2));
+			die;
+		}
 		
 
 

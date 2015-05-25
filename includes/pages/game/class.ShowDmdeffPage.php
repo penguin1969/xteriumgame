@@ -60,7 +60,12 @@ class ShowDmdeffPage extends AbstractPage
 	}
 	
 	function show(){
-	global $USER, $PLANET, $LNG, $UNI, $CONF,$resource,$pricelist, $reslist;
+	global $USER, $PLANET, $LNG, $UNI, $CONF,$resource,$pricelist, $reslist, $CONF;
+
+		if($CONF['dmenabled'] == 0){
+			$this->printMessage("This add-on is disabled", true, array('game.php?page=overview', 2));
+			die;
+		}
 	
 		
 	$this->tplObj->loadscript("dmfleet.js");
