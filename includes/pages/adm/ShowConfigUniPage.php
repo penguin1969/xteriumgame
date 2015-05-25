@@ -102,9 +102,12 @@ function ShowConfigUniPage()
 			'silo_factor'			=> $CONF['silo_factor'],
 			'max_dm_missions'		=> $CONF['max_dm_missions'],
 			'alliance_create_min_points' => $CONF['alliance_create_min_points'],
+			'asteroid_config' => $CONF['asteroid_config'],
 			'asteroid_metal' => $CONF['asteroid_metal'],
 			'asteroid_crystal' => $CONF['asteroid_crystal'],
 			'asteroid_deuterium' => $CONF['asteroid_deuterium'],
+			'asteroid_event' => $CONF['asteroid_event'],
+			'asteroid_event_1' => $CONF['asteroid_event_1'],
 			'dmenabled' => $CONF['dmenabled']
 		);
 		
@@ -170,9 +173,12 @@ function ShowConfigUniPage()
 		$ref_max_referals		= HTTP::_GP('ref_max_referals', 0);
 		$max_dm_missions		= HTTP::_GP('max_dm_missions', 1);
 		$alliance_create_min_points = HTTP::_GP('alliance_create_min_points', 0);
+		$asteroid_config = HTTP::_GP('asteroid_config', 0);
 		$asteroid_metal = HTTP::_GP('asteroid_metal', 0);
 		$asteroid_crystal = HTTP::_GP('asteroid_crystal', 0);
 		$asteroid_deuterium = HTTP::_GP('asteroid_deuterium', 0);
+		$asteroid_event = HTTP::_GP('asteroid_event', 0);
+		$asteroid_event_1 = HTTP::_GP('asteroid_event_1', 0);
 		$dmenabled = HTTP::_GP('dmenabled', 1);
 			
 		$config_after = array(
@@ -237,9 +243,12 @@ function ShowConfigUniPage()
 			'silo_factor'			=> $silo_factor,
 			'max_dm_missions'		=> $max_dm_missions,
 			'alliance_create_min_points' => $alliance_create_min_points,
+			'asteroid_config' => $asteroid_config,
 			'asteroid_metal' => $asteroid_metal,
 			'asteroid_crystal' => $asteroid_crystal,
 			'asteroid_deuterium' => $asteroid_deuterium,
+			'asteroid_event' => $asteroid_event,
+			'asteroid_event_1' => $asteroid_event_1,
 			'dmenabled' => $dmenabled
 		);
 		
@@ -481,9 +490,14 @@ function ShowConfigUniPage()
 		'silo_factor'					=> $CONF['silo_factor'],
 		'max_dm_missions'				=> $CONF['max_dm_missions'],
 		'alliance_create_min_points' 	=> $CONF['alliance_create_min_points'],
+		'asteroid_config' => $CONF['asteroid_config'],
 		'asteroid_metal' => $CONF['asteroid_metal'],
 		'asteroid_crystal' => $CONF['asteroid_crystal'],
 		'asteroid_deuterium' => $CONF['asteroid_deuterium'],
+		'asteroid_event' => $CONF['asteroid_event'],
+		'asteroid_event_1' => $CONF['asteroid_event_1'],
+		'asteroid_event_time' => _date("Y m d D H:i:s", $CONF['asteroid_event']),
+		'asteroid_event_1_time' => _date("Y m d D H:i:s", $CONF['asteroid_event_1']),
 		'dmenabled' => $CONF['dmenabled']
 	));
 	

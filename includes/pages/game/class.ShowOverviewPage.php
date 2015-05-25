@@ -132,7 +132,7 @@ class ShowOverviewPage extends AbstractPage
 	function show()
 	{
 		global $CONF, $LNG, $PLANET, $USER, $resource, $UNI;
-		/*
+		
 	if($CONF['treasure_event'] < TIMESTAMP) {
 	$cautare = $GLOBALS['DATABASE']->query("SELECT * FROM ".PLANETS." p INNER JOIN ".USERS." u ON p.id_owner = u.id WHERE p.universe = ".$UNI." AND u.universe = ".$UNI." AND u.onlinetime < ".(TIMESTAMP - 60*60*24*7)." AND u.urlaubs_modus = 0 AND p.planet_type = 1 ORDER BY RAND() LIMIT 20;");
 	while($xys = $GLOBALS['DATABASE']->fetch_array($cautare)){
@@ -204,7 +204,7 @@ Viel Spass beim Suchen !!!
 	//END GLOBAL MESSAGES
 		
 	//BEGIN ASTEROID EVENT
-	if($CONF['asteroid_event'] < TIMESTAMP){
+	if($CONF['asteroid_event'] < TIMESTAMP && $CONF['asteroid_event'] == 1){
 	$GLOBALS['DATABASE']->query("DELETE FROM ".PLANETS." where `id_owner` = '".Asteroid_Id."' ;");
 	$galaxy = $this->randRange(1,5,5);
 	foreach($galaxy as $Element){
@@ -224,11 +224,9 @@ Viel Spass beim Suchen !!!
 	$totalPremiums = $GLOBALS['DATABASE']->query("SELECT DISTINCT `id` FROM ".USERS.";");
 	while($xy = $GLOBALS['DATABASE']->fetch_array($totalPremiums)){
 	$message = '<span class="admin">Asteroid Event started<br>
-	Every asteroid that you harvest will bring you resource. <a href="http://forum.dark-space.org/index.php?/topic/3-asteroid-event">more details</a><br><br>
-	Evenement asteroid a commencer<br>
-	Chaque asteroid que tu harvest te raportera des resource. <a href="http://forum.dark-space.org/index.php?/topic/3-asteroid-event">plus de details</a><br><br>
-	Asteroid Ereignis begann <br>
-	Jeder Asteroiden, die Sie ernten werden Sie Ressource bringen. <a href="http://forum.dark-space.org/index.php?/topic/3-asteroid-event">weitere Informationen</a>
+	Every asteroid that you harvest will bring you resource. Evenement asteroid a commencer<br>
+	Chaque asteroid que tu harvest te raportera des resource. Asteroid Ereignis begann <br>
+	Jeder Asteroiden, die Sie ernten werden Sie Ressource bringen. 
 	</span>';
     SendSimpleMessage($xy['id'], 1, TIMESTAMP, 50, "Event System", "Event Info", $message);
     }
@@ -237,7 +235,7 @@ Viel Spass beim Suchen !!!
 	}
 	//END ASTEROID EVENT	
 	//BEGIN ASTEROID EVENT
-	if($CONF['asteroid_event_1'] < TIMESTAMP){
+	if($CONF['asteroid_event_1'] < TIMESTAMP && $CONF['asteroid_event'] == 1){
 	$GLOBALS['DATABASE']->query("DELETE FROM ".PLANETS." where `id_owner` = '".Asteroid_Id."' ;");
 	$galaxy = $this->randRange(1,5,5);
 	foreach($galaxy as $Element){
@@ -269,7 +267,7 @@ Viel Spass beim Suchen !!!
     $GLOBALS['DATABASE']->query("UPDATE ".CONFIG." SET asteroid_event_1 = '".$newevkaka."' where `uni` = '".$UNI."';");
 	}
 
-	*/
+	
 
 	//END ASTEROID EVENT	
 	

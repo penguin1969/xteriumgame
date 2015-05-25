@@ -404,6 +404,7 @@ CREATE TABLE IF NOT EXISTS `%PREFIX%config` (
   `question_message` int(11) unsigned NOT NULL DEFAULT '0',
   `referal_message` int(11) NOT NULL DEFAULT '1395517079',
   `fleetconf` int(11) unsigned NOT NULL DEFAULT '0',
+  `asteroid_config` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `asteroid_metal` bigint(20) unsigned NOT NULL DEFAULT '100000',
   `asteroid_crystal` bigint(20) unsigned NOT NULL DEFAULT '500000',
   `asteroid_deuterium` bigint(20) unsigned NOT NULL DEFAULT '250000',
