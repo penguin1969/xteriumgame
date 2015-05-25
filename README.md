@@ -15,5 +15,5 @@ Le jeu fonctionne actuellement mais il est assez buguer en ce moment.
 - 24/05/2015 : Correction d'un bug de Gouverneur - Fix 
 -              => Show Time with Days (Yolanda)
 - 25/05/2015 : Correction de la partie panneaux Administration - Fix (Qwa)
-- 25/05/2015 : Prmium Bonus Time now aviable - Fix (Yolanda)
+- 25/05/2015 : Premium Bonus Time now aviable - Fix (Yolanda)
 
