@@ -147,9 +147,9 @@ class ShowRegisterPage extends AbstractPage
 		if(!PlayerUtil::isMailValid($mailAddress)) {
 			$errors[]	= t('registerErrorMailInvalid');
 		}
-		if(!PlayerUtil::valid_mail($mailAddress)) {
+		/* if(!PlayerUtil::valid_mail($mailAddress)) {
 			$errors[]	= t('registerErrorMailInvalid2');
-		}
+		} */
 			
 		if(empty($mailAddress)) {
 			$errors[]	= t('registerErrorMailEmpty');

@@ -788,7 +788,7 @@ function exceptionHandler($exception)
 <!--[if IE 9 ]>    <html lang="de" class="no-js ie9"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--> <html lang="de" class="no-js"> <!--<![endif]-->
 <head>
-	<title>'.$gameName.' - '.$errorType[$errno].'</title>
+	<title>'.$errorType[$errno].'</title>
 	<meta name="generator" content="2Moons '.$VERSION.'">
 	<!-- 
 		This website is powered by 2Moons '.$VERSION.'
@@ -797,59 +797,62 @@ function exceptionHandler($exception)
 		Information and contribution at http://2moons.cc/
 	-->
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-	<link rel="stylesheet" type="text/css" href="'.$DIR.'/styles/resource/css/base/boilerplate.css?v='.$VERSION.'">
-	<link rel="stylesheet" type="text/css" href="'.$DIR.'/styles/resource/css/ingame/main.css?v='.$VERSION.'">
-	<link rel="stylesheet" type="text/css" href="'.$DIR.'/styles/resource/css/base/jquery.css?v='.$VERSION.'">
-	<link rel="stylesheet" type="text/css" href="'.$DIR.'/styles/theme/gow/formate.css?v='.$VERSION.'">
-	<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
-	<script type="text/javascript">
-	var ServerTimezoneOffset = -3600;
-	var serverTime 	= new Date(2012, 2, 12, 14, 43, 36);
-	var startTime	= serverTime.getTime();
-	var localTime 	= serverTime;
-	var localTS 	= startTime;
-	var Gamename	= document.title;
-	var Ready		= "Fertig";
-	var Skin		= "'.$DIR.'/styles/theme/gow/";
-	var Lang		= "de";
-	var head_info	= "Information";
-	var auth		= 3;
-	var days 		= ["So","Mo","Di","Mi","Do","Fr","Sa"] 
-	var months 		= ["Jan","Feb","Mar","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"] ;
-	var tdformat	= "[M] [D] [d] [H]:[i]:[s]";
-	var queryString	= "";
-
-	setInterval(function() {
-		serverTime.setSeconds(serverTime.getSeconds()+1);
-	}, 1000);
-	</script>
-	<script type="text/javascript" src="'.$DIR.'/scripts/base/jquery.js?v=2123"></script>
-	<script type="text/javascript" src="'.$DIR.'/scripts/base/jquery.ui.js?v=2123"></script>
-	<script type="text/javascript" src="'.$DIR.'/scripts/base/jquery.cookie.js?v=2123"></script>
-	<script type="text/javascript" src="'.$DIR.'/scripts/base/jquery.fancybox.js?v=2123"></script>
-	<script type="text/javascript" src="'.$DIR.'/scripts/base/jquery.validationEngine.js?v=2123"></script>
-	<script type="text/javascript" src="'.$DIR.'/scripts/base/tooltip.js?v=2123"></script>
-	<script type="text/javascript" src="'.$DIR.'/scripts/game/base.js?v=2123"></script>
 </head>
 <body id="overview" class="full">
-<table width="960">
-	<tr>
-		<th>'.$errorType[$errno].'</th>
-	</tr>
-	<tr>
-		<td class="left">
-			<b>Message: </b>'.$exception->getMessage().'<br>
-			<b>File: </b>'.$exception->getFile().'<br>
-			<b>Line: </b>'.$exception->getLine().'<br>
+<style>
+body {
+    background:#0F0F3D;
+    color:#ffffff;
+    font-family:courier;
+    font-size:12pt;
+    text-align:center;
+    margin:100px;
+}
+
+blink {
+    color:yellow;
+}
+
+.neg {
+    background:#fff;
+    color:#0F0F3D;
+    padding:2px 8px;
+    font-weight:bold;
+}
+
+p {
+    margin:30px 100px;
+    text-align:left;
+}
+
+a,a:hover {
+    color:inherit;
+    font:inherit;
+}
+
+.menu {
+    text-align:center;
+    margin-top:50px;
+}
+</style>
+
+<span class="neg">'.$errorType[$errno].'</span>
+<p>Seems something went wrong! Copy paste this error and send via Support Ticket, so we can fix this issue.</p>
+
+		<p class="left">
+			<b>Issue: </b>'.$exception->getMessage().'<br>
+			<b>File: </b>'.$exception->getFile().' (Line '.$exception->getLine().')<br>
 			<b>URL: </b>'.PROTOCOL.HTTP_HOST.$_SERVER['REQUEST_URI'].'<br>
-			<b>PHP-Version: </b>'.PHP_VERSION.'<br>
-			<b>PHP-API: </b>'.php_sapi_name().'<br>
-			<b>MySQL-Cleint-Version: </b>'.mysqli_get_client_info().'<br>
-			<b>2Moons Version: </b>'.$VERSION.'<br>
-			<b>Debug Backtrace:</b><br>'.makebr(htmlspecialchars($exception->getTraceAsString())).'
-		</td>
-	</tr>
-</table>
+			<b>PHP: Version </b>'.PHP_VERSION.' [ '.php_sapi_name().' ]<br>
+			<b>MySQL: </b>'.mysqli_get_client_info().'<br><br>
+			<b>Debug Track:</b><br>'.makebr(htmlspecialchars($exception->getTraceAsString())).'
+		</p>
+
+		<div class="menu">
+<a href="'.$DIR.'/game.php">Return to Game</a> | 
+<a href="'.$DIR.'/game.php?page=ticket">Contact Support Ticket</a> 
+</div>
+
 </body>
 </html>';
 
