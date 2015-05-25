@@ -72,8 +72,7 @@ $price = $this->KeyUpBuy($mode,$count,$days);
 $price = $this->KeyUpBuyBis($days);
 }
 
-$days= round($days + ($days / 100 * $premiun_extra));
-		
+$Premium_Time = (TIMESTAMP + $days * 86400) + (($days * 86400) / 100 * $premiun_extra);
 
 
 if ($days < 1) {
@@ -93,7 +92,7 @@ $this->printMessage("You already have that bonus active", true, array('game.php?
 die();
 }else{
 $USER['antimatter'] -= $price;
-$GLOBALS['DATABASE']->query("Update ".USERS." SET `antimatter` = `antimatter` - ".$price.", `premium_reward_extraction` = ".$count.", `premium_reward_extraction_days` = ".(TIMESTAMP + 60*60*24*$days)." WHERE `id` = ".$USER['id'].";");
+$GLOBALS['DATABASE']->query("Update ".USERS." SET `antimatter` = `antimatter` - ".$price.", `premium_reward_extraction` = ".$count.", `premium_reward_extraction_days` = ".$Premium_Time." WHERE `id` = ".$USER['id'].";");
 $this->printMessage("Premium reward extraction (".$count."%) is succesfully activated for ".$days." days", true, array('game.php?page=premium', 2));
 die();
 }
@@ -107,7 +106,7 @@ $this->printMessage("You already have that bonus active", true, array('game.php?
 die();
 }else{
 	$USER['antimatter'] -= $price;
-$GLOBALS['DATABASE']->query("Update ".USERS." SET `antimatter` = `antimatter` - ".$price.", `premium_reward_storing` = ".$count.", `premium_reward_storing_days` = ".(TIMESTAMP + 60*60*24*$days)." WHERE `id` = ".$USER['id'].";");
+$GLOBALS['DATABASE']->query("Update ".USERS." SET `antimatter` = `antimatter` - ".$price.", `premium_reward_storing` = ".$count.", `premium_reward_storing_days` = ".$Premium_Time." WHERE `id` = ".$USER['id'].";");
 $this->printMessage("Premium reward storing (".$count."%) is succesfully activated for ".$days." days", true, array('game.php?page=premium', 2));
 die();
 }
@@ -121,7 +120,7 @@ $this->printMessage("You already have that bonus active", true, array('game.php?
 die();
 }else{
 	$USER['antimatter'] -= $price;
-$GLOBALS['DATABASE']->query("Update ".USERS." SET `antimatter` = `antimatter` - ".$price.", `premium_reward_speed` = ".$count.", `premium_reward_speed_days` = ".(TIMESTAMP + 60*60*24*$days)." WHERE `id` = ".$USER['id'].";");
+$GLOBALS['DATABASE']->query("Update ".USERS." SET `antimatter` = `antimatter` - ".$price.", `premium_reward_speed` = ".$count.", `premium_reward_speed_days` = ".$Premium_Time." WHERE `id` = ".$USER['id'].";");
 $this->printMessage("Premium speed of construction and research (".$count."%) is succesfully activated for ".$days." days", true, array('game.php?page=premium', 2));
 die();
 }
@@ -135,7 +134,7 @@ $this->printMessage("You already have that bonus active", true, array('game.php?
 die();
 }else{
 	$USER['antimatter'] -= $price;
-$GLOBALS['DATABASE']->query("Update ".USERS." SET `antimatter` = `antimatter` - ".$price.", `premium_reward_stage` = ".$count.", `premium_reward_stage_days` = ".(TIMESTAMP + 60*60*24*$days)." WHERE `id` = ".$USER['id'].";");
+$GLOBALS['DATABASE']->query("Update ".USERS." SET `antimatter` = `antimatter` - ".$price.", `premium_reward_stage` = ".$count.", `premium_reward_stage_days` = ".$Premium_Time." WHERE `id` = ".$USER['id'].";");
 $this->printMessage("Premium phase of construction and research (".$count."%) is succesfully activated for ".$days." days", true, array('game.php?page=premium', 2));
 die();
 }
@@ -149,7 +148,7 @@ $this->printMessage("You already have that bonus active", true, array('game.php?
 die();
 }else{
 	$USER['antimatter'] -= $price;
-$GLOBALS['DATABASE']->query("Update ".USERS." SET `antimatter` = `antimatter` - ".$price.", `premium_reward_bonus` = ".$count.", `premium_reward_bonus_days` = ".(TIMESTAMP + 60*60*24*$days)." WHERE `id` = ".$USER['id'].";");
+$GLOBALS['DATABASE']->query("Update ".USERS." SET `antimatter` = `antimatter` - ".$price.", `premium_reward_bonus` = ".$count.", `premium_reward_bonus_days` = ".$Premium_Time." WHERE `id` = ".$USER['id'].";");
 $this->printMessage("Premium bonus button size (".$count."%) is succesfully activated for ".$days." days", true, array('game.php?page=premium', 2));
 die();
 }
@@ -163,7 +162,7 @@ $this->printMessage("You already have that bonus active", true, array('game.php?
 die();
 }else{
 	$USER['antimatter'] -= $price;
-$GLOBALS['DATABASE']->query("Update ".USERS." SET `antimatter` = `antimatter` - ".$price.", `prem_speed_button` = ".$count.", `prem_speed_button_days` = ".(TIMESTAMP + 60*60*24*$days)." WHERE `id` = ".$USER['id'].";");
+$GLOBALS['DATABASE']->query("Update ".USERS." SET `antimatter` = `antimatter` - ".$price.", `prem_speed_button` = ".$count.", `prem_speed_button_days` = ".$Premium_Time." WHERE `id` = ".$USER['id'].";");
 $this->printMessage("Premium bonus button emergence (".$count."%) is succesfully activated for ".$days." days", true, array('game.php?page=premium', 2));
 die();
 }
@@ -177,7 +176,7 @@ $this->printMessage("You already have that bonus active", true, array('game.php?
 die();
 }else{
 	$USER['antimatter'] -= $price;
-$GLOBALS['DATABASE']->query("Update ".USERS." SET `antimatter` = `antimatter` - ".$price.", `prem_expedition` = ".$count.", `prem_expedition_days` = ".(TIMESTAMP + 60*60*24*$days)." WHERE `id` = ".$USER['id'].";");
+$GLOBALS['DATABASE']->query("Update ".USERS." SET `antimatter` = `antimatter` - ".$price.", `prem_expedition` = ".$count.", `prem_expedition_days` = ".$Premium_Time." WHERE `id` = ".$USER['id'].";");
 $this->printMessage("Premium expedition bonus (".$count."%) is succesfully activated for ".$days." days", true, array('game.php?page=premium', 2));
 die();
 }
@@ -191,7 +190,7 @@ $this->printMessage("You already have that bonus active", true, array('game.php?
 die();
 }else{
 	$USER['antimatter'] -= $price;
-$GLOBALS['DATABASE']->query("Update ".USERS." SET `antimatter` = `antimatter` - ".$price.", `premium_reward_expedition` = ".$count.", `premium_reward_expedition_days` = ".(TIMESTAMP + 60*60*24*$days)." WHERE `id` = ".$USER['id'].";");
+$GLOBALS['DATABASE']->query("Update ".USERS." SET `antimatter` = `antimatter` - ".$price.", `premium_reward_expedition` = ".$count.", `premium_reward_expedition_days` = ".$Premium_Time." WHERE `id` = ".$USER['id'].";");
 $this->printMessage("Premium expedition count (".$count."%) is succesfully activated for ".$days." days", true, array('game.php?page=premium', 2));
 die();
 }
@@ -205,7 +204,7 @@ $this->printMessage("You already have that bonus active", true, array('game.php?
 die();
 }else{
 	$USER['antimatter'] -= $price;
-$GLOBALS['DATABASE']->query("Update ".USERS." SET `antimatter` = `antimatter` - ".$price.", `prem_speed_expiditeon` = ".$count.", `prem_speed_expiditeon_days` = ".(TIMESTAMP + 60*60*24*$days)." WHERE `id` = ".$USER['id'].";");
+$GLOBALS['DATABASE']->query("Update ".USERS." SET `antimatter` = `antimatter` - ".$price.", `prem_speed_expiditeon` = ".$count.", `prem_speed_expiditeon_days` = ".$Premium_Time." WHERE `id` = ".$USER['id'].";");
 $this->printMessage("Premium expedition speed (".$count."%) is succesfully activated for ".$days." days", true, array('game.php?page=premium', 2));
 die();
 }
@@ -219,7 +218,7 @@ $this->printMessage("You already have that bonus active", true, array('game.php?
 die();
 }else{
 	$USER['antimatter'] -= $price;
-$GLOBALS['DATABASE']->query("Update ".USERS." SET `antimatter` = `antimatter` - ".$price.", `premium_reward_experience` = ".$count.", `premium_reward_experience_days` = ".(TIMESTAMP + 60*60*24*$days)." WHERE `id` = ".$USER['id'].";");
+$GLOBALS['DATABASE']->query("Update ".USERS." SET `antimatter` = `antimatter` - ".$price.", `premium_reward_experience` = ".$count.", `premium_reward_experience_days` = ".$Premium_Time." WHERE `id` = ".$USER['id'].";");
 $this->printMessage("Premium peacefull experience (".$count."%) is succesfully activated for ".$days." days", true, array('game.php?page=premium', 2));
 die();
 }
@@ -233,7 +232,7 @@ $this->printMessage("You already have that bonus active", true, array('game.php?
 die();
 }else{
 	$USER['antimatter'] -= $price;
-$GLOBALS['DATABASE']->query("Update ".USERS." SET `antimatter` = `antimatter` - ".$price.", `prem_batle_leveling` = ".$count.", `prem_batle_leveling_days` = ".(TIMESTAMP + 60*60*24*$days)." WHERE `id` = ".$USER['id'].";");
+$GLOBALS['DATABASE']->query("Update ".USERS." SET `antimatter` = `antimatter` - ".$price.", `prem_batle_leveling` = ".$count.", `prem_batle_leveling_days` = ".$Premium_Time." WHERE `id` = ".$USER['id'].";");
 $this->printMessage("Premium combat experience (".$count."%) is succesfully activated for ".$days." days", true, array('game.php?page=premium', 2));
 die();
 }
@@ -247,7 +246,7 @@ $this->printMessage("You already have that bonus active", true, array('game.php?
 die();
 }else{
 	$USER['antimatter'] -= $price;
-$GLOBALS['DATABASE']->query("Update ".USERS." SET `antimatter` = `antimatter` - ".$price.", `premium_reward_bank` = ".$count.", `premium_reward_bank_days` = ".(TIMESTAMP + 60*60*24*$days)." WHERE `id` = ".$USER['id'].";");
+$GLOBALS['DATABASE']->query("Update ".USERS." SET `antimatter` = `antimatter` - ".$price.", `premium_reward_bank` = ".$count.", `premium_reward_bank_days` = ".$Premium_Time." WHERE `id` = ".$USER['id'].";");
 $this->printMessage("Premium alliance bank (".$count."%) is succesfully activated for ".$days." days", true, array('game.php?page=premium', 2));
 die();
 }
@@ -261,7 +260,7 @@ $this->printMessage("You already have that bonus active", true, array('game.php?
 die();
 }else{
 	$USER['antimatter'] -= $price;
-$GLOBALS['DATABASE']->query("Update ".USERS." SET `antimatter` = `antimatter` - ".$price.", `prem_prod_from_colly` = ".$count.", `prem_prod_from_colly_days` = ".(TIMESTAMP + 60*60*24*$days)." WHERE `id` = ".$USER['id'].";");
+$GLOBALS['DATABASE']->query("Update ".USERS." SET `antimatter` = `antimatter` - ".$price.", `prem_prod_from_colly` = ".$count.", `prem_prod_from_colly_days` = ".$Premium_Time." WHERE `id` = ".$USER['id'].";");
 $this->printMessage("Premium collider production (".$count."%) is succesfully activated for ".$days." days", true, array('game.php?page=premium', 2));
 die();
 }
@@ -275,7 +274,7 @@ $this->printMessage("You already have that bonus active", true, array('game.php?
 die();
 }else{
 	$USER['antimatter'] -= $price;
-$GLOBALS['DATABASE']->query("Update ".USERS." SET `antimatter` = `antimatter` - ".$price.", `prem_moon_creat` = ".$count.", `prem_moon_creat_days` = ".(TIMESTAMP + 60*60*24*$days)." WHERE `id` = ".$USER['id'].";");
+$GLOBALS['DATABASE']->query("Update ".USERS." SET `antimatter` = `antimatter` - ".$price.", `prem_moon_creat` = ".$count.", `prem_moon_creat_days` = ".$Premium_Time." WHERE `id` = ".$USER['id'].";");
 $this->printMessage("Premium moon creation (".$count."%) is succesfully activated for ".$days." days", true, array('game.php?page=premium', 2));
 die();
 }
@@ -289,7 +288,7 @@ $this->printMessage("You already have that bonus active", true, array('game.php?
 die();
 }else{
 	$USER['antimatter'] -= $price;
-$GLOBALS['DATABASE']->query("Update ".USERS." SET `antimatter` = `antimatter` - ".$price.", `prem_fuel_consumption` = ".$count.", `prem_fuel_consumption_days` = ".(TIMESTAMP + 60*60*24*$days)." WHERE `id` = ".$USER['id'].";");
+$GLOBALS['DATABASE']->query("Update ".USERS." SET `antimatter` = `antimatter` - ".$price.", `prem_fuel_consumption` = ".$count.", `prem_fuel_consumption_days` = ".$Premium_Time." WHERE `id` = ".$USER['id'].";");
 $this->printMessage("Premium deuterium comsumption (".$count."%) is succesfully activated for ".$days." days", true, array('game.php?page=premium', 2));
 die();
 }
@@ -304,7 +303,7 @@ $this->printMessage("You already have that bonus active", true, array('game.php?
 die();
 }else{
 	$USER['antimatter'] -= $price;
-$GLOBALS['DATABASE']->query("Update ".USERS." SET `antimatter` = `antimatter` - ".$price.", `prem_advanced_battlesim_days` = ".(TIMESTAMP + 60*60*24*$days)." WHERE `id` = ".$USER['id'].";");
+$GLOBALS['DATABASE']->query("Update ".USERS." SET `antimatter` = `antimatter` - ".$price.", `prem_advanced_battlesim_days` = ".$Premium_Time." WHERE `id` = ".$USER['id'].";");
 $this->printMessage("Advanced battle Simulator is succesfully activated for ".$days." days", true, array('game.php?page=premium', 2));
 die();
 }
