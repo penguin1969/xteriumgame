@@ -1,7 +1,5 @@
 {include file="overall_header.tpl"}
-{include file="head_nav.tpl"}
-
-<form action="" method="POST" name="users">
+{include file="head_nav.tpl"}<form action="" method="POST" name="users">
 <table width="50%">
 <th colspan="3">{$ac_enter_user_id}</th>
 <tr>

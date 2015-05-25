@@ -7,25 +7,9 @@
 <!--[if (gt IE 9)|!(IE)]><!--> <html lang="{$lang}" class="no-js"> <!--<![endif]-->
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title>Dashboard | BlueWhale Admin</title>
-    <link rel="stylesheet" type="text/css" href="admin/css/reset.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="admin/css/text.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="admin/css/grid.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="admin/css/layout.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="admin/css/nav.css" media="screen" />
-    <!--[if IE 6]><link rel="stylesheet" type="text/css" href="admin/css/ie6.css" media="screen" /><![endif]-->
-    <!--[if IE 7]><link rel="stylesheet" type="text/css" href="admin/css/ie.css" media="screen" /><![endif]-->
+    <title>Admin Panel</title>
 	 
     <!-- BEGIN: load jquery -->
-    <script src="admin/js/jquery-1.6.4.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="admin/js/jquery-ui/jquery.ui.core.min.js"></script>
-    <script src="admin/js/jquery-ui/jquery.ui.widget.min.js" type="text/javascript"></script>
-    <script src="admin/js/jquery-ui/jquery.ui.accordion.min.js" type="text/javascript"></script>
-    <script src="admin/js/jquery-ui/jquery.effects.core.min.js" type="text/javascript"></script>
-    <script src="admin/js/jquery-ui/jquery.effects.slide.min.js" type="text/javascript"></script>
-    <!-- END: load jquery -->
-    <!-- BEGIN: load jqplot -->
-    <link rel="stylesheet" type="text/css" href="admin/css/jquery.jqplot.min.css" />
 	
 	<script type="text/javascript">
 	var ServerTimezoneOffset = {$Offset};
@@ -50,14 +34,17 @@
 	</script> 
 	
 	
-    <!--[if lt IE 9]><script language="javascript" type="text/javascript" src="admin/js/jqPlot/excanvas.min.js"></script><![endif]-->
-    <script language="javascript" type="text/javascript" src="admin/js/jqPlot/jquery.jqplot.min.js"></script>
-    <script language="javascript" type="text/javascript" src="admin/js/jqPlot/plugins/jqplot.barRenderer.min.js"></script>
-    <script language="javascript" type="text/javascript" src="admin/js/jqPlot/plugins/jqplot.pieRenderer.min.js"></script>
-    <script language="javascript" type="text/javascript" src="admin/js/jqPlot/plugins/jqplot.categoryAxisRenderer.min.js"></script>
-    <script language="javascript" type="text/javascript" src="admin/js/jqPlot/plugins/jqplot.highlighter.min.js"></script>
-    <script language="javascript" type="text/javascript" src="admin/js/jqPlot/plugins/jqplot.pointLabels.min.js"></script>
-		<script type="text/javascript" src="./scripts/base/jquery.js?v={$REV}"></script>
+	<link rel="stylesheet" type="text/css" href="./styles/css/boilerplate.css">
+	<link rel="stylesheet" type="text/css" href="./styles/css/jquery.css">
+  	<link rel="stylesheet" type="text/css" href="./styles/css/jquery.fancybox.css">
+	<link rel="stylesheet" type="text/css" href="./styles/theme/gow/formate.css">
+    <link rel="stylesheet" type="text/css" href="./styles/css/ingame.css">
+    <link rel="stylesheet" type="text/css" href="./styles/css/style.css">
+	<link rel="stylesheet" type="text/css" href="./styles/css/chat.css">
+	<link rel="stylesheet" type="text/css" href="./styles/css/responsive.css">
+
+	
+	<script type="text/javascript" src="./scripts/base/jquery.js?v={$REV}"></script>
 	<script type="text/javascript" src="./scripts/base/jquery.ui.js?v={$REV}"></script>
 	<script type="text/javascript" src="./scripts/base/jquery.cookie.js?v={$REV}"></script>
 	<script type="text/javascript" src="./scripts/base/jquery.fancybox.js?v={$REV}"></script>
@@ -73,19 +60,7 @@
 		{$execscript}
 	});
 	</script>
-	
-    <!-- END: load jqplot -->
-    <script src="admin/js/setup.js" type="text/javascript"></script>
-    <script type="text/javascript">
 
-        $(document).ready(function () {
-            setupDashboardChart('chart1');
-            setupLeftMenu();
-			setSidebarHeight();
-
-
-        });
-    </script>
 </head>
 <body id="{$smarty.get.page|htmlspecialchars|default:'overview'}" class="{$bodyclass}">
 	<div id="tooltip" class="tip"></div>

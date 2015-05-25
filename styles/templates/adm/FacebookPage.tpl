@@ -1,5 +1,5 @@
 {include file="overall_header.tpl"}
-<center>
+{include file="head_nav.tpl"}<center>
 <form action="" method="post">
 <table width="519" cellpadding="2" cellspacing="2">
 <tr>

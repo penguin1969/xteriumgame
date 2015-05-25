@@ -1,5 +1,5 @@
 {include file="overall_header.tpl"}
-<form action="" method="POST">
+{include file="head_nav.tpl"}<form action="" method="POST">
 <table width="800">
 <tr>
 <th>{$up_version}</th>

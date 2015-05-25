@@ -1,5 +1,5 @@
 {include file="overall_header.tpl"}
-<table>
+{include file="head_nav.tpl"}<table>
 	<tr>
 		<th colspan="4">{$LNG.vt_fail}</th>
 	</tr>

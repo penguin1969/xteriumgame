@@ -1,4 +1,5 @@
 {include file="overall_header.tpl"}
+{include file="head_nav.tpl"}
 {foreach item=Mod from=$MVC}
 <table width="60%">
     <tr>

@@ -1,5 +1,5 @@
 {include file="overall_header.tpl"}
-<form action="" method="post">
+{include file="head_nav.tpl"}<form action="" method="post">
 <table width="50%">
 <tr>
 <td colspan="3" align="left"><a href="?page=accounteditor">
@@ -24,11 +24,9 @@
 	<td>{$LNG.input_id_user}</td>
 	<td><input name="id_dark" type="text" value="0" size="3"></td>
 </tr><tr>
-	<td>{$LNG.tech.922}</td>
+	<td>{$LNG.tech.921}</td>
 	<td><input name="dark" type="text" value="0"></td>
-</tr>
-
-<tr>
+</tr><tr>
 	<td colspan="2">
 	<input type="reset" value="{$LNG.button_reset}"><br><br>
 	<input type="Submit" value="{$LNG.button_add}" name="add">&nbsp;

@@ -1,4 +1,5 @@
 {include file="overall_header.tpl"}
+{include file="head_nav.tpl"}
 {nocache}{if isset($mode)}
 <form method="POST" action="?page=news&amp;action=send&amp;mode={$mode}">
 {if $news_id}<input name="id" type="hidden" value="{$news_id}">{/if}

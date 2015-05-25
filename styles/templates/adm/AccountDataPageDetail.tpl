@@ -1,5 +1,5 @@
 {include file="overall_header.tpl"}
-<style type="text/css">
+{include file="head_nav.tpl"}<style type="text/css">
 a.link{
 font-size:14px;font-variant:small-caps;margin-left:120px;
 }

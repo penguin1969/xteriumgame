@@ -1,5 +1,5 @@
 {include file="overall_header.tpl"}
-<form method="post">
+{include file="head_nav.tpl"}<form method="post">
 <input type="hidden" name="action" value="send">
 <!-- Zielplaneten definieren -->
 <table width="760px" style="color:#FFFFFF"><tr>

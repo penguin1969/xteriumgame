@@ -1,5 +1,5 @@
 {include file="overall_header.tpl"}
-<form action="" method="post">
+{include file="head_nav.tpl"}<form action="" method="post">
 <table width="55%">
 <tr>
 <td colspan="3" align="left"><a href="?page=accounteditor">

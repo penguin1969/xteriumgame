@@ -1,6 +1,7 @@
 
 <form action="" method="post" name="users">
 {include file="overall_header.tpl"}
+{include file="head_nav.tpl"}
 <table width="55%">
 <tr>
 	<th colspan="7">{$ad_authlevel_title}</th>

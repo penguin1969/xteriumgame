@@ -1,5 +1,5 @@
 {include file="overall_header.tpl"}
-{nocache}{if isset($name)}
+{include file="head_nav.tpl"}{nocache}{if isset($name)}
 <form action="" method="post" name="countt">
 <table width="50%">
 <tr>

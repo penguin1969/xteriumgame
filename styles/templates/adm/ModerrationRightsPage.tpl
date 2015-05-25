@@ -1,5 +1,5 @@
 {include file="overall_header.tpl"}
-<form action="" method="post" name="users">
+{include file="head_nav.tpl"}<form action="" method="post" name="users">
 <table width="55%">
 <tr>
 	<th colspan="7">{$ad_authlevel_title}</th>

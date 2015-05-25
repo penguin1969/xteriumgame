@@ -1,43 +1,23 @@
 {include file="overall_header.tpl"}
-{include file="head_nav.tpl"}
-<div class="grid_10">
-            <div class="box round first grid">
-                <h2>
-                    Cron Jobs</h2>
-                <div class="block">
-                    
-                    
-                    
-                    <table class="data display datatable" id="example">
-					<thead>
-						<tr>
-					
-	<td><b>{$LNG.cronjob_id}</b></td>
-	<td><b>{$LNG.cronjob_name}</b></td>
-	<td><b>{$LNG.cronjob_min}</b></td>
-	<td><b>{$LNG.cronjob_hours}</b></td>
-	<td><b>{$LNG.cronjob_dom}</b></td>
-	<td><b>{$LNG.cronjob_montd}</b></td>
-	<td><b>{$LNG.cronjob_dow}</b></td>
-	<td><b>{$LNG.cronjob_class}</b></td>
-	<td><b>{$LNG.cronjob_nextTime}</b></td>
-	<td><b>{$LNG.cronjob_inActive}</b></td>
-	<td><b>{$LNG.cronjob_lock}</b></td>
-	<td><b>{$LNG.cronjob_edit}</b></td>
-	<td><b>{$LNG.cronjob_delete}</b></td>
-						</tr>
-					</thead>
-					
-					
-					<thead>
-					
-	
-
+{include file="head_nav.tpl"}<table width="80%">
+<tr>
+	<th>{$LNG.cronjob_id}</th>
+	<th>{$LNG.cronjob_name}</th>
+	<th>{$LNG.cronjob_min}</th>
+	<th>{$LNG.cronjob_hours}</th>
+	<th>{$LNG.cronjob_dom}</th>
+	<th>{$LNG.cronjob_month}</th>
+	<th>{$LNG.cronjob_dow}</th>
+	<th>{$LNG.cronjob_class}</th>
+	<th>{$LNG.cronjob_nextTime}</th>
+	<th>{$LNG.cronjob_inActive}</th>
+	<th>{$LNG.cronjob_lock}</th>
+	<th>{$LNG.cronjob_edit}</th>
+	<th>{$LNG.cronjob_delete}</th>
+</tr>
 {foreach item=CronjobInfo from=$CronjobArray}
-						<tr class="odd gradeX">
-						
-					
-							<td>{$CronjobInfo.id}</td>
+<tr>
+	<td>{$CronjobInfo.id}</td>
 	<td>{if isset($LNG.cronName[$CronjobInfo.name])}{$LNG.cronName[$CronjobInfo.name]}{else}{$CronjobInfo.name}{/if}</td>
 	<td>{$CronjobInfo.min}</td>
 	<td>{$CronjobInfo.hours}</td>
@@ -49,24 +29,12 @@
 	<td><a href="admin.php?page=cronjob&amp;id={$CronjobInfo.id}&amp;active={if $CronjobInfo.isActive}0" style="color:lime">{$LNG.cronjob_inactive}{else}1" style="color:red">{$LNG.cronjob_active}{/if}</a></td>
 	<td><a href="admin.php?page=cronjob&amp;id={$CronjobInfo.id}&amp;lock={if $CronjobInfo.lock}0" style="color:red">{$LNG.cronjob_is_lock}{else}1" style="color:lime">{$LNG.cronjob_is_unlock}{/if}</a></td>
 	<td><a href="admin.php?page=cronjob&detail={$CronjobInfo.id}"><img src="./styles/resource/images/admin/GO.png"></a></td>
-	<td><a href=""><img src="./styles/resource/images/false.png" width="16" height="16"></a></td></tr>
-
-				{/foreach}
-
-				<tr>
-<td colspan="13"><center><br><a href="admin.php?page=cronjob&detail=add">{$LNG.cronjob_new}</a></td>
+	<td><a href=""><img src="./styles/resource/images/false.png" width="16" height="16"></a></td>
 </tr>
-						
-		
-					</thead> 
-				</table>
-                    
-                    
-                    
-                </div>
-            </div>
-        </div>
-        <div class="clear">
-        </div>
-
+{/foreach}
+<tr>
+<td colspan="13"><a href="admin.php?page=cronjob&detail=add">{$LNG.cronjob_new}</a></td>
+</tr>
+</table>
+</body>
 {include file="overall_footer.tpl"}

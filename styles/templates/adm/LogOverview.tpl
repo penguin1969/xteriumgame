@@ -1,54 +1,16 @@
 {include file="overall_header.tpl"}
-{include file="head_nav.tpl"}
-
-
-<div class="grid_10">
-            <div class="box round first grid" >
-                <h2>
-                   {$LNG.log_cat}</h2>
-              <div class="block">
-                    
-                    
-                    
-                    <table class="data display datatable" id="example">
-		
-					
-					
-					<thead>
-					
-	
-
+{include file="head_nav.tpl"}<table class="table569">
 <tr>
-	<td><center><a href="?page=log&amp;type=planet"><img src="styles/images/wp.png" width="60px" height="60px" /></a></center></td>
-	<td><center><a href="?page=log&amp;type=player"><img src="styles/images/Edit-male-user.png" width="60px" height="60px" /></a></center></td>
-	<td><center><a href="?page=log&amp;type=settings"><img src="styles/images/home-security-systems-installation-costs.png" width="60px" height="60px" /></a></center></td>
-	<td><center><a href="?page=log&amp;type=present"><img src="styles/images/Tf_gift.png" width="60px" height="60px" /></a></center></td>
-
+	<th colspan="2">{$LNG.log_cat}</th>
 </tr>
 <tr>
-	<td><center><a href="?page=log&amp;type=planet">Edited Planets</a></center></td>
-	<td><center><a href="?page=log&amp;type=player">Edited Players</a></center></td>
-	<td><center><a href="?page=log&amp;type=settings">Edited Settings</a></center></td>
-	<td><center><a href="?page=log&amp;type=present">Given Away</a></center></td>
-
+	<td width="50%"><a href="?page=log&amp;type=planet">{$LNG.log_planet}</a></td>
+	<td width="50%"><a href="?page=log&amp;type=player">{$LNG.log_player}</a></td>
 </tr>
-
-						
-				
-						
-		
-					</thead> 
-					
- </table>
-                    
-                    
-                    
-                </div>
-            </div>
-        </div>
-        <div class="clear">
-        </div>
-
-
-
+<tr>
+	<td><a href="?page=log&amp;type=settings">{$LNG.log_settings}</a></td>
+	<td><a href="?page=log&amp;type=present">{$LNG.log_present}</a></td>
+</tr>
+</table>
+</body>
 {include file="overall_footer.tpl"}

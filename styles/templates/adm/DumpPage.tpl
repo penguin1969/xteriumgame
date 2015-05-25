@@ -1,5 +1,5 @@
 {include file="overall_header.tpl"}
-<form action="admin.php?page=dump" method="post">
+{include file="head_nav.tpl"}<form action="admin.php?page=dump" method="post">
 <input type="hidden" name="action" value="dump">
 <table class="table569">
 	<tr>

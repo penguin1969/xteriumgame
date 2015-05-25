@@ -1,4 +1,6 @@
 {include file="overall_header.tpl"}
+{include file="head_nav.tpl"}
+
 <table width="760px">
 	<tr>
 		<th>{$LNG.uvs_id}</th>

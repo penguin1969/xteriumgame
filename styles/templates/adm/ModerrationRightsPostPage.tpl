@@ -2,6 +2,7 @@
 <input name="action" type="hidden" value="send">
 <input name="id_1" type="hidden" value="{$id}">
 {include file="overall_header.tpl"}
+{include file="head_nav.tpl"}
 <table width="55%">
 <tr>
 	<th colspan="2">{$ad_authlevel_title}</th>

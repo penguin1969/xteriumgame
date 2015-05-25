@@ -1,6 +1,5 @@
 {include file="overall_header.tpl"}
 {include file="head_nav.tpl"}
-
 <script type="text/javascript">
 
 function check(){
@@ -17,64 +16,30 @@ function check(){
 	}
 }
 </script>
-
-
-<div class="grid_10">
-            <div class="box round first grid" >
-                <h2>
-                   Global Message</h2>
-              <div class="block">
-                    
-                    
-                    
-                    <table class="data display datatable" id="example">
-		
-					
-					
-					<thead>
-					
-	
-
 <form name="message" id="message" action="admin.php?page=globalmessage&action=send&ajax=1">
-<table style="width:95%">
-	
-	<tr>
-		<td>{$LNG.ma_mode}</td>
-		<td>
-		{html_options name=mode options=$modes}
-		</td>
-	</tr><tr>
-	<td>{$LNG.mg_subject}</td>
-	<td><input type="text" name="subject" id="subject" size="40" maxlength="40" value="{$LNG.ma_none}"></td>
-	</tr>
-	<tr>
-		<td>{$LNG.ma_message} (<span id="cntChars">0</span> / 5000 {$LNG.al_characters})</td>
-		<td>
-			<textarea name="text" id="text" cols="40" rows="10" onkeyup="$('#cntChars').text($('#text').val().length);"></textarea>
-		</td>
-	</tr>
-	<tr>
-		<th colspan="2" style="text-align:center;">
-		<input type="reset" value="{$LNG.al_circular_reset}">
-		<input type="button" onClick="check();" value="{$LNG.button_submit}">
-		</th>
-	</tr>
-	</table>
-	
-				
-						
-		
-					</thead> 
-					
- </table>
-                    
-                    
-                    
-                </div>
-            </div>
-        </div>
-        <div class="clear">
-        </div>
-		
-
+<table class="table569">
+		<tr>
+            <th colspan="2">{$LNG.ma_send_global_message}</th>
+        </tr>
+        <tr>
+            <td>{$LNG.ma_mode}</td>
+            <td>{html_options name=mode options=$modes}</td>
+		</tr>
+        <tr>
+            <td>{$LNG.se_lang}</td>
+            <td>{html_options name=lang options=$langSelector}</td>
+        </tr>
+        <tr>
+            <td>{$LNG.ma_subject}</td>
+            <td><input name="subject" id="subject" size="40" maxlength="40" value="{$LNG.ma_none}" type="text"></td>
+        </tr>
+		<tr>
+            <td>{$LNG.ma_message} (<span id="cntChars">0</span> / 5000 {$LNG.ma_characters})</td>
+            <td><textarea name="text" id="text" cols="40" rows="10" onkeyup="$('#cntChars').text($('#text').val().length);"></textarea></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="button" onclick="check();" value="{$LNG.button_submit}"></td>
+        </tr>
+    </table>
+</form>
 {include file="overall_footer.tpl"}

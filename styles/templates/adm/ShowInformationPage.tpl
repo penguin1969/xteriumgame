@@ -1,8 +1,9 @@
 {include file="overall_header.tpl"}
+{include file="head_nav.tpl"}
 
 <table width="60%">
     <tr>
-		<td>{$info_information}</td>
+		<td></td>
     </tr>
     <tr>
 		<td>

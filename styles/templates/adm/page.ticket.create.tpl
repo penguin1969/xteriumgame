@@ -1,4 +1,5 @@
 {include file="overall_header.tpl"}
+{include file="head_nav.tpl"}
 <form action="admin.php?page=support&amp;mode=send" method="post" id="form">
 <input type="hidden" name="id" value="0">
 <table>

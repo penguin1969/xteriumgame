@@ -1,5 +1,5 @@
 {include file="overall_header.tpl"}
-<form action="" method="post">
+{include file="head_nav.tpl"}<form action="" method="post">
 <table width="45%">
 <tr><th colspan="2">{$new_title}</th></tr>
 <tr><td>{$user_reg}</td><td><input type="text" name="name"></td></tr>

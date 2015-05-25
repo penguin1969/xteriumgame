@@ -1,5 +1,5 @@
 {include file="overall_header.tpl"}
-<script type='text/javascript'>
+{include file="head_nav.tpl"}<script type='text/javascript'>
 function change2(){
 	$("#lang_udp").text("{$ts_udpport}:");
 	document.getElementsByName("ts_v")[0].checked = true;

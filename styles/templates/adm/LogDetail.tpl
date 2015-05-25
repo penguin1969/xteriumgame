@@ -1,7 +1,5 @@
 {include file="overall_header.tpl"}
-{include file="head_nav.tpl"}
-
-<table width=512>
+{include file="head_nav.tpl"}<table width=512>
 	<tr>
 		<th colspan=2>{$log_info}</th>
 	</tr>

@@ -1,112 +1,65 @@
 
 
-<div class="container_12">
-        <div class="grid_12 header-repeat">
-            <div id="branding">
-                <div class="floatleft">
-                    <img src="admin/img/logo.png" alt="Logo" /></div>
-                <div class="floatright">
-                    <div class="floatleft">
-                        <img src="admin/img/img-profile.jpg" alt="Profile Pic" /></div>
-                    <div class="floatleft marginleft10">
-                        <ul class="inline-ul floatleft">
-                            <li>Hello Admin</li>
-												<select id="universe">
-{html_options options=$AvailableUnis selected=$UNI}
-</select>
-                          
-                            <li><a href="javascript:top.location.href='game.php';" target="_top" class="out">
-Logout</a></li>
-                        </ul>
-                        <br />
-                        <span class="small grey">Last Login: 3 hours ago</span>
-                    </div>
-                </div>
-                <div class="clear">
-                </div>
-            </div>
-        </div>
-        <div class="clear">
-        </div>
-        <div class="grid_12">
-            <ul class="nav main">
-                <li class="ic-dashboard"><a href="admin.php?page=overview"><span>Dashboard</span></a> </li>
 
-				 <li class="ic-tools"><a href="admin.php?page=multiips"><span>Multi Ips</span></a></li>
+	<div id="left_side">        
+    <div id="left_menu">
                
-					
-					 <li class="ic-tools"><a href="admin.php?page=news"><span>News</span></a></li>
-					
-					<li class="ic-tools"><a href="?page=universe&amp;sid={$sid}"><span>Universe</span></a></li>
-					 <li class="ic-tools"><a href="?page=rights&amp;mode=rights&amp;sid={$sid}"><span>Rights</span></a></li>
-					 <li class="ic-tools"><a href="?page=rights&amp;mode=users&amp;sid={$sid}"><span>Permissions</span></a></li>
-					 <li class="ic-tools"><a href="?page=reset&amp;sid={$sid}"><span>Reset</span></a></li>
-					 <li class="ic-tools"><a href="?page=active"><span>Activate Users</span></a></li>
-					 
+        <div class="separator"></div>
+
+        
+        
+        <a class="btn_menu" href="admin.php?page=overview" >&nbsp;Overview</a>
+        <a class="btn_menu" href="game.php" >Go to game</a>
+	        <div class="separator"></div>	
+		{if allowedTo('ShowInformationPage')}<a href="?page=infos" class="btn_menu" >{$LNG.mu_game_info}</a>{/if}
+		{if allowedTo('ShowConfigBasicPage')}<a href="?page=config" class="btn_menu" >{$LNG.mu_settings}</a>{/if}
+		{if allowedTo('ShowConfigUniPage')}<a href="?page=configuni" class="btn_menu" >{$LNG.mu_unisettings}</a>{/if}
+		{if allowedTo('ShowChatConfigPage')}<a href="?page=chat" class="btn_menu" >{$LNG.mu_chat}</a>{/if}
+		{if allowedTo('ShowTeamspeakPage')}<a href="?page=teamspeak" class="btn_menu" >{$LNG.mu_ts_options}</a>{/if}
+		{if allowedTo('ShowFacebookPage')}<a href="?page=facebook" class="btn_menu" >{$LNG.mu_fb_options}</a>{/if}
+		{if allowedTo('ShowModulePage')}<a href="?page=module" class="btn_menu" >{$LNG.mu_module}</a>{/if}
+		{if allowedTo('ShowDisclamerPage')}<a href="?page=disclamer" class="btn_menu" >{$LNG.mu_disclaimer}</a>{/if}
+		{if allowedTo('ShowStatsPage')}<a href="?page=statsconf" class="btn_menu" >{$LNG.mu_stats_options}</a>{/if}
+		{if allowedTo('ShowVertifyPage')}<a href="?page=vertify" class="btn_menu" >{$LNG.mu_vertify}</a>{/if}
+		{if allowedTo('ShowCronjobPage')}<a href="?page=cronjob" class="btn_menu" >{$LNG.mu_cronjob}</a>{/if}
+		{if allowedTo('ShowDumpPage')}<a href="?page=dump" class="btn_menu" >{$LNG.mu_dump}</a>{/if}
+        <div class="separator"></div>		
+		{if allowedTo('ShowCreatorPage')}<a href="?page=create" class="btn_menu" >{$LNG.new_creator_title}</a>{/if}
+		{if allowedTo('ShowAccountEditorPage')}<a href="?page=accounteditor" class="btn_menu" >{$LNG.mu_add_delete_resources}</a>{/if}
+		{if allowedTo('ShowBanPage')}<a href="?page=bans" class="btn_menu" >{$LNG.mu_ban_options}</a>{/if}
+		{if allowedTo('ShowGiveawayPage')}<a href="?page=giveaway" class="btn_menu" >{$LNG.mu_giveaway}</a>{/if}
+        <div class="separator"></div>		
+		{if allowedTo('ShowSearchPage')}<a href="?page=search&amp;search=online&amp;minimize=on" class="btn_menu" >{$LNG.mu_connected}</a>{/if}
+		{if allowedTo('ShowSupportPage')}<a href="?page=support" class="btn_menu" >{$LNG.mu_support}{if $supportticks != 0} ({$supportticks}){/if}</a>{/if}
+		{if allowedTo('ShowActivePage')}<a href="?page=active" class="btn_menu" >{$LNG.mu_vaild_users}</a>{/if}
+		{if allowedTo('ShowSearchPage')}<a href="?page=search&amp;search=p_connect&amp;minimize=on" class="btn_menu" >{$LNG.mu_active_planets}</a>{/if}
+		{if allowedTo('ShowFlyingFleetPage')}<a href="?page=fleets" class="btn_menu" >{$LNG.mu_flying_fleets}</a>{/if}
+		{if allowedTo('ShowNewsPage')}<a href="?page=news" class="btn_menu" >{$LNG.mu_news}</a>{/if}
+		{if allowedTo('ShowSearchPage')}<a href="?page=search&amp;search=users&amp;minimize=on" class="btn_menu" >{$LNG.mu_user_list}</a>{/if}
+		{if allowedTo('ShowSearchPage')}<a href="?page=search&amp;search=planet&amp;minimize=on" class="btn_menu" >{$LNG.mu_planet_list}</a>{/if}
+		{if allowedTo('ShowSearchPage')}<a href="?page=search&amp;search=moon&amp;minimize=on" class="btn_menu" >{$LNG.mu_moon_list}</a>{/if}
+		{if allowedTo('ShowMessageListPage')}<a href="?page=messagelist" class="btn_menu" >{$LNG.mu_mess_list}</a>{/if}
+		{if allowedTo('ShowAccountDataPage')}<a href="?page=accountdata" class="btn_menu" >{$LNG.mu_info_account_page}</a>{/if}
+		{if allowedTo('ShowSearchPage')}<a href="?page=search" class="btn_menu" >{$LNG.mu_search_page}</a>{/if}
+		{if allowedTo('ShowMultiIPPage')}<a href="?page=multiips" class="btn_menu" >{$LNG.mu_multiip_page}</a>{/if}
+        <div class="separator"></div>		
+		{if allowedTo('ShowLogPage')}<a href="?page=log" class="btn_menu" >{$LNG.mu_logs}</a>{/if}
+		{if allowedTo('ShowSendMessagesPage')}<a href="?page=globalmessage" class="btn_menu" >{$LNG.mu_global_message}</a>{/if}
+		{if allowedTo('ShowPassEncripterPage')}<a href="?page=password" class="btn_menu" >{$LNG.mu_md5_encripter}</a>{/if}
+		{if allowedTo('ShowStatUpdatePage')}<a href="?page=statsupdate" class="btn_menu"  onClick=" return confirm('{$LNG.mu_mpu_confirmation}');">{$LNG.mu_manual_points_update}</a>{/if}
+		{if allowedTo('ShowClearCachePage')}<a href="?page=clearcache" class="btn_menu" >{$LNG.mu_clear_cache}</a>{/if}
+
+        <div class="separator"></div>
+        
+		        
+                <div class="clear"></div>
+				
+    </div><!--/left_menu-->
+	
+ 
+</div><!--/left_side-->
+
+   <div id="page" >
+   <div id="content">
 
 
-
-            </ul>
-        </div>
-        <div class="clear">
-        </div>
-		<div class="grid_2">
-            <div class="box sidemenu">
-                <div class="block" id="section-menu">
-                    <ul class="section menu">
-                        <li><a class="menuitem">Configuration</a>
-                            <ul class="submenu">
-                                <li><a href="?page=config">Server Configuration</a> </li>
-                                <li><a href="?page=configuni">Uni Configuration</a> </li>
-                                <li><a href="?page=chat">Chat Configuration</a> </li>
-                                <li><a href="?page=module">Modules</a> </li>
-                                <li><a href="?page=statsconf">Stats Configuration</a> </li>
-                              
-                            </ul>
-                        </li>
-                        <li><a class="menuitem">Game Activity</a>
-                            <ul class="submenu">
-                                <li><a href="?page=search&amp;search=p_connect&amp;minimize=on">Users Activity</a> </li>
-                                <li><a href="?page=search&amp;search=planet&amp;minimize=on">Active Planets</a> </li>
-                                <li><a href="?page=fleets">Flying Fleets</a> </li>
-                                <li><a href="?page=accountdata">Information Accounts </a> </li>
-                                <li><a href="?page=voucher">Redeem Code </a> </li>
-                            </ul>
-                        </li>
-                        <li><a class="menuitem">Edit Menu</a>
-                            <ul class="submenu">
-                                <li><a href="?page=create">Creator</a> </li>
-                                <li><a href="?page=accounteditor">Edit Accounts</a> </li>
-                                <li><a href="?page=bans">Ban System</a> </li>
-                                <li><a href="?page=banmessage">Ban message</a> </li>
-                                <li><a href="?page=giveaway">Give Aways</a> </li>
-
-                            </ul>
-                        </li>
-						<li><a class="menuitem">Sales</a>
-                            <ul class="submenu">
-                                <li><a href="?page=timebonus">Time Reward</a> </li>
-                                <li><a href="?page=paybonus">Payment Bonus</a> </li>
-                            
-                            </ul>
-                        </li>
-						<li><a class="menuitem">Misc</a>
-                            <ul class="submenu">
-                                <li><a href="?page=allo">Jobs</a> </li>
-                                <li><a href="?page=disclamer">Contacts</a> </li>
-                            
-                            </ul>
-                        </li>
-                       
-                    </ul>
-                </div>
-            </div>
-        </div>
-		   <script>
-$(function() {
-	$('#universe').on('change', function(e) {
-		parent.frames['Hauptframe'].location.href = parent.frames['Hauptframe'].location.href+'&uni='+$(this).val();
-		parent.frames['rightFrame'].location.reload();
-	});
-});
-</script>

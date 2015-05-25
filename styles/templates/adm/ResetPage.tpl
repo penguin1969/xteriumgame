@@ -1,4 +1,5 @@
 {include file="overall_header.tpl"}
+{include file="head_nav.tpl"}
 <form action="" method="post" onsubmit="return confirm('{$re_reset_universe_confirmation}');">
 <table width="40%">
 <tr><th colspan="2">{$re_player_and_planets}</th></tr>

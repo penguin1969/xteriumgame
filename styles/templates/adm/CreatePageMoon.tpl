@@ -1,5 +1,5 @@
 {include file="overall_header.tpl"}
-<form action="" method="post">
+{include file="head_nav.tpl"}<form action="" method="post">
 <table width="40%">
 <tr>
 	<th colspan="3">{$po_add_moon}</th>

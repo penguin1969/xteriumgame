@@ -1,7 +1,5 @@
 {include file="overall_header.tpl"}
-{include file="head_nav.tpl"}
-
-<form action="admin.php?page=messagelist" method="post" id="form">
+{include file="head_nav.tpl"}<form action="admin.php?page=messagelist" method="post" id="form">
 <input type="hidden" name="side" value="{$page}" id="side">
 <table width="90%">   
 	<tr>
