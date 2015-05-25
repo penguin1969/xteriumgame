@@ -1,0 +1,17 @@
+[25-May-2015 12:30:39] WARNING: "mt_rand(): max(-1539607552) is smaller than min(-1474836480)"
+File: E:\Xampp\htdocs\Xterium\includes\classes\cronjob\EventsCronjob.class.php | Line: 47
+URL: http://localhost/Xterium/cronjob.php?cronjobID=14 | Version: V 1.0
+Stack trace:
+#0 [internal function]: errorHandler(2, 'mt_rand(): max(...', 'E://Xampp//htdocs...', 47, Array)
+#1 /includes/classes/cronjob/EventsCronjob.class.php(47): mt_rand(-1474836480, -1539607552)
+#2 /includes/classes/cronjob/EventsCronjob.class.php(34): EventsCronjob-&gt;clearEvent()
+#3 /includes/classes/Cronjob.class.php(53): EventsCronjob-&gt;run()
+#4 /cronjob.php(62): Cronjob::execute(14)
+#5 {main}
+[25-May-2015 12:40:57 Europe/Berlin] PHP Parse error:  syntax error, unexpected ''dmenabled'' (T_CONSTANT_ENCAPSED_STRING), expecting ')' in E:\Xampp\htdocs\Xterium\includes\pages\adm\ShowConfigUniPage.php on line 486
+[25-May-2015 12:53:08 Europe/Berlin] PHP Parse error:  syntax error, unexpected ';', expecting ')' in E:\Xampp\htdocs\Xterium\includes\pages\adm\ShowConfigUniPage.php on line 243
+[25-May-2015 12:55:26 Europe/Berlin] PHP Parse error:  syntax error, unexpected 'dmenabled' (T_STRING) in E:\Xampp\htdocs\Xterium\includes\pages\game\class.ShowDmtechPage.php on line 133
+[25-May-2015 12:55:39 Europe/Berlin] PHP Parse error:  syntax error, unexpected 'dmenabled' (T_STRING) in E:\Xampp\htdocs\Xterium\includes\pages\game\class.ShowDmtechPage.php on line 133
+[25-May-2015 12:55:40 Europe/Berlin] PHP Parse error:  syntax error, unexpected 'dmenabled' (T_STRING) in E:\Xampp\htdocs\Xterium\includes\pages\game\class.ShowDmtechPage.php on line 133
+[25-May-2015 12:55:40 Europe/Berlin] PHP Parse error:  syntax error, unexpected 'dmenabled' (T_STRING) in E:\Xampp\htdocs\Xterium\includes\pages\game\class.ShowDmtechPage.php on line 133
+[25-May-2015 12:55:40 Europe/Berlin] PHP Parse error:  syntax error, unexpected 'dmenabled' (T_STRING) in E:\Xampp\htdocs\Xterium\includes\pages\game\class.ShowDmtechPage.php on line 133
