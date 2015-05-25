@@ -1,1 +1,12 @@
-function GetOfficerTime(e,t){if(t==0)return;$("#time_"+e).text(GetRestTimeFormat(t));t--;window.setTimeout("GetOfficerTime("+e+", "+t+")",1e3)}function openPayment(){OpenPopup("pay.php?mode=out","payment",650,350)}
+function GetOfficerTime(Element, Time)
+{
+	if(Time == 0)
+		return;
+	
+	if(Time < 3600){
+	$('#time_'+Element).css('color','#F33');
+	}
+	$('#time_'+Element).text(GetDayRestTimeFormat(Time));
+	Time--;
+	window.setTimeout("GetOfficerTime("+Element+", "+Time+")", 1000)
+}
