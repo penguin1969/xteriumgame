@@ -47,9 +47,9 @@
 </a>						
                     </div>                    
                 
-                	<div class="mini_planet_navigation">{*
+                	<div class="mini_planet_navigation">
                     	                        <span class="link_back urlpalnet"  url="cp={if $previous_planet == ""}{$id}{else}{$previous_planet}{/if}"></span>
-                                                                        <span class="link_next urlpalnet" url="cp={if $next_planet == ""}{$id}{else}{$next_planet}{/if}"></span>*}
+                                                                        <span class="link_next urlpalnet" url="cp={if $next_planet == ""}{$id}{else}{$next_planet}{/if}"></span>
                                             </div>
                   
 <div id="planet_select">
