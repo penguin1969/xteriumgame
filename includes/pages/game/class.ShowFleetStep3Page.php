@@ -1,5 +1,4 @@
 <?php
-
 /**
  *  2Moons
  *  Copyright (C) 2012 Jan Kröpke
@@ -25,13 +24,10 @@
  * @info $Id: class.ShowFleetStep3Page.php 2640 2013-03-23 19:23:26Z slaver7 $
  * @link http://2moons.cc/
  */
-
 require_once('includes/classes/class.FleetFunctions.php');
-
 class ShowFleetStep3Page extends AbstractPage
 {
 	public static $requireModule = MODULE_FLEET_TABLE;
-
 	function __construct() 
 	{
 		parent::__construct();
@@ -82,14 +78,12 @@ class ShowFleetStep3Page extends AbstractPage
 		{
 			$this->printMessage($LNG['fl_error_same_planet']);
 		}
-
 		if ($targetGalaxy < 1 || $targetGalaxy > Config::get('max_galaxy') || 
 			$targetSystem < 1 || $targetSystem > Config::get('max_system') || 
 			$targetPlanet < 1 || $targetPlanet > (Config::get('max_planets') + 1) ||
 			($targetType !== 1 && $targetType !== 2 && $targetType !== 3 && $targetType !== 4)) {
 			$this->printMessage($LNG['fl_invalid_target']);
 		}
-
 		if ($targetMission == 3 && $TransportMetal + $TransportCrystal + $TransportDeuterium < 1)
 		{
 			$this->printMessage($LNG['fl_no_noresource']);
@@ -161,7 +155,6 @@ class ShowFleetStep3Page extends AbstractPage
 		{
 			$activeExpedition	= FleetFunctions::GetCurrentFleets($USER['id'], 11);
 			$maxExpedition		= FleetFunctions::getDMMissionLimit($USER);
-
 			if ($activeExpedition >= $maxExpedition) {
 				$this->printMessage($LNG['fl_no_expedition_slot']);
 			}
@@ -185,7 +178,6 @@ class ShowFleetStep3Page extends AbstractPage
 			}
 		}
 	
-
 		$usedPlanet	= isset($targetPlanetData['id_owner']);
 		$myPlanet	= $usedPlanet && $targetPlanetData['id_owner'] == $USER['id'];
 		
@@ -253,13 +245,14 @@ class ShowFleetStep3Page extends AbstractPage
 			}
 		}
 		
-		$PUSHED = $GLOBALS['DATABASE']->query("SELECT * FROM `uni1_statpoints` WHERE id_owner = ".$USER['id'].";");
-                $PUSGHING = $GLOBALS['DATABASE']->query("SELECT * FROM `uni1_statpoints` WHERE id_owner = ".$targetPlanetData['id_owner'].";");
+				$PUSHED = $GLOBALS['DATABASE']->query("SELECT * FROM ".STATPOINTS." WHERE id_owner = ".$USER['id'].";");
+                $PUSGHING = $GLOBALS['DATABASE']->query("SELECT * FROM ".STATPOINTS." WHERE id_owner = ".$targetPlanetData['id_owner'].";");
+                $ADMIN = $GLOBALS['DATABASE']->query("SELECT authlevel FROM ".USERS." WHERE id = ".$targetPlanetData['id_owner'].";");
+				$ADMIN = mysqli_fetch_assoc($ADMIN);
                 if($GLOBALS['DATABASE']->numRows($PUSHED) > 0){
                 while ($xkf = mysqli_fetch_assoc($PUSHED)) {
                 $ACTUA =  $xkf['total_points'];
                 $ACTUALA =  $xkf['id_ally'];
-
                 }
                 }
                 if($GLOBALS['DATABASE']->numRows($PUSGHING) > 0){
@@ -268,14 +261,12 @@ class ShowFleetStep3Page extends AbstractPage
                 $ACTUALAT =  $xkkf['id_ally'];
                 }
                 }
-                
-                
-                
-                if ($targetMission == 3 && $ACTUA < $ACTUAL)
-		{
+                               
+        if($USER['authlevel'] != 3 || $ADMIN['authlevel'] != 3){
+        if ($targetMission == 3 && $ACTUA < $ACTUAL){
 			$this->printMessage('Pushing');
-		}
-
+			}	
+		}     
 		if ($targetMission == 5)
 		{	
 			if($targetPlayerData['ally_id'] != $USER['ally_id']) {
@@ -290,7 +281,6 @@ class ShowFleetStep3Page extends AbstractPage
 				}
 			}
 		}
-
 		$fleetMaxSpeed 	= FleetFunctions::GetFleetMaxSpeed($fleetArray, $USER);
 		$SpeedFactor    = FleetFunctions::GetGameSpeedFactor();
 		$duration      	= FleetFunctions::GetMissionDuration($fleetSpeed, $fleetMaxSpeed, $distance, $SpeedFactor, $USER);
@@ -328,7 +318,6 @@ class ShowFleetStep3Page extends AbstractPage
 		$PLANET[$resource[901]]	-= $fleetRessource[901];
 		$PLANET[$resource[902]]	-= $fleetRessource[902];
 		$PLANET[$resource[903]]	-= $fleetRessource[903] + $consumption;
-
 		if(connection_aborted())
 			exit;
 		
