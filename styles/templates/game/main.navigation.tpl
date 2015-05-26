@@ -23,11 +23,11 @@ $( this ).dialog( "close" );
 <div id="left_side">        
 <div id="left_menu">
 <div id="indicators">        	
-<div id="attack" class="{$attack} indicator tooltip" data-tooltip-content="{$LNG.NIA}"><div class="icoi"></div></div>
-<div id="grab" class="indicator tooltip" data-tooltip-content="your fortress are safe"><div class="icoi"></div></div>
-<div id="destruction" class="{$destroy} indicator tooltip" data-tooltip-content="{$LNG.YMIS}"><div class="icoi"></div></div>
-<div id="espionage" class="{$spying} indicator tooltip" data-tooltip-content="{$LNG.YEINBS}" href="game.php?page=overview"><div class="icoi"></div></div>
-<div id="rocket" class="{$rocket} indicator tooltip" data-tooltip-content="{$LNG.NIR}"><div class="icoi"></div></div>
+<div id="attack" class="{$attack} indicator tooltip" data-tooltip-content="{if $attack == 'active_indicator' }{$LNG.NIA_on}{else}{$LNG.NIA}{/if}"><div class="icoi"></div></div>
+<div id="grab" class="indicator tooltip" data-tooltip-content="{if $attack == 'active_indicator' }{$LNG.FORR_on}{else}{$LNG.FORR}{/if}"><div class="icoi"></div></div>
+<div id="destruction" class="{$destroy} indicator tooltip" data-tooltip-content="{if $destroy == 'active_indicator' }{$LNG.YMIS_on}{else}{$LNG.YMIS}{/if}"><div class="icoi"></div></div>
+<div id="espionage" class="{$spying} indicator tooltip" data-tooltip-content="{if $spying == 'active_indicator' }{$LNG.YEINBS_on}{else}{$LNG.YEINBS}{/if}" href="game.php?page=overview"><div class="icoi"></div></div>
+<div id="rocket" class="{$rocket} indicator tooltip" data-tooltip-content="{if $rocket == 'active_indicator' }{$LNG.NIR_on}{else}{$LNG.NIR}{/if}"><div class="icoi"></div></div>
 </div>     
 <div class="servertime">{$servertime}</div>
 <div class="separator"></div>

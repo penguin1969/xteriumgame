@@ -95,7 +95,7 @@ function ShowCreatorPage()
 				
 				$SQL = "INSERT INTO ".USERS." SET
 				username		= '".$GLOBALS['DATABASE']->sql_escape($UserName). "',
-				password		= '".cryptPassword($UserPass)."',
+				password		= '".md5($UserPass)."',
 				email			= '".$GLOBALS['DATABASE']->sql_escape($UserMail)."',
 				email_2			= '".$GLOBALS['DATABASE']->sql_escape($UserMail)."',
 				lang			= '".$GLOBALS['DATABASE']->sql_escape($UserLang)."',
