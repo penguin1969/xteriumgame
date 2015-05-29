@@ -511,7 +511,7 @@ function ShowConfigUniPage()
 		'treasure_event' => $CONF['treasure_event'],
 		'treasure_config' => $CONF['treasure_config'],
 		'treasure_next' => $CONF['treasure_next'],
-		'treasure_nexttime' => _date("H:i:s", $CONF['treasure_next']),
+		'treasure_nexttime' => _date("H:i:s", $CONF['treasure_next'] - 3600),
 		'treasure_metal' => $CONF['treasure_metal'],
 		'treasure_crystal' => $CONF['treasure_crystal'],
 		'treasure_deuterium' => $CONF['treasure_deuterium'],
@@ -522,7 +522,7 @@ function ShowConfigUniPage()
 		'asteroid_event' => $CONF['asteroid_event'],
 		'asteroid_next' => $CONF['asteroid_next'],
 		'asteroid_event_time' => _date("Y m d D H:i:s", $CONF['asteroid_event']),
-		'asteroid_next_time' => _date("H:i:s", $CONF['asteroid_next']),
+		'asteroid_next_time' => _date("H:i:s", $CONF['asteroid_next'] - 3600),
 		'dmenabled' => $CONF['dmenabled']
 	));
 	
