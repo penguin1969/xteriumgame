@@ -113,7 +113,7 @@
                         <a title="{$LNG.hnav_rules}" href="http://dark-space.org/index.php?page=rules" target="_blank">
                             <span class="rules"></span>
                         </a>
-                        <a title="{$LNG.hnav_notes}" href="javascript:OpenPopup('?page=notes', 'notes', 900, 300);">
+                        <a title="{$LNG.hnav_notes}" href="javascript:Dialog.open('?page=notes', 900, 300);">
                             <span class="notes"></span>
                         </a>
                         <a title="{$LNG.hnav_support}" href="game.php?page=ticket">
