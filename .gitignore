@@ -1,3 +1,9 @@
 cache/cache.language.php
 includes/config.php
 includes/error.log
+cache
+cache/cache.themes.php
+includes/error.log
+cache/cache.language.php
+includes/error.log
+cache/cache.language.php

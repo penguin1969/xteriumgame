@@ -276,13 +276,19 @@
 	<td><img src="./styles/resource/images/admin/i.gif" width="16" height="16" alt="" class="tooltip" data-tooltip-content="{$se_news_limit}"></td>
 </tr>
 <tr><th colspan="3">Configure Addons</th></tr>
-<tr><td colspan="3">Dark Matter Shop Add-on</td></tr><tr>
+<tr><th colspan="3">Experience Add-on</th></tr><tr>
+<tr>
+	<td>Next Peaceful Experience Required<br></td>
+    <td><input name="experience_multi" maxlength="5" size="1" value="{$experience_multi}" type="text">x of previous experience </td>
+	<td>&nbsp</td>
+</tr>
+<tr><th colspan="3">Dark Matter Shop Add-on</th></tr><tr>
 <tr>
 	<td>Enable/Disable DM Shop<br></td>
     <td><input name="dmenabled" maxlength="5" size="10" value="{$dmenabled}" type="text"></td>
 	<td>&nbsp</td>
 </tr>
-<tr><td colspan="3">Asteroids Add-on</td></tr><tr>
+<tr><th colspan="3">Asteroids Add-on</th></tr><tr>
 </tr>
 	<td><center>Enable/Disable Asteroids</center></td>
     <td><input name="asteroid_config" maxlength="5" size="10" value="{$asteroid_config}" type="text"></td>
@@ -311,7 +317,7 @@
 	<td><input name="asteroid_deuterium" maxlength="10" size="8" value="{$asteroid_deuterium}" type="text"></td>
 	<td><img src="./styles/resource/images/admin/i.gif" width="16" height="16" alt="" class="tooltip" data-tooltip-content=""></td>
 </tr>
-<tr><td colspan="3">Treasure Hunter Add-on</td></tr><tr>
+<tr><th colspan="3">Treasure Hunter Add-on</th></tr><tr>
 </tr>
 	<td><center>Enable/Disable Treasure Hunter</center></td>
     <td><input name="treasure_config" maxlength="5" size="10" value="{$treasure_config}" type="text"></td>

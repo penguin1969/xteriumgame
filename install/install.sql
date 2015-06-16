@@ -428,6 +428,7 @@ CREATE TABLE IF NOT EXISTS `%PREFIX%config` (
   `fleet_event_inactive_2` int(11) unsigned NOT NULL DEFAULT '0',
   `fleet_event_inactive_3` int(11) unsigned NOT NULL DEFAULT '0',
   `experience_bonus` int(11) unsigned NOT NULL DEFAULT '0',
+  `experience_multi` int(11) unsigned NOT NULL DEFAULT '2',
   `new_year` int(11) unsigned NOT NULL DEFAULT '0',
   `timeRewardFrom` int(11) NOT NULL DEFAULT '0',
   `timeRewardTo` int(11) NOT NULL DEFAULT '0',

@@ -1,31 +1,5 @@
 <?php
 
-/**
- *  2Moons
- *  Copyright (C) 2012 Jan Kröpke
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- * @package 2Moons
- * @author Jan Kröpke <info@2moons.cc>
- * @copyright 2012 Jan Kröpke <info@2moons.cc>
- * @license http://www.gnu.org/licenses/gpl.html GNU GPLv3 License
- * @version 1.7.3 (2013-05-19)
- * @info $Id: ShowConfigUniPage.php 2675 2013-04-18 09:34:27Z lordmegger@googlemail.com $
- * @link http://2moons.cc/
- */
-
 if (!allowedTo(str_replace(array(dirname(__FILE__), '\\', '/', '.php'), '', __FILE__))) throw new Exception("Permission error!");
 
 function ShowConfigUniPage()
@@ -114,7 +88,8 @@ function ShowConfigUniPage()
 			'asteroid_deuterium' => $CONF['asteroid_deuterium'],
 			'asteroid_event' => $CONF['asteroid_event'],
 			'asteroid_next' => $CONF['asteroid_next'],
-			'dmenabled' => $CONF['dmenabled']
+			'dmenabled' => $CONF['dmenabled'],
+			'experience_multi' => $CONF['experience_multi']
 		);
 		
 		$game_disable			= isset($_POST['closed']) && $_POST['closed'] == 'on' ? 1 : 0;
@@ -192,6 +167,7 @@ function ShowConfigUniPage()
 		$asteroid_event = HTTP::_GP('asteroid_event', 0);
 		$asteroid_next = HTTP::_GP('asteroid_next', 0);
 		$dmenabled = HTTP::_GP('dmenabled', 1);
+		$experience_multi = HTTP::_GP('experience_multi', 1);
 			
 		$config_after = array(
 			'noobprotectiontime'	=> $noobprotectiontime,
@@ -267,7 +243,8 @@ function ShowConfigUniPage()
 			'asteroid_deuterium' => $asteroid_deuterium,
 			'asteroid_event' => $asteroid_event,
 			'asteroid_next' => $asteroid_next,
-			'dmenabled' => $dmenabled
+			'dmenabled' => $dmenabled,
+			'experience_multi' => $experience_multi
 		);
 		
 		Config::update($config_after, 1);
@@ -523,7 +500,8 @@ function ShowConfigUniPage()
 		'asteroid_next' => $CONF['asteroid_next'],
 		'asteroid_event_time' => _date("Y m d D H:i:s", $CONF['asteroid_event']),
 		'asteroid_next_time' => _date("H:i:s", $CONF['asteroid_next'] - 3600),
-		'dmenabled' => $CONF['dmenabled']
+		'dmenabled' => $CONF['dmenabled'],
+		'experience_multi' => $CONF['experience_multi']
 	));
 	
 	$template->show('ConfigBodyUni.tpl');

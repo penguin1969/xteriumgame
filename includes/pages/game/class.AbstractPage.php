@@ -205,10 +205,9 @@ abstract class AbstractPage
     {
 		global $PLANET, $LNG, $USER, $THEME, $resource, $reslist, $CONF, $UNI, $ALLIANCE;
 		
-		$new_peace_experience =  $USER['experience_peace'] - $USER['experience_peace_max'];
-		$new_peace_experience_max =  $USER['experience_peace_max'] + 1760/2 ;
+		$new_peace_experience_max =  $USER['experience_peace_max'] * $CONF['experience_multi'];
 		if ($USER['experience_peace'] >= $USER['experience_peace_max']){
-		$GLOBALS['DATABASE']->query("UPDATE ".USERS." set `experience_peace` = ".$new_peace_experience.", `experience_peace_max` = ".$new_peace_experience_max.", `experience_peace_level` = `experience_peace_level` + '1', `academy_p` = `academy_p` + ".$USER['experience_peace_level']." where `id` = '".$USER['id']."';");
+		$GLOBALS['DATABASE']->query("UPDATE ".USERS." set experience_peace = 0,`experience_peace_max` = ".$new_peace_experience_max.", `experience_peace_level` = `experience_peace_level` + '1', `academy_p` = `academy_p` + ".$USER['experience_peace_level']." where `id` = '".$USER['id']."';");
 		if (($USER['experience_peace_level'] + 1) / 4 == $USER['peace_reward_fields'] + 5  ){
 		$GLOBALS['DATABASE']->query("UPDATE ".USERS." set `peace_reward_fields` = `peace_reward_fields` + '5' WHERE `id` = '".$USER['id']."';");
 		}
