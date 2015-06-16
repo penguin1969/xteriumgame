@@ -2,6 +2,8 @@
 Jeux baser sur Xterium.ru créer par Danter14, Yolanda, Qwa
 Le jeu fonctionne actuellement mais il est assez buguer en ce moment.
 
+You can find support by Qwa and Danter14 in http://sengine.ga
+
 # En cours de développement
 - Mis en place de toute la partie text dans les fichiers lang pour le login
 
