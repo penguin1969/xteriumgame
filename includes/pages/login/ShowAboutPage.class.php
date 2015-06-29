@@ -33,7 +33,6 @@ class ShowAboutPage extends AbstractPage
 		
 		$this->assign(array(
 		'newsList'	=> $newsList,
-		'topicsList'	=> $topicsList,
 		));
 		
 		$this->render('page.about.default.tpl');
