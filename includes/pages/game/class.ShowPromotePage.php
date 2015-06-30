@@ -74,6 +74,7 @@ class ShowPromotePage extends AbstractPage
             $find = $GLOBALS['DATABASE']->query("SELECT *FROM `uni1_votesystem_log` where `user_id` = ".$USER['id']." AND `vote_system_id` = ".$vote['id']." ORDER BY time LIMIT 1 ;");
             $votes[$vote['id']]        = array();
             $votes[$vote['id']]['pic'] = $vote['image'];
+            $votes[$vote['id']]['prize'] = $vote['prize'];
 
             if (mysqli_num_rows($find) > 0) {
 
