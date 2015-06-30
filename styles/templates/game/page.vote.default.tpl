@@ -18,7 +18,7 @@
 <table>						
 <tr>						
 {foreach from=$voturile key=k item=v}					
-<td><img src="{$v.pic}"> <br> {$v.link} <br><font color=lime>20.000 DM</font></td>						
+<td><img src="{$v.pic}"> <br> {$v.link} <br><font color=lime>{$v.prize} DM</font></td>						
 {/foreach}						
 </tr>			
 </table>					

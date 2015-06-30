@@ -63,6 +63,7 @@ while($vote = $GLOBALS['DATABASE']->fetch_array($find_vote)){
 		/*============> facem arrayul pentru afisarea voturilor<==============*/
 	$votes[$vote['id']]= array();
 	$votes[$vote['id']]['pic'] = $vote['image'];
+	$votes[$vote['id']]['prize'] = $vote['prize'];
 	
 	if($GLOBALS['DATABASE']->numRows($find)>0){
 		/*============> a votat pana acuma , si acum verificam timpul <==============*/
