@@ -71,7 +71,7 @@ $find_vote5 = $GLOBALS['DATABASE']->query("SELECT *FROM `uni1_votefirst` where `
         $vote_id = HTTP::_GP('vid', '3');
         $lolipop = TIMESTAMP;
     	$GLOBALS['DATABASE']->query("UPDATE ".USERS." set `v".$vote_id."` = '".$lolipop."' where `id` = '".$USER['id']."' AND universe = '".$UNI."' ;");
-        $USER['darkmatter'] +=20000;
+        $USER['darkmatter'] += $find_votes['prize'];
         $GLOBALS['DATABASE']->query("INSERT INTO ".VOTE." VALUES ('".$USER['id']."','".$lolipop."','".$vote_id."', '".$UNI."') ;");
 	
 	
