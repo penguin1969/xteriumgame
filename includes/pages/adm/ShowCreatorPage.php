@@ -1,5 +1,6 @@
 <?php
 
+
 if (!allowedTo(str_replace(array(dirname(__FILE__), '\\', '/', '.php'), '', __FILE__))) throw new Exception("Permission error!");
 
 
@@ -12,6 +13,180 @@ function ShowCreatorPage()
 	
 	switch ($_GET['mode'])
 	{
+		case 'bot':
+			$LNG->includeData(array('PUBLIC'));
+			if ($_POST)
+			{
+				$UserName 	= HTTP::_GP('name', '', UTF8_SUPPORT);
+				$UserPass 	= HTTP::_GP('password', 'bot');
+				$UserPass2 	= HTTP::_GP('password2', 'bot');
+				$UserMail 	= HTTP::_GP('email', 'bot@endlessuni.ga');
+				$UserMail2	= HTTP::_GP('email2', 'bot@endlessuni.ga');
+				$UserLang 	= HTTP::_GP('lang', 'en');
+				$UserAuth 	= HTTP::_GP('authlevel', 0);
+				$Galaxy 	= HTTP::_GP('galaxy', mt_rand(1,$CONF['max_galaxy']) );
+				$System 	= HTTP::_GP('system', mt_rand(1,$CONF['max_system']) );
+				$Planet 	= HTTP::_GP('planet', mt_rand(1,$CONF['max_planets']) );
+													
+				
+				if (CheckPlanetIfExist($Galaxy, $System, $Planet, 1)) {
+					$errors .= $LNG['planet_already_exists'];
+				}	
+			
+
+				if (!empty($errors)) {
+					$template->message($errors, '?page=create&mode=bot', 10, true);
+					exit;
+				}
+				
+				$SQL = "INSERT INTO ".USERS." SET
+				username		= '".$GLOBALS['DATABASE']->sql_escape($UserName). "',
+				password		= '".md5($UserPass)."',
+				email			= '".$GLOBALS['DATABASE']->sql_escape($UserMail)."',
+				email_2			= '".$GLOBALS['DATABASE']->sql_escape($UserMail)."',
+				lang			= '".$GLOBALS['DATABASE']->sql_escape($UserLang)."',
+				authlevel		= ".$UserAuth.",
+				ip_at_reg		= '".$_SERVER['REMOTE_ADDR']."',
+				id_planet		= 0,
+				universe		= '1',
+				onlinetime		= ".TIMESTAMP.",
+				register_time	= ".TIMESTAMP.",
+				dpath			= '".DEFAULT_THEME."',
+				timezone		= '".Config::get('timezone')."',
+				uctime			= 0;";
+				$GLOBALS['DATABASE']->query($SQL);
+
+				$UserID = $GLOBALS['DATABASE']->GetInsertID();
+				
+				require_once('includes/functions/CreateOnePlanetRecord.php');
+				$PlanerID	= CreateOnePlanetRecord($Galaxy, $System, $Planet, 1, $UserID, $LNG['fcm_planet'], true, $UserAuth);
+								
+				$SQL = "UPDATE ".USERS." SET 
+				id_planet	= ".$PlanerID.",
+				galaxy		= ".$Galaxy.",
+				system		= ".$System.",
+				planet		= ".$Planet.",
+				spy_tech		= ".mt_rand(1,30).",
+				computer_tech		= ".mt_rand(1,30).",
+				military_tech		= ".mt_rand(1,30).",
+				defence_tech		= ".mt_rand(1,30).",
+				shield_tech		= ".mt_rand(1,30).",
+				energy_tech		= ".mt_rand(1,30).",
+				hyperspace_tech		= ".mt_rand(1,30).",
+				combustion_tech		= ".mt_rand(1,30).",
+				impulse_motor_tech		= ".mt_rand(1,30).",
+				hyperspace_motor_tech		= ".mt_rand(1,30).",
+				laser_tech		= ".mt_rand(1,30).",
+				ionic_tech		= ".mt_rand(1,30).",
+				buster_tech		= ".mt_rand(1,30).",
+				intergalactic_tech		= ".mt_rand(1,30).",
+				expedition_tech		= ".mt_rand(1,30).",
+				metal_proc_tech		= ".mt_rand(1,30).",
+				crystal_proc_tech		= ".mt_rand(1,30).",
+				deuterium_proc_tech		= ".mt_rand(1,30).",
+				graviton_tech		= ".mt_rand(1,30)."
+				WHERE
+				id			= ".$UserID.";
+				INSERT INTO ".STATPOINTS." SET 
+				id_owner	= ".$UserID.",
+				universe	= '1',
+				stat_type	= 1,
+				tech_rank	= ".(Config::get('users_amount') + 1).",
+				build_rank	= ".(Config::get('users_amount') + 1).",
+				defs_rank	= ".(Config::get('users_amount') + 1).",
+				fleet_rank	= ".(Config::get('users_amount') + 1).",
+				total_rank	= ".(Config::get('users_amount') + 1).";";
+				$GLOBALS['DATABASE']->multi_query($SQL);
+				
+				$SQL = "UPDATE ".PLANETS." SET 
+				name	= 'Planet ".mt_rand(1,1000)."',
+				metal_mine	= ".mt_rand(31,60).",
+				crystal_mine	= ".mt_rand(31,60).",
+				deuterium_sintetizer	= ".mt_rand(31,60).",
+				solar_plant	= ".mt_rand(51,70).",
+				searcher	= ".mt_rand(1,10).",
+				fusion_plant	= ".mt_rand(11,40).",
+				robot_factory	= ".mt_rand(1,30).",
+				nano_factory	= ".mt_rand(1,30).",
+				hangar	= ".mt_rand(1,30).",
+				metal_store	= ".mt_rand(1,30).",
+				crystal_store	= ".mt_rand(1,30).",
+				deuterium_store	= ".mt_rand(1,30).",
+				laboratory	= ".mt_rand(1,30).",
+				terraformer	= ".mt_rand(1,30).",
+				university	= ".mt_rand(1,30).",
+				ally_deposit	= ".mt_rand(1,30).",
+				silo	= ".mt_rand(1,30).",
+				small_ship_cargo	= ".mt_rand(1,2147483647).",
+				big_ship_cargo	= ".mt_rand(1,2147483647).",
+				light_hunter	= ".mt_rand(1,2147483647).",
+				heavy_hunter	= ".mt_rand(1,2147483647).",
+				crusher	= ".mt_rand(1,2147483647).",
+				battle_ship	= ".mt_rand(1,2147483647).",
+				colonizer	= ".mt_rand(1,2147483647).",
+				recycler	= ".mt_rand(1,2147483647).",
+				spy_sonde	= ".mt_rand(1,2147483647).",
+				bomber_ship	= ".mt_rand(1,2147483647).",
+				solar_satelit	= ".mt_rand(1,2147483647).",
+				destructor	= ".mt_rand(1,1483647).",
+				dearth_star	= ".mt_rand(1,1483647).",
+				battleship	= ".mt_rand(1,2147483647).",
+				lune_noir	= ".mt_rand(1,1483647).",
+				ev_transporter	= ".mt_rand(1,2147483647).",
+				star_crasher	= ".mt_rand(1,1483647).",
+				giga_recykler	= ".mt_rand(1,2147483647).",
+				misil_launcher	= ".mt_rand(1,2147483647).",
+				small_laser	= ".mt_rand(1,2147483647).",
+				big_laser	= ".mt_rand(1,2147483647).",
+				gauss_canyon	= ".mt_rand(1,2147483647).",
+				ionic_canyon	= ".mt_rand(1,483647).",
+				buster_canyon	= ".mt_rand(1,483647).",
+				small_protection_shield	= ".mt_rand(0,1).",
+				planet_protector	= ".mt_rand(0,1).",
+				big_protection_shield	= ".mt_rand(0,1).",
+				orbital_station	= ".mt_rand(0,1)."
+				WHERE
+				id			= ".$PlanerID.";";
+				$GLOBALS['DATABASE']->multi_query($SQL);
+				
+				Config::update(array('users_amount' => Config::get('users_amount') + 1));
+				
+				$template->message($LNG['new_user_success'], '?page=create&mode=bot', 5, true);
+				exit;
+			}
+
+			$AUTH			= array();
+			$AUTH[AUTH_USR]	= $LNG['user_level'][AUTH_USR];
+			
+			if($USER['authlevel'] >= AUTH_OPS)
+				$AUTH[AUTH_OPS]	= $LNG['user_level'][AUTH_OPS];
+				
+			if($USER['authlevel'] >= AUTH_MOD)
+				$AUTH[AUTH_MOD]	= $LNG['user_level'][AUTH_MOD];
+				
+			if($USER['authlevel'] >= AUTH_ADM)
+				$AUTH[AUTH_ADM]	= $LNG['user_level'][AUTH_ADM];
+				
+			
+			$template->assign_vars(array(	
+				'admin_auth'			=> $USER['authlevel'],
+				'new_add_user'			=> $LNG['new_add_user'],
+				'new_creator_refresh'	=> $LNG['new_creator_refresh'],
+				'new_creator_go_back'	=> $LNG['new_creator_go_back'],
+				'universe'				=> $LNG['mu_universe'],
+				'user_reg'				=> $LNG['user_reg'],
+				'pass_reg'				=> $LNG['pass_reg'],
+				'pass2_reg'				=> $LNG['pass2_reg'],
+				'email_reg'				=> $LNG['email_reg'],
+				'email2_reg'			=> $LNG['email2_reg'],
+				'new_coord'				=> $LNG['new_coord'],
+				'new_range'				=> $LNG['new_range'],
+				'lang_reg'				=> $LNG['lang_reg'],		
+				'new_title'				=> $LNG['new_title'],
+				'Selector'				=> array('auth' => $AUTH, 'lang' => $LNG->getAllowedLangs(false)),  
+			));
+			$template->show('CreatePageBot.tpl');
+		break;
 		case 'user':
 			$LNG->includeData(array('PUBLIC'));
 			if ($_POST)
@@ -273,4 +448,4 @@ function ShowCreatorPage()
 			$template->show('CreatePage.tpl');
 		break;	
 	}
-}
+}b
