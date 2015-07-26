@@ -68,9 +68,9 @@ while($vote = $GLOBALS['DATABASE']->fetch_array($find_vote)){
 	if($GLOBALS['DATABASE']->numRows($find)>0){
 		/*============> a votat pana acuma , si acum verificam timpul <==============*/
 		$find = $GLOBALS['DATABASE']->fetch_array($find);
-		if(TIMESTAMP < ($find['time']+12*60*60)){
+		if(TIMESTAMP < ($find['time']*60*60)){
 			/*============> nu au trecut cele 12h de cand a votat <==============*/
-			$secunde = $find['time'] + 12*60*60 - TIMESTAMP;
+			$secunde = $find['time'] *60*60 - TIMESTAMP;
 			$votes[$vote['id']]['link'] = '<font color=\'red\'><span class=countdown2 secs='.$secunde.'></span></font>';
 		}else{
 			$votes[$vote['id']]['link'] = '<font color=lime><a href=game.php?page=vote&i='.$vote['id'].' target=\"_blank\">VOTE</a></font>';
