@@ -34,7 +34,7 @@ class ShowVotePage extends AbstractPage
 	if($GLOBALS['DATABASE']->numRows($find_vote)>0){
 		/*============> a votat deja , verificam daca ii dam dreptul <==============*/
 		$find = $GLOBALS['DATABASE']->fetch_array($find_vote);
-		if(TIMESTAMP < ($find['time']+12*60*60)){
+		if(TIMESTAMP < ($find['time']*60*60)){
 			/*============> a mai votat in mai putin de 12h <==============*/
 			$this->printMessage("You already voted in the past 12h");
 			die();
